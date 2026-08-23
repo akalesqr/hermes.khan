@@ -1,0 +1,42 @@
+{
+  "name": "خان - چت سازمانی",
+  "short_name": "خان",
+  "description": "چت سازمانی سبک برای شبکه محلی",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#08090a",
+  "theme_color": "#0f1011",
+  "orientation": "any",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["business", "social", "communication"],
+  "icons": [
+    {
+      "src": "/img/khan-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/khan-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/khan-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "گفتگوها",
+      "short_name": "چت",
+      "url": "/",
+      "icons": [{ "src": "/img/khan-logo.svg", "sizes": "any" }]
+    }
+  ]
+}
