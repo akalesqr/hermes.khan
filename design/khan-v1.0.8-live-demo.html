@@ -8,43 +8,42 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
-  <link rel="apple-touch-icon" href="#">
+  
   <title>خان — چت سازمانی</title>
   <style>
 
-/* ============ 12-THEME SYSTEM (v1.0.8) ============ */
-[data-theme="khan-dark"]     { --primary:#e8a33d; --accent:#b3541e; --bg:#0e0f12; --bg-elev:#17181d; --text:#f2efe8; }
-[data-theme="khan-light"]    { --primary:#b97a1e; --accent:#8f3d12; --bg:#faf8f4; --bg-elev:#ffffff; --text:#1d1b16; }
-[data-theme="sapphire-dark"] { --primary:#3b82f6; --accent:#06b6d4; --bg:#0a0f1a; --bg-elev:#111827; --text:#e8eefc; }
-[data-theme="sapphire-light"]{ --primary:#2563eb; --accent:#0891b2; --bg:#f0f6ff; --bg-elev:#ffffff; --text:#0f1a2e; }
-[data-theme="spring-dark"]   { --primary:#10b981; --accent:#84cc16; --bg:#0a1410; --bg-elev:#111d17; --text:#e6f5ec; }
-[data-theme="spring-light"]  { --primary:#059669; --accent:#65a30d; --bg:#f2faf5; --bg-elev:#ffffff; --text:#12231a; }
-[data-theme="night-dark"]    { --primary:#8b5cf6; --accent:#ec4899; --bg:#0d0a18; --bg-elev:#16112a; --text:#ece7fa; }
-[data-theme="night-light"]   { --primary:#7c3aed; --accent:#db2777; --bg:#f7f4fd; --bg-elev:#ffffff; --text:#1c1430; }
-[data-theme="sunset-dark"]   { --primary:#f97316; --accent:#f43f5e; --bg:#140d0a; --bg-elev:#1f1511; --text:#fdeee6; }
-[data-theme="sunset-light"]  { --primary:#ea580c; --accent:#e11d48; --bg:#fdf6f1; --bg-elev:#ffffff; --text:#2a150c; }
-[data-theme="frost-dark"]    { --primary:#64748b; --accent:#94a3b8; --bg:#0b0e14; --bg-elev:#131a24; --text:#e2e8f0; }
-[data-theme="frost-light"]   { --primary:#475569; --accent:#64748b; --bg:#f4f6f8; --bg-elev:#ffffff; --text:#1e293b; }
+[data-theme="dark"]{--bg-deep:#100e09;--bg-panel:#171410;--bg-surface:#211d16;--bg-elevated:#2c271e;--bg-hover:#332d22;--text-primary:#f7f2e8;--text-secondary:#d8cfbe;--text-tertiary:#9a917f;--text-quaternary:#6b6455;--accent:#e8a33d;--accent-hover:#f0b558;--accent-soft:rgba(232,163,61,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
 
-html {
-  --primary-hover: color-mix(in srgb, var(--primary) 86%, black);
-  --primary-soft: color-mix(in srgb, var(--primary) 13%, transparent);
-  --accent-soft: color-mix(in srgb, var(--accent) 15%, transparent);
-  --border: color-mix(in srgb, var(--bg-elev) 82%, var(--text) 18%);
-  --bg-input: color-mix(in srgb, var(--bg-elev) 74%, var(--bg) 26%);
-  --text-dim: color-mix(in srgb, var(--text) 54%, var(--bg) 46%);
-  --shadow-soft: 0 10px 30px color-mix(in srgb, var(--bg) 45%, black 55%);
-}
+[data-theme="light"]{--bg-deep:#faf7f0;--bg-panel:#ffffff;--bg-surface:#f4efe6;--bg-elevated:#eae4d8;--bg-hover:#e2dbcd;--text-primary:#241f16;--text-secondary:#453e30;--text-tertiary:#7a7261;--text-quaternary:#a8a08e;--accent:#b97a1e;--accent-hover:#a5691a;--accent-soft:rgba(185,122,30,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
 
- @font-face{font-family:'Vazirmatn';src:url('../fonts/Vazirmatn-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:'Vazirmatn';src:url('../fonts/Vazirmatn-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:'Vazirmatn';src:url('../fonts/Vazirmatn-SemiBold.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:'Vazirmatn';src:url('../fonts/Vazirmatn-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}:root{--bg-deep:#08090a;--bg-panel:#0f1011;--bg-surface:#191a1b;--bg-elevated:#23252a;--bg-hover:#28282c;--text-primary:#f7f8f8;--text-secondary:#d0d6e0;--text-tertiary:#8a8f98;--text-quaternary:#62666d;--accent:#5e6ad2;--accent-hover:#7170ff;--accent-soft:rgba(94,106,210,0.15);--success:#27a644;--success-soft:rgba(39,166,68,0.12);--danger:#e5484d;--danger-soft:rgba(229,72,77,0.12);--warning:#f5a524;--warning-soft:rgba(245,165,36,0.12);--warm-accent:#ff5600;--warm-cream:#faf9f6;--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--r-sm:4px;--r-md:6px;--r-lg:8px;--r-xl:12px;--r-pill:9999px;--shadow-1:rgba(0,0,0,0.2) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.3);--shadow-modal:0 12px 40px rgba(0,0,0,0.5);--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--font:'Vazirmatn',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--fs-xs:11px;--fs-sm:13px;--fs-md:14px;--fs-base:15px;--fs-lg:17px;--fs-xl:20px;--fs-2xl:24px}[data-theme="light"]{--bg-deep:#f7f8f8;--bg-panel:#ffffff;--bg-surface:#f3f4f5;--bg-elevated:#e9eaeb;--bg-hover:#e2e3e5;--text-primary:#1a1b1e;--text-secondary:#3d4147;--text-tertiary:#6b7078;--text-quaternary:#9ba1a8;--accent:#5e6ad2;--accent-hover:#4a55b8;--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}*{margin:0;padding:0;box-sizing:border-box}html,body{height:100dvh;height:100vh;overflow:hidden;font-family:var(--font);background:var(--bg-deep);color:var(--text-primary);font-size:var(--fs-base);line-height:1.6}#app{height:100dvh;height:100vh}button{font-family:var(--font);cursor:pointer;border:none;background:none;color:inherit}input,textarea,select{font-family:var(--font);font-size:var(--fs-md)}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--text-quaternary)}.login-screen{min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg-deep);position:relative;overflow:hidden}.login-bg-pattern{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(94,106,210,0.12),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,86,0,0.06),transparent 50%);pointer-events:none}.login-card{position:relative;width:min(400px,92vw);background:var(--bg-panel);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--shadow-modal);animation:loginIn 0.4s ease}@keyframes loginIn{from{opacity:0;transform:translateY(12px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}.login-logo{width:72px;height:72px;margin:0 auto var(--sp-4);display:block}.login-title{text-align:center;font-size:var(--fs-2xl);font-weight:700;color:var(--text-primary);margin-bottom:var(--sp-1)}.login-subtitle{text-align:center;color:var(--text-tertiary);font-size:var(--fs-sm);margin-bottom:var(--sp-5)}.lang-switcher{display:flex;justify-content:center;gap:var(--sp-2);margin-bottom:var(--sp-4)}.lang-switcher button{padding:var(--sp-1) var(--sp-3);border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:600;color:var(--text-tertiary);border:1px solid var(--border-standard);transition:all 0.15s}.lang-switcher button.active{background:var(--accent);color:#fff;border-color:var(--accent)}.form-group{margin-bottom:var(--sp-4)}.form-group label{display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text-secondary);margin-bottom:var(--sp-1)}.form-input{width:100%;padding:10px 14px;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-md);color:var(--text-primary);outline:none;transition:border-color 0.15s,box-shadow 0.15s}.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.form-input::placeholder{color:var(--text-quaternary)}.btn-primary{width:100%;padding:11px 16px;background:var(--accent);color:#fff;font-weight:600;font-size:var(--fs-md);border-radius:var(--r-md);transition:background 0.15s,transform 0.1s}.btn-primary:hover{background:var(--accent-hover)}.btn-primary:active{transform:scale(0.99)}.btn-primary:disabled{opacity:0.5;cursor:not-allowed}.btn-secondary{padding:8px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-standard);color:var(--text-secondary);border-radius:var(--r-md);font-weight:500;font-size:var(--fs-sm);transition:background 0.15s}.btn-secondary:hover{background:rgba(255,255,255,0.08)}.btn-danger{padding:8px 16px;background:var(--danger-soft);color:var(--danger);border-radius:var(--r-md);font-weight:600;font-size:var(--fs-sm);transition:background 0.15s}.btn-danger:hover{background:rgba(229,72,77,0.2)}.btn-icon{width:36px;height:36px;border-radius:var(--r-lg);display:inline-flex;align-items:center;justify-content:center;color:var(--text-tertiary);transition:background 0.15s,color 0.15s;font-size:var(--fs-lg)}.btn-icon:hover{background:var(--bg-hover);color:var(--text-primary)}.app-layout{display:grid;grid-template-columns:300px 1fr 280px;height:100dvh;height:100vh;background:var(--bg-deep)}.sidebar{background:var(--bg-panel);border-left:1px solid var(--border-subtle);display:flex;flex-direction:column;min-width:0}[dir="rtl"] .sidebar{border-left:none;border-right:1px solid var(--border-subtle)}.sidebar-header{padding:var(--sp-3) var(--sp-4);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-subtle);gap:var(--sp-2)}.sidebar-profile{display:flex;align-items:center;gap:var(--sp-3);cursor:pointer;padding:var(--sp-1);border-radius:var(--r-lg);transition:background 0.15s;flex:1;min-width:0}.sidebar-profile:hover{background:var(--bg-hover)}.avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:var(--fs-md);flex-shrink:0;position:relative}.avatar.small{width:32px;height:32px;font-size:var(--fs-sm)}.avatar .presence-dot{position:absolute;bottom:1px;right:1px;width:10px;height:10px;border-radius:50%;background:var(--success);border:2px solid var(--bg-panel)}.avatar .presence-dot.offline{background:var(--text-quaternary)}.profile-info{min-width:0;flex:1}.profile-name{display:block;font-weight:600;font-size:var(--fs-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-role{display:block;font-size:var(--fs-xs);color:var(--text-tertiary)}.sidebar-search{padding:var(--sp-3) var(--sp-4)}.search-box{display:flex;align-items:center;gap:var(--sp-2);background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-md);padding:8px 12px;transition:border-color 0.15s}.search-box:focus-within{border-color:var(--accent)}.search-box input{flex:1;background:none;border:none;outline:none;color:var(--text-primary);font-size:var(--fs-sm)}.search-box input::placeholder{color:var(--text-quaternary)}.sidebar-tabs{display:flex;padding:0 var(--sp-4);gap:var(--sp-1);margin-bottom:var(--sp-2)}.sidebar-tabs button{flex:1;padding:6px 8px;border-radius:var(--r-md);font-size:var(--fs-sm);font-weight:600;color:var(--text-tertiary);transition:all 0.15s;white-space:nowrap}.sidebar-tabs button.active{background:var(--bg-hover);color:var(--text-primary)}.chat-list{flex:1;overflow-y:auto;padding:0 var(--sp-2) var(--sp-3)}.chat-item{display:flex;align-items:center;gap:var(--sp-3);padding:10px 12px;border-radius:var(--r-lg);cursor:pointer;transition:background 0.12s;position:relative}.chat-item:hover{background:var(--bg-hover)}.chat-item.active{background:var(--accent-soft)}.chat-item-info{flex:1;min-width:0}.chat-item-top{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2)}.chat-item-name{font-weight:600;font-size:var(--fs-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chat-item-time{font-size:var(--fs-xs);color:var(--text-quaternary);flex-shrink:0}.chat-item-preview{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2);margin-top:2px}.chat-item-preview-text{font-size:var(--fs-sm);color:var(--text-tertiary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.unread-badge{background:var(--accent);color:#fff;font-size:var(--fs-xs);font-weight:700;min-width:20px;height:20px;border-radius:var(--r-pill);display:inline-flex;align-items:center;justify-content:center;padding:0 6px;flex-shrink:0}.room-type-icon{font-size:var(--fs-sm);opacity:0.7}.chat-area{display:flex;flex-direction:column;min-width:0;background:var(--bg-deep);position:relative}.chat-header{display:flex;align-items:center;gap:var(--sp-3);padding:12px var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);z-index:5}.chat-header-info{flex:1;min-width:0}.chat-header-name{font-weight:700;font-size:var(--fs-lg);display:flex;align-items:center;gap:var(--sp-2)}.chat-header-status{font-size:var(--fs-xs);color:var(--text-tertiary)}.pinned-bar{background:var(--accent-soft);border-bottom:1px solid var(--border-subtle);padding:6px 16px;display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--text-secondary);cursor:pointer;transition:background 0.15s}.pinned-bar:hover{background:rgba(94,106,210,0.22)}.pinned-bar .pin-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.urgent-banner{background:var(--danger-soft);border-bottom:1px solid rgba(229,72,77,0.2);padding:6px 16px;display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--danger);font-weight:600}.messages-area{flex:1;overflow-y:auto;padding:var(--sp-4);display:flex;flex-direction:column;gap:2px}.day-divider{text-align:center;margin:var(--sp-3) 0}.day-divider span{background:var(--bg-surface);border:1px solid var(--border-subtle);padding:3px 14px;border-radius:var(--r-pill);font-size:var(--fs-xs);color:var(--text-tertiary)}.msg-group{display:flex;flex-direction:column;max-width:75%}.msg-group.own{align-self:flex-end;align-items:flex-end}.msg-group.other{align-self:flex-start;align-items:flex-start}[dir="rtl"] .msg-group.own{align-self:flex-start;align-items:flex-start}[dir="rtl"] .msg-group.other{align-self:flex-end;align-items:flex-end}.msg-sender{font-size:var(--fs-xs);font-weight:700;color:var(--text-secondary);margin-bottom:2px;padding:0 4px}.msg-bubble{padding:8px 14px;border-radius:var(--r-lg);font-size:var(--fs-base);line-height:1.65;word-break:break-word;white-space:pre-wrap;position:relative}.msg-group.own .msg-bubble{background:var(--accent);color:#fff;border-bottom-right-radius:2px}.msg-group.other .msg-bubble{background:var(--bg-surface);border:1px solid var(--border-subtle);border-bottom-left-radius:2px}[dir="rtl"] .msg-group.own .msg-bubble{border-bottom-right-radius:var(--r-lg);border-bottom-left-radius:2px}[dir="rtl"] .msg-group.other .msg-bubble{border-bottom-left-radius:var(--r-lg);border-bottom-right-radius:2px}.msg-bubble.urgent{background:var(--danger-soft);border:1px solid rgba(229,72,77,0.4);color:var(--text-primary)}.msg-bubble .msg-urgent-label{color:var(--danger);font-weight:700;font-size:var(--fs-xs);display:block;margin-bottom:2px}.msg-meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:var(--fs-xs)}.msg-group.own .msg-meta{justify-content:flex-end;color:rgba(255,255,255,0.75)}.msg-group.other .msg-meta{justify-content:flex-start;color:var(--text-quaternary)}.msg-read-tick{font-size:10px}.msg-edited{font-style:italic;opacity:0.7}.msg-reply-quote{border-right:3px solid var(--accent);padding:4px 8px;margin-bottom:6px;background:rgba(94,106,210,0.1);border-radius:var(--r-sm);font-size:var(--fs-sm);color:var(--text-secondary);cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}[dir="ltr"] .msg-reply-quote{border-right:none;border-left:3px solid var(--accent)}.msg-forward-badge{font-size:var(--fs-xs);color:var(--text-tertiary);display:block;margin-bottom:2px}.msg-mention{background:var(--accent-soft);color:var(--accent-hover);padding:0 4px;border-radius:3px;font-weight:600}.msg-reactions{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.reaction-chip{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-pill);padding:2px 8px;font-size:var(--fs-xs);display:inline-flex;align-items:center;gap:4px;cursor:pointer;transition:all 0.12s}.reaction-chip:hover{border-color:var(--accent)}.reaction-chip.reacted{background:var(--accent-soft);border-color:var(--accent)}.msg-attachment{display:block;margin:6px 0 0;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:var(--r-md);font-size:var(--fs-sm);color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:8px}.msg-attachment:hover{background:rgba(0,0,0,0.35)}.composer-wrap{padding:var(--sp-3) var(--sp-4);background:var(--bg-panel);border-top:1px solid var(--border-subtle)}.reply-preview{display:flex;align-items:center;gap:var(--sp-2);padding:6px 12px;background:var(--bg-surface);border-radius:var(--r-md) var(--r-md) 0 0;border:1px solid var(--border-subtle);border-bottom:none;font-size:var(--fs-sm);color:var(--text-tertiary);max-width:60%}.reply-preview .reply-close{margin-left:auto;cursor:pointer;color:var(--text-quaternary)}.composer{display:flex;align-items:flex-end;gap:var(--sp-2);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:8px 12px;transition:border-color 0.15s}.composer:focus-within{border-color:var(--accent)}.composer textarea{flex:1;background:none;border:none;outline:none;resize:none;color:var(--text-primary);font-size:var(--fs-base);line-height:1.5;max-height:120px;min-height:24px;padding:4px 0}.composer textarea::placeholder{color:var(--text-quaternary)}.composer-actions{display:flex;align-items:center;gap:2px;flex-shrink:0}.composer .btn-icon{width:34px;height:34px;font-size:var(--fs-lg)}.send-btn{width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--fs-lg);transition:background 0.15s,transform 0.1s;flex-shrink:0}.send-btn:hover{background:var(--accent-hover)}.send-btn:active{transform:scale(0.95)}.send-btn:disabled{opacity:0.4;cursor:not-allowed}.info-panel{background:var(--bg-panel);border-right:1px solid var(--border-subtle);overflow-y:auto;display:flex;flex-direction:column}[dir="rtl"] .info-panel{border-right:none;border-left:1px solid var(--border-subtle)}.info-panel-header{padding:var(--sp-4);border-bottom:1px solid var(--border-subtle)}.info-panel-header h3{font-size:var(--fs-lg);font-weight:700}.info-panel-section{padding:var(--sp-4);border-bottom:1px solid var(--border-subtle)}.info-panel-section h4{font-size:var(--fs-sm);font-weight:600;color:var(--text-tertiary);margin-bottom:var(--sp-3);text-transform:uppercase;letter-spacing:0.4px}.member-list{display:flex;flex-direction:column;gap:2px}.member-item{display:flex;align-items:center;gap:var(--sp-3);padding:6px 8px;border-radius:var(--r-md);transition:background 0.12s}.member-item:hover{background:var(--bg-hover)}.member-item-info{flex:1;min-width:0}.member-item-name{font-size:var(--fs-sm);font-weight:600}.member-item-role{font-size:var(--fs-xs);color:var(--text-tertiary)}.member-actions{display:flex;gap:2px}.mini-btn{padding:4px 8px;border-radius:var(--r-md);font-size:var(--fs-xs);color:var(--text-tertiary);transition:all 0.12s}.mini-btn:hover{background:var(--bg-hover);color:var(--text-primary)}.mini-btn.danger:hover{background:var(--danger-soft);color:var(--danger)}.admin-panel{position:fixed;inset:0;background:var(--bg-deep);z-index:100;display:flex;flex-direction:column}.admin-header{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-3) var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle)}.admin-header h2{font-size:var(--fs-xl);font-weight:700}.admin-tabs{display:flex;gap:var(--sp-1);padding:0 var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);overflow-x:auto}.admin-tabs button{padding:10px 16px;font-weight:600;font-size:var(--fs-sm);color:var(--text-tertiary);border-bottom:2px solid transparent;transition:all 0.15s;white-space:nowrap}.admin-tabs button:hover{color:var(--text-primary)}.admin-tabs button.active{color:var(--accent-hover);border-bottom-color:var(--accent)}.admin-body{flex:1;overflow-y:auto;padding:var(--sp-5);max-width:900px;width:100%;margin:0 auto}.admin-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-4);gap:var(--sp-3)}.admin-table{width:100%;border-collapse:collapse}.admin-table th{text-align:right;padding:10px 12px;font-size:var(--fs-xs);font-weight:600;color:var(--text-tertiary);border-bottom:1px solid var(--border-standard);text-transform:uppercase;letter-spacing:0.4px}[dir="ltr"] .admin-table th{text-align:left}.admin-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-size:var(--fs-sm)}.admin-table tr:hover td{background:var(--bg-hover)}.role-badge{display:inline-block;padding:2px 10px;border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:600}.role-badge.user{background:var(--bg-elevated);color:var(--text-secondary)}.role-badge.sup{background:var(--warning-soft);color:var(--warning)}.role-badge.adm{background:var(--accent-soft);color:var(--accent-hover)}.role-badge.sadm{background:var(--danger-soft);color:var(--danger)}.license-status-card{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:var(--sp-5);margin-bottom:var(--sp-5)}.license-status-card.free{border-color:var(--warning)}.license-status-card.valid{border-color:var(--success)}.license-status-card.tampered{border-color:var(--danger)}.license-status-icon{font-size:40px;margin-bottom:var(--sp-2)}.license-status-title{font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-2)}.license-status-detail{color:var(--text-secondary);margin-bottom:var(--sp-1);font-size:var(--fs-sm)}.license-warning{background:var(--danger-soft);border:1px solid rgba(229,72,77,0.3);color:var(--danger);padding:var(--sp-3);border-radius:var(--r-md);font-size:var(--fs-sm);margin-bottom:var(--sp-4)}.file-upload-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:var(--r-md);font-weight:600;font-size:var(--fs-sm);cursor:pointer;transition:background 0.15s}.file-upload-btn:hover{background:var(--accent-hover)}.file-upload-btn input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer}.network-form .form-group{max-width:400px}.network-info{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:var(--sp-4);margin-bottom:var(--sp-4);font-size:var(--fs-sm);color:var(--text-secondary);line-height:2}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:200;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.15s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-panel);border:1px solid var(--border-standard);border-radius:var(--r-xl);width:min(480px,92vw);max-height:85vh;overflow-y:auto;padding:var(--sp-5);box-shadow:var(--shadow-modal);animation:modalIn 0.2s ease}@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}.modal h3{font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-4)}.modal-divider{height:1px;background:var(--border-subtle);margin:var(--sp-4) 0}.modal-actions{display:flex;gap:var(--sp-2);margin-top:var(--sp-4)}.btn.full{width:100%}.poll-card{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:var(--sp-4);margin-top:var(--sp-2)}.poll-question{font-weight:700;margin-bottom:var(--sp-3)}.poll-option{display:flex;align-items:center;gap:var(--sp-3);padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border-subtle);margin-bottom:var(--sp-2);cursor:pointer;transition:all 0.12s;position:relative;overflow:hidden}.poll-option:hover{border-color:var(--accent)}.poll-option.voted{border-color:var(--accent)}.poll-option-bar{position:absolute;inset:0;background:var(--accent-soft);width:0%;transition:width 0.3s ease;z-index:0}.poll-option-content{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;width:100%;gap:var(--sp-2)}.poll-option-pct{font-weight:700;color:var(--accent-hover);font-size:var(--fs-sm)}.sticker-picker{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--sp-2);padding:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);margin-bottom:var(--sp-2);max-height:180px;overflow-y:auto}.sticker-picker button{font-size:28px;padding:6px;border-radius:var(--r-md);transition:background 0.12s,transform 0.1s}.sticker-picker button:hover{background:var(--bg-hover);transform:scale(1.1)}.emoji-picker{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);margin-bottom:var(--sp-2);max-height:200px;overflow-y:auto}.emoji-picker button{font-size:20px;padding:4px;border-radius:var(--r-md);transition:background 0.12s}.emoji-picker button:hover{background:var(--bg-hover)}.msg-context-menu{position:fixed;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);box-shadow:var(--shadow-modal);padding:var(--sp-1);min-width:180px;z-index:300;animation:modalIn 0.12s ease}.msg-context-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;border-radius:var(--r-md);font-size:var(--fs-sm);color:var(--text-secondary);text-align:right;transition:background 0.1s}.msg-context-menu button:hover{background:var(--bg-hover);color:var(--text-primary)}.msg-context-menu button.danger{color:var(--danger)}.msg-context-menu button.danger:hover{background:var(--danger-soft)}.mention-popup{position:absolute;bottom:100%;left:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);box-shadow:var(--shadow-modal);max-height:200px;overflow-y:auto;z-index:50;min-width:220px}.mention-popup button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;font-size:var(--fs-sm);color:var(--text-secondary);text-align:right}.mention-popup button:hover,.mention-popup button.selected{background:var(--bg-hover);color:var(--text-primary)}.search-results{position:fixed;inset:0;background:var(--bg-deep);z-index:150;display:flex;flex-direction:column}.search-results-header{padding:var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:var(--sp-3)}.search-results-header input{flex:1;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-md);padding:10px 14px;color:var(--text-primary);outline:none;font-size:var(--fs-base)}.search-results-header input:focus{border-color:var(--accent)}.search-results-list{flex:1;overflow-y:auto;padding:var(--sp-4);max-width:700px;width:100%;margin:0 auto}.search-result-item{padding:var(--sp-3);border-radius:var(--r-lg);border:1px solid var(--border-subtle);margin-bottom:var(--sp-2);cursor:pointer;transition:background 0.12s}.search-result-item:hover{background:var(--bg-hover)}.search-result-item .sr-room{font-size:var(--fs-xs);color:var(--accent-hover);font-weight:600}.search-result-item .sr-text{font-size:var(--fs-sm);color:var(--text-secondary);margin-top:2px}.search-result-item .sr-time{font-size:var(--fs-xs);color:var(--text-quaternary);margin-top:2px}.toast-container{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:500;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}.toast{background:var(--bg-elevated);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:10px 20px;font-size:var(--fs-sm);color:var(--text-primary);box-shadow:var(--shadow-modal);animation:toastIn 0.2s ease;pointer-events:auto;max-width:90vw}.toast.success{border-color:var(--success)}.toast.error{border-color:var(--danger);color:var(--danger)}.toast.warn{border-color:var(--warning)}@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text-tertiary);gap:var(--sp-3);padding:var(--sp-5);text-align:center}.empty-state .empty-icon{font-size:48px;opacity:0.5}.empty-state .empty-title{font-size:var(--fs-lg);font-weight:600;color:var(--text-secondary)}.empty-state .empty-desc{font-size:var(--fs-sm);max-width:300px}.department-header{padding:var(--sp-2) var(--sp-4);font-size:var(--fs-xs);font-weight:700;color:var(--text-quaternary);text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;margin-top:var(--sp-2)}.department-header .dept-toggle{cursor:pointer;font-size:10px}.typing-indicator{padding:2px var(--sp-4);font-size:var(--fs-xs);color:var(--accent-hover);min-height:20px;font-weight:500}.typing-dots::after{content:'…';animation:typingDots 1.2s infinite}@keyframes typingDots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}.drag-overlay{position:fixed;inset:0;background:rgba(94,106,210,0.2);backdrop-filter:blur(2px);border:3px dashed var(--accent);border-radius:16px;margin:12px;z-index:400;display:flex;align-items:center;justify-content:center;font-size:var(--fs-xl);font-weight:700;color:var(--accent-hover);pointer-events:none}.online-indicator{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-xs);color:var(--text-tertiary)}.online-indicator .dot{width:8px;height:8px;border-radius:50%;background:var(--success)}.online-indicator .dot.offline{background:var(--text-quaternary)}.online-light{display:inline-block;width:9px;height:9px;border-radius:50%;background:#27a644;box-shadow:0 0 6px rgba(39,166,68,.8);margin-right:2px;flex-shrink:0}.online-badge{position:absolute;bottom:-2px;left:-2px;width:12px;height:12px;border-radius:50%;background:#27a644;border:2px solid var(--bg);box-shadow:0 0 4px rgba(39,166,68,.7);z-index:2}.chat-item .avatar{position:relative}.mobile-hamburger{display:none;width:36px;height:36px;border-radius:var(--r-md);align-items:center;justify-content:center;font-size:var(--fs-lg);color:var(--text-secondary)}.mobile-hamburger:hover{background:var(--bg-hover)}@media (max-width:1024px){.app-layout{grid-template-columns:280px 1fr}.info-panel{display:flex;position:fixed;right:0;left:auto;top:0;bottom:0;width:320px;max-width:85vw;z-index:90;box-shadow:-8px 0 24px rgba(0,0,0,0.35)}[dir="rtl"] .info-panel{right:auto;left:0;box-shadow:8px 0 24px rgba(0,0,0,0.35)}}@media (max-width:900px){.app-layout{grid-template-columns:240px 1fr}.chat-header-status{display:none}.admin-toolbar{flex-wrap:wrap;gap:8px}.admin-toolbar .btn-primary,.admin-toolbar .btn-secondary{flex:1 1 auto}}@media (max-width:768px){.app-layout{grid-template-columns:1fr}.sidebar{position:fixed;inset:0;z-index:100;width:82%;max-width:320px;transform:translateX(-100%);transition:transform 0.25s ease;border-right:none !important;border-left:none !important}[dir="rtl"] .sidebar{transform:translateX(100%)}.sidebar.sidebar-open{transform:translateX(0);box-shadow:var(--shadow-modal)}.mobile-hamburger{display:inline-flex}.sidebar-tabs{flex-wrap:wrap;row-gap:6px}.sidebar-tabs button{flex:1 1 45%;min-width:0;font-size:12px;padding:8px 6px}.msg-group{max-width:88%}.composer{border-radius:var(--r-lg)}.admin-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.admin-table{min-width:560px}.info-panel{display:flex;position:fixed;right:0;left:0;bottom:0;top:auto;max-height:70vh;width:100%;z-index:90;border-radius:var(--r-xl) var(--r-xl) 0 0;padding-bottom:calc(env(safe-area-inset-bottom,0px) + var(--sp-4))}[dir="rtl"] .info-panel{right:0;left:0}}@media (max-width:480px){.msg-group{max-width:94%}.chat-header{padding:10px var(--sp-3)}.composer-wrap{padding:var(--sp-2) var(--sp-3)}.admin-body{padding:var(--sp-3)}.modal{padding:var(--sp-4)}.login-card{padding:var(--sp-5)}.modal-actions{flex-direction:column}.modal-actions .btn-primary,.modal-actions .btn-secondary{width:100%;min-height:44px}.composer{gap:4px}.composer .btn-icon{min-width:38px;min-height:38px}.sidebar{width:88%;max-width:320px}}@media (max-width:360px){.sidebar-header{padding:var(--sp-2)}.profile-name{font-size:13px}.sidebar-search{padding:var(--sp-2) var(--sp-2)}}@supports (padding:max(0px)){.composer-wrap,.chat-header{padding-left:max(var(--tok-sp-3,16px),env(safe-area-inset-left,0px));padding-right:max(var(--tok-sp-3,16px),env(safe-area-inset-right,0px))}.sidebar{padding-bottom:env(safe-area-inset-bottom,0px)}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}}
+[data-theme="sapphire-dark"]{--bg-deep:#080b12;--bg-panel:#0f131c;--bg-surface:#181f2c;--bg-elevated:#222c3d;--bg-hover:#293448;--text-primary:#eaf0fb;--text-secondary:#c6d4ea;--text-tertiary:#8595b0;--text-quaternary:#5c6a82;--accent:#3b82f6;--accent-hover:#60a5fa;--accent-soft:rgba(59,130,246,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+
+[data-theme="sapphire-light"]{--bg-deep:#f2f6fd;--bg-panel:#ffffff;--bg-surface:#e9eff9;--bg-elevated:#dbe5f4;--bg-hover:#d0dcef;--text-primary:#101a2c;--text-secondary:#33415c;--text-tertiary:#68779a;--text-quaternary:#96a3bf;--accent:#2563eb;--accent-hover:#3b82f6;--accent-soft:rgba(37,99,235,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+
+[data-theme="spring-dark"]{--bg-deep:#071009;--bg-panel:#0e1912;--bg-surface:#15241b;--bg-elevated:#1d3125;--bg-hover:#23392c;--text-primary:#e8f5ec;--text-secondary:#c2dcc9;--text-tertiary:#84a48e;--text-quaternary:#5c7563;--accent:#10b981;--accent-hover:#34d399;--accent-soft:rgba(16,185,129,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+
+[data-theme="spring-light"]{--bg-deep:#f2faf5;--bg-panel:#ffffff;--bg-surface:#e7f4ec;--bg-elevated:#d6ebdd;--bg-hover:#cadfd2;--text-primary:#0f2016;--text-secondary:#2e4a38;--text-tertiary:#5f7d6a;--text-quaternary:#8ba595;--accent:#059669;--accent-hover:#10b981;--accent-soft:rgba(5,150,105,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+
+[data-theme="night-dark"]{--bg-deep:#0d0a16;--bg-panel:#151022;--bg-surface:#1e1730;--bg-elevated:#28203f;--bg-hover:#30274b;--text-primary:#eee9fa;--text-secondary:#d2c9ec;--text-tertiary:#978cba;--text-quaternary:#6d6490;--accent:#8b5cf6;--accent-hover:#a78bfa;--accent-soft:rgba(139,92,246,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+
+[data-theme="night-light"]{--bg-deep:#f7f4fd;--bg-panel:#ffffff;--bg-surface:#efeafb;--bg-elevated:#e4dcf6;--bg-hover:#dcd2ef;--text-primary:#1a1230;--text-secondary:#3c3158;--text-tertiary:#6f6390;--text-quaternary:#9c92b8;--accent:#7c3aed;--accent-hover:#8b5cf6;--accent-soft:rgba(124,58,237,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+
+[data-theme="sunset-dark"]{--bg-deep:#120b08;--bg-panel:#1a110c;--bg-surface:#251811;--bg-elevated:#312015;--bg-hover:392619;--text-primary:#fdf0e8;--text-secondary:#ecd4c4;--text-tertiary:#b39481;--text-quaternary:#7f6656;--accent:#f97316;--accent-hover:#fb923c;--accent-soft:rgba(249,115,22,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+
+[data-theme="sunset-light"]{--bg-deep:#fdf6f1;--bg-panel:#ffffff;--bg-surface:#f8ece4;--bg-elevated:#f0ddd1;--bg-hover:#ead2c4;--text-primary:#28140a;--text-secondary:#4d3325;--text-tertiary:#836a58;--text-quaternary:#ad9484;--accent:#ea580c;--accent-hover:#f97316;--accent-soft:rgba(234,88,12,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+
+[data-theme="frost-dark"]{--bg-deep:#0a0d12;--bg-panel:#10141b;--bg-surface:#181e27;--bg-elevated:#212a36;--bg-hover:#28313f;--text-primary:#e6eaf0;--text-secondary:#c3cbd6;--text-tertiary:#86909e;--text-quaternary:#5f6975;--accent:#64748b;--accent-hover:#94a3b8;--accent-soft:rgba(100,116,139,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+
+[data-theme="frost-light"]{--bg-deep:#f4f6f8;--bg-panel:#ffffff;--bg-surface:#ebeff3;--bg-elevated:#dde3ea;--bg-hover:#d3dae2;--text-primary:#141b22;--text-secondary:#37414d;--text-tertiary:#667180;--text-quaternary:#93a0ae;--accent:#475569;--accent-hover:#64748b;--accent-soft:rgba(71,85,105,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+
+[v-cloak]{display:none!important}.theme-picker{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:12px;flex-wrap:wrap}.theme-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--border-strong);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;transition:transform .15s}.theme-dot:hover{transform:scale(1.18)}.theme-check{font-size:11px;color:#fff;text-shadow:0 0 3px rgba(0,0,0,.9);line-height:1}.theme-mode-btn{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:13px;line-height:1}
+
+[data-theme="khan-dark"]{--bg-deep:#100e09;--bg-panel:#171410;--bg-surface:#211d16;--bg-elevated:#2c271e;--bg-hover:#332d22;--text-primary:#f7f2e8;--text-secondary:#d8cfbe;--text-tertiary:#9a917f;--text-quaternary:#6b6455;--accent:#e8a33d;--accent-hover:#f0b558;--accent-soft:rgba(232,163,61,0.16);--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--shadow-1:rgba(0,0,0,0.5) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.6);--shadow-modal:0 12px 40px rgba(0,0,0,0.7)}
+[data-theme="khan-light"]{--bg-deep:#faf7f0;--bg-panel:#ffffff;--bg-surface:#f4efe6;--bg-elevated:#eae4d8;--bg-hover:#e2dbcd;--text-primary:#241f16;--text-secondary:#453e30;--text-tertiary:#7a7261;--text-quaternary:#a8a08e;--accent:#b97a1e;--accent-hover:#a5691a;--accent-soft:rgba(185,122,30,0.14);--border-subtle:rgba(0,0,0,0.05);--border-standard:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.12);--shadow-1:rgba(0,0,0,0.06) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.08);--shadow-modal:0 12px 40px rgba(0,0,0,0.15)}
+:root{--bg-deep:#08090a;--bg-panel:#0f1011;--bg-surface:#191a1b;--bg-elevated:#23252a;--bg-hover:#28282c;--text-primary:#f7f8f8;--text-secondary:#d0d6e0;--text-tertiary:#8a8f98;--text-quaternary:#62666d;--accent:#5e6ad2;--accent-hover:#7170ff;--accent-soft:rgba(94,106,210,0.15);--success:#27a644;--success-soft:rgba(39,166,68,0.12);--danger:#e5484d;--danger-soft:rgba(229,72,77,0.12);--warning:#f5a524;--warning-soft:rgba(245,165,36,0.12);--warm-accent:#ff5600;--warm-cream:#faf9f6;--border-subtle:rgba(255,255,255,0.05);--border-standard:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.12);--r-sm:4px;--r-md:6px;--r-lg:8px;--r-xl:12px;--r-pill:9999px;--shadow-1:rgba(0,0,0,0.2) 0px 0px 0px 1px;--shadow-2:0 2px 8px rgba(0,0,0,0.3);--shadow-modal:0 12px 40px rgba(0,0,0,0.5);--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--font:'Vazirmatn',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--fs-xs:11px;--fs-sm:13px;--fs-md:14px;--fs-base:15px;--fs-lg:17px;--fs-xl:20px;--fs-2xl:24px}*{margin:0;padding:0;box-sizing:border-box}html,body{height:100dvh;height:100vh;overflow:hidden;font-family:var(--font);background:var(--bg-deep);color:var(--text-primary);font-size:var(--fs-base);line-height:1.6}#app{height:100dvh;height:100vh}button{font-family:var(--font);cursor:pointer;border:none;background:none;color:inherit}input,textarea,select{font-family:var(--font);font-size:var(--fs-md)}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--text-quaternary)}.login-screen{min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg-deep);position:relative;overflow:hidden}.login-bg-pattern{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(94,106,210,0.12),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,86,0,0.06),transparent 50%);pointer-events:none}.login-card{position:relative;width:min(400px,92vw);background:var(--bg-panel);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--shadow-modal);animation:loginIn 0.4s ease}@keyframes loginIn{from{opacity:0;transform:translateY(12px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}.login-logo{width:72px;height:72px;margin:0 auto var(--sp-4);display:block}.login-title{text-align:center;font-size:var(--fs-2xl);font-weight:700;color:var(--text-primary);margin-bottom:var(--sp-1)}.login-subtitle{text-align:center;color:var(--text-tertiary);font-size:var(--fs-sm);margin-bottom:var(--sp-5)}.lang-switcher{display:flex;justify-content:center;gap:var(--sp-2);margin-bottom:var(--sp-4)}.lang-switcher button{padding:var(--sp-1) var(--sp-3);border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:600;color:var(--text-tertiary);border:1px solid var(--border-standard);transition:all 0.15s}.lang-switcher button.active{background:var(--accent);color:#fff;border-color:var(--accent)}.form-group{margin-bottom:var(--sp-4)}.form-group label{display:block;font-size:var(--fs-sm);font-weight:600;color:var(--text-secondary);margin-bottom:var(--sp-1)}.form-input{width:100%;padding:10px 14px;font-size:16px;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-md);color:var(--text-primary);outline:none;transition:border-color 0.15s,box-shadow 0.15s}.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.form-input::placeholder{color:var(--text-quaternary)}.btn-primary{width:100%;padding:11px 16px;background:var(--accent);color:#fff;font-weight:600;font-size:var(--fs-md);border-radius:var(--r-md);transition:background 0.15s,transform 0.1s}.btn-primary:hover{background:var(--accent-hover)}.btn-primary:active{transform:scale(0.99)}.btn-primary:disabled{opacity:0.5;cursor:not-allowed}.btn-secondary{padding:8px 16px;background:rgba(255,255,255,0.04);border:1px solid var(--border-standard);color:var(--text-secondary);border-radius:var(--r-md);font-weight:500;font-size:var(--fs-sm);transition:background 0.15s}.btn-secondary:hover{background:rgba(255,255,255,0.08)}.btn-danger{padding:8px 16px;background:var(--danger-soft);color:var(--danger);border-radius:var(--r-md);font-weight:600;font-size:var(--fs-sm);transition:background 0.15s}.btn-danger:hover{background:rgba(229,72,77,0.2)}.btn-icon{width:36px;height:36px;border-radius:var(--r-lg);display:inline-flex;align-items:center;justify-content:center;color:var(--text-tertiary);transition:background 0.15s,color 0.15s;font-size:var(--fs-lg)}.btn-icon:hover{background:var(--bg-hover);color:var(--text-primary)}.app-layout{display:grid;grid-template-columns:300px 1fr 280px;height:100dvh;height:100vh;background:var(--bg-deep)}.sidebar{background:var(--bg-panel);border-left:1px solid var(--border-subtle);display:flex;flex-direction:column;min-width:0}[dir="rtl"] .sidebar{border-left:none;border-right:1px solid var(--border-subtle)}.sidebar-header{padding:var(--sp-3) var(--sp-4);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-subtle);gap:var(--sp-2)}.sidebar-profile{display:flex;align-items:center;gap:var(--sp-3);cursor:pointer;padding:var(--sp-1);border-radius:var(--r-lg);transition:background 0.15s;flex:1;min-width:0}.sidebar-profile:hover{background:var(--bg-hover)}.avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:var(--fs-md);flex-shrink:0;position:relative}.avatar.small{width:32px;height:32px;font-size:var(--fs-sm)}.avatar .presence-dot{position:absolute;bottom:1px;right:1px;width:10px;height:10px;border-radius:50%;background:var(--success);border:2px solid var(--bg-panel)}.avatar .presence-dot.offline{background:var(--text-quaternary)}.profile-info{min-width:0;flex:1}.profile-name{display:block;font-weight:600;font-size:var(--fs-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-role{display:block;font-size:var(--fs-xs);color:var(--text-tertiary)}.sidebar-search{padding:var(--sp-3) var(--sp-4)}.search-box{display:flex;align-items:center;gap:var(--sp-2);background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-md);padding:8px 12px;transition:border-color 0.15s}.search-box:focus-within{border-color:var(--accent)}.search-box input{flex:1;background:none;border:none;outline:none;color:var(--text-primary);font-size:var(--fs-sm)}.search-box input::placeholder{color:var(--text-quaternary)}.sidebar-tabs{display:flex;padding:0 var(--sp-4);gap:var(--sp-1);margin-bottom:var(--sp-2)}.sidebar-tabs button{flex:1;padding:6px 8px;border-radius:var(--r-md);font-size:var(--fs-sm);font-weight:600;color:var(--text-tertiary);transition:all 0.15s;white-space:nowrap}.sidebar-tabs button.active{background:var(--bg-hover);color:var(--text-primary)}.chat-list{flex:1;overflow-y:auto;padding:0 var(--sp-2) var(--sp-3)}.chat-item{display:flex;align-items:center;gap:var(--sp-3);padding:10px 12px;border-radius:var(--r-lg);cursor:pointer;transition:background 0.12s;position:relative}.chat-item:hover{background:var(--bg-hover)}.chat-item.active{background:var(--accent-soft)}.chat-item-info{flex:1;min-width:0}.chat-item-top{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2)}.chat-item-name{font-weight:600;font-size:var(--fs-md);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chat-item-time{font-size:var(--fs-xs);color:var(--text-quaternary);flex-shrink:0}.chat-item-preview{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2);margin-top:2px}.chat-item-preview-text{font-size:var(--fs-sm);color:var(--text-tertiary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.unread-badge{background:var(--accent);color:#fff;font-size:var(--fs-xs);font-weight:700;min-width:20px;height:20px;border-radius:var(--r-pill);display:inline-flex;align-items:center;justify-content:center;padding:0 6px;flex-shrink:0}.room-type-icon{font-size:var(--fs-sm);opacity:0.7}.chat-area{display:flex;flex-direction:column;min-width:0;background:var(--bg-deep);position:relative}.chat-header{display:flex;align-items:center;gap:var(--sp-3);padding:12px var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);z-index:5}.chat-header-info{flex:1;min-width:0}.chat-header-name{font-weight:700;font-size:var(--fs-lg);display:flex;align-items:center;gap:var(--sp-2)}.chat-header-status{font-size:var(--fs-xs);color:var(--text-tertiary)}.pinned-bar{background:var(--accent-soft);border-bottom:1px solid var(--border-subtle);padding:6px 16px;display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--text-secondary);cursor:pointer;transition:background 0.15s}.pinned-bar:hover{background:rgba(94,106,210,0.22)}.pinned-bar .pin-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.urgent-banner{background:var(--danger-soft);border-bottom:1px solid rgba(229,72,77,0.2);padding:6px 16px;display:flex;align-items:center;gap:8px;font-size:var(--fs-sm);color:var(--danger);font-weight:600}.messages-area{flex:1;overflow-y:auto;padding:var(--sp-4);display:flex;flex-direction:column;gap:2px}.day-divider{text-align:center;margin:var(--sp-3) 0}.day-divider span{background:var(--bg-surface);border:1px solid var(--border-subtle);padding:3px 14px;border-radius:var(--r-pill);font-size:var(--fs-xs);color:var(--text-tertiary)}.msg-group{display:flex;flex-direction:column;max-width:75%}.msg-group.own{align-self:flex-end;align-items:flex-end}.msg-group.other{align-self:flex-start;align-items:flex-start}[dir="rtl"] .msg-group.own{align-self:flex-start;align-items:flex-start}[dir="rtl"] .msg-group.other{align-self:flex-end;align-items:flex-end}.msg-sender{font-size:var(--fs-xs);font-weight:700;color:var(--text-secondary);margin-bottom:2px;padding:0 4px}.msg-bubble{padding:8px 14px;border-radius:var(--r-lg);font-size:var(--fs-base);line-height:1.65;word-break:break-word;white-space:pre-wrap;position:relative}.msg-group.own .msg-bubble{background:var(--accent);color:#fff;border-bottom-right-radius:2px}.msg-group.other .msg-bubble{background:var(--bg-surface);border:1px solid var(--border-subtle);border-bottom-left-radius:2px}[dir="rtl"] .msg-group.own .msg-bubble{border-bottom-right-radius:var(--r-lg);border-bottom-left-radius:2px}[dir="rtl"] .msg-group.other .msg-bubble{border-bottom-left-radius:var(--r-lg);border-bottom-right-radius:2px}.msg-bubble.urgent{background:var(--danger-soft);border:1px solid rgba(229,72,77,0.4);color:var(--text-primary)}.msg-bubble .msg-urgent-label{color:var(--danger);font-weight:700;font-size:var(--fs-xs);display:block;margin-bottom:2px}.msg-meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:var(--fs-xs)}.msg-group.own .msg-meta{justify-content:flex-end;color:rgba(255,255,255,0.75)}.msg-group.other .msg-meta{justify-content:flex-start;color:var(--text-quaternary)}.msg-read-tick{font-size:10px}.msg-edited{font-style:italic;opacity:0.7}.msg-reply-quote{border-right:3px solid var(--accent);padding:4px 8px;margin-bottom:6px;background:rgba(94,106,210,0.1);border-radius:var(--r-sm);font-size:var(--fs-sm);color:var(--text-secondary);cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}[dir="ltr"] .msg-reply-quote{border-right:none;border-left:3px solid var(--accent)}.msg-forward-badge{font-size:var(--fs-xs);color:var(--text-tertiary);display:block;margin-bottom:2px}.msg-mention{background:var(--accent-soft);color:var(--accent-hover);padding:0 4px;border-radius:3px;font-weight:600}.msg-reactions{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.reaction-chip{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--r-pill);padding:2px 8px;font-size:var(--fs-xs);display:inline-flex;align-items:center;gap:4px;cursor:pointer;transition:all 0.12s}.reaction-chip:hover{border-color:var(--accent)}.reaction-chip.reacted{background:var(--accent-soft);border-color:var(--accent)}.msg-attachment{display:block;margin:6px 0 0;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:var(--r-md);font-size:var(--fs-sm);color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:8px}.msg-attachment:hover{background:rgba(0,0,0,0.35)}.composer-wrap{padding:var(--sp-3) var(--sp-4);background:var(--bg-panel);border-top:1px solid var(--border-subtle)}.reply-preview{display:flex;align-items:center;gap:var(--sp-2);padding:6px 12px;background:var(--bg-surface);border-radius:var(--r-md) var(--r-md) 0 0;border:1px solid var(--border-subtle);border-bottom:none;font-size:var(--fs-sm);color:var(--text-tertiary);max-width:60%}.reply-preview .reply-close{margin-left:auto;cursor:pointer;color:var(--text-quaternary)}.composer{display:flex;align-items:flex-end;gap:var(--sp-2);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:8px 12px;transition:border-color 0.15s}.composer:focus-within{border-color:var(--accent)}.composer textarea{flex:1;background:none;border:none;outline:none;resize:none;color:var(--text-primary);font-size:var(--fs-base);line-height:1.5;max-height:120px;min-height:24px;padding:4px 0}.composer textarea::placeholder{color:var(--text-quaternary)}.composer-actions{display:flex;align-items:center;gap:2px;flex-shrink:0}.composer .btn-icon{width:34px;height:34px;font-size:var(--fs-lg)}.send-btn{width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:var(--fs-lg);transition:background 0.15s,transform 0.1s;flex-shrink:0}.send-btn:hover{background:var(--accent-hover)}.send-btn:active{transform:scale(0.95)}.send-btn:disabled{opacity:0.4;cursor:not-allowed}.info-panel{background:var(--bg-panel);border-right:1px solid var(--border-subtle);overflow-y:auto;display:flex;flex-direction:column}[dir="rtl"] .info-panel{border-right:none;border-left:1px solid var(--border-subtle)}.info-panel-header{padding:var(--sp-4);border-bottom:1px solid var(--border-subtle)}.info-panel-header h3{font-size:var(--fs-lg);font-weight:700}.info-panel-section{padding:var(--sp-4);border-bottom:1px solid var(--border-subtle)}.info-panel-section h4{font-size:var(--fs-sm);font-weight:600;color:var(--text-tertiary);margin-bottom:var(--sp-3);text-transform:uppercase;letter-spacing:0.4px}.member-list{display:flex;flex-direction:column;gap:2px}.member-item{display:flex;align-items:center;gap:var(--sp-3);padding:6px 8px;border-radius:var(--r-md);transition:background 0.12s}.member-item:hover{background:var(--bg-hover)}.member-item-info{flex:1;min-width:0}.member-item-name{font-size:var(--fs-sm);font-weight:600}.member-item-role{font-size:var(--fs-xs);color:var(--text-tertiary)}.member-actions{display:flex;gap:2px}.mini-btn{padding:4px 8px;border-radius:var(--r-md);font-size:var(--fs-xs);color:var(--text-tertiary);transition:all 0.12s}.mini-btn:hover{background:var(--bg-hover);color:var(--text-primary)}.mini-btn.danger:hover{background:var(--danger-soft);color:var(--danger)}.admin-panel{position:fixed;inset:0;background:var(--bg-deep);z-index:100;display:flex;flex-direction:column}.admin-header{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-3) var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle)}.admin-header h2{font-size:var(--fs-xl);font-weight:700}.admin-tabs{display:flex;gap:var(--sp-1);padding:0 var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);overflow-x:auto}.admin-tabs button{padding:10px 16px;font-weight:600;font-size:var(--fs-sm);color:var(--text-tertiary);border-bottom:2px solid transparent;transition:all 0.15s;white-space:nowrap}.admin-tabs button:hover{color:var(--text-primary)}.admin-tabs button.active{color:var(--accent-hover);border-bottom-color:var(--accent)}.admin-body{flex:1;overflow-y:auto;padding:var(--sp-5);max-width:900px;width:100%;margin:0 auto}.admin-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-4);gap:var(--sp-3)}.admin-table{width:100%;border-collapse:collapse}.admin-table th{text-align:right;padding:10px 12px;font-size:var(--fs-xs);font-weight:600;color:var(--text-tertiary);border-bottom:1px solid var(--border-standard);text-transform:uppercase;letter-spacing:0.4px}[dir="ltr"] .admin-table th{text-align:left}.admin-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-size:var(--fs-sm)}.admin-table tr:hover td{background:var(--bg-hover)}.role-badge{display:inline-block;padding:2px 10px;border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:600}.role-badge.user{background:var(--bg-elevated);color:var(--text-secondary)}.role-badge.sup{background:var(--warning-soft);color:var(--warning)}.role-badge.adm{background:var(--accent-soft);color:var(--accent-hover)}.role-badge.sadm{background:var(--danger-soft);color:var(--danger)}.license-status-card{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);padding:var(--sp-5);margin-bottom:var(--sp-5)}.license-status-card.free{border-color:var(--warning)}.license-status-card.valid{border-color:var(--success)}.license-status-card.tampered{border-color:var(--danger)}.license-status-icon{font-size:40px;margin-bottom:var(--sp-2)}.license-status-title{font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-2)}.license-status-detail{color:var(--text-secondary);margin-bottom:var(--sp-1);font-size:var(--fs-sm)}.license-warning{background:var(--danger-soft);border:1px solid rgba(229,72,77,0.3);color:var(--danger);padding:var(--sp-3);border-radius:var(--r-md);font-size:var(--fs-sm);margin-bottom:var(--sp-4)}.file-upload-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:var(--r-md);font-weight:600;font-size:var(--fs-sm);cursor:pointer;transition:background 0.15s}.file-upload-btn:hover{background:var(--accent-hover)}.file-upload-btn input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer}.network-form .form-group{max-width:400px}.network-info{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:var(--sp-4);margin-bottom:var(--sp-4);font-size:var(--fs-sm);color:var(--text-secondary);line-height:2}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:200;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.15s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.modal{background:var(--bg-panel);border:1px solid var(--border-standard);border-radius:var(--r-xl);width:min(480px,92vw);max-height:85vh;overflow-y:auto;padding:var(--sp-5);box-shadow:var(--shadow-modal);animation:modalIn 0.2s ease}@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}.modal h3{font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-4)}.modal-divider{height:1px;background:var(--border-subtle);margin:var(--sp-4) 0}.modal-actions{display:flex;gap:var(--sp-2);margin-top:var(--sp-4)}.btn.full{width:100%}.poll-card{background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:var(--sp-4);margin-top:var(--sp-2)}.poll-question{font-weight:700;margin-bottom:var(--sp-3)}.poll-option{display:flex;align-items:center;gap:var(--sp-3);padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--border-subtle);margin-bottom:var(--sp-2);cursor:pointer;transition:all 0.12s;position:relative;overflow:hidden}.poll-option:hover{border-color:var(--accent)}.poll-option.voted{border-color:var(--accent)}.poll-option-bar{position:absolute;inset:0;background:var(--accent-soft);width:0%;transition:width 0.3s ease;z-index:0}.poll-option-content{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;width:100%;gap:var(--sp-2)}.poll-option-pct{font-weight:700;color:var(--accent-hover);font-size:var(--fs-sm)}.sticker-picker{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--sp-2);padding:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);margin-bottom:var(--sp-2);max-height:180px;overflow-y:auto}.sticker-picker button{font-size:28px;padding:6px;border-radius:var(--r-md);transition:background 0.12s,transform 0.1s}.sticker-picker button:hover{background:var(--bg-hover);transform:scale(1.1)}.emoji-picker{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;padding:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-xl);margin-bottom:var(--sp-2);max-height:200px;overflow-y:auto}.emoji-picker button{font-size:20px;padding:4px;border-radius:var(--r-md);transition:background 0.12s}.emoji-picker button:hover{background:var(--bg-hover)}.msg-context-menu{position:fixed;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);box-shadow:var(--shadow-modal);padding:var(--sp-1);min-width:180px;z-index:300;animation:modalIn 0.12s ease}.msg-context-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;border-radius:var(--r-md);font-size:var(--fs-sm);color:var(--text-secondary);text-align:right;transition:background 0.1s}.msg-context-menu button:hover{background:var(--bg-hover);color:var(--text-primary)}.msg-context-menu button.danger{color:var(--danger)}.msg-context-menu button.danger:hover{background:var(--danger-soft)}.mention-popup{position:absolute;bottom:100%;left:var(--sp-3);background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-lg);box-shadow:var(--shadow-modal);max-height:200px;overflow-y:auto;z-index:50;min-width:220px}.mention-popup button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;font-size:var(--fs-sm);color:var(--text-secondary);text-align:right}.mention-popup button:hover,.mention-popup button.selected{background:var(--bg-hover);color:var(--text-primary)}.search-results{position:fixed;inset:0;background:var(--bg-deep);z-index:150;display:flex;flex-direction:column}.search-results-header{padding:var(--sp-4);background:var(--bg-panel);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:var(--sp-3)}.search-results-header input{flex:1;background:var(--bg-surface);border:1px solid var(--border-standard);border-radius:var(--r-md);padding:10px 14px;color:var(--text-primary);outline:none;font-size:var(--fs-base)}.search-results-header input:focus{border-color:var(--accent)}.search-results-list{flex:1;overflow-y:auto;padding:var(--sp-4);max-width:700px;width:100%;margin:0 auto}.search-result-item{padding:var(--sp-3);border-radius:var(--r-lg);border:1px solid var(--border-subtle);margin-bottom:var(--sp-2);cursor:pointer;transition:background 0.12s}.search-result-item:hover{background:var(--bg-hover)}.search-result-item .sr-room{font-size:var(--fs-xs);color:var(--accent-hover);font-weight:600}.search-result-item .sr-text{font-size:var(--fs-sm);color:var(--text-secondary);margin-top:2px}.search-result-item .sr-time{font-size:var(--fs-xs);color:var(--text-quaternary);margin-top:2px}.toast-container{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:500;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}.toast{background:var(--bg-elevated);border:1px solid var(--border-standard);border-radius:var(--r-lg);padding:10px 20px;font-size:var(--fs-sm);color:var(--text-primary);box-shadow:var(--shadow-modal);animation:toastIn 0.2s ease;pointer-events:auto;max-width:90vw}.toast.success{border-color:var(--success)}.toast.error{border-color:var(--danger);color:var(--danger)}.toast.warn{border-color:var(--warning)}@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text-tertiary);gap:var(--sp-3);padding:var(--sp-5);text-align:center}.empty-state .empty-icon{font-size:48px;opacity:0.5}.empty-state .empty-title{font-size:var(--fs-lg);font-weight:600;color:var(--text-secondary)}.empty-state .empty-desc{font-size:var(--fs-sm);max-width:300px}.department-header{padding:var(--sp-2) var(--sp-4);font-size:var(--fs-xs);font-weight:700;color:var(--text-quaternary);text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;margin-top:var(--sp-2)}.department-header .dept-toggle{cursor:pointer;font-size:10px}.typing-indicator{padding:2px var(--sp-4);font-size:var(--fs-xs);color:var(--accent-hover);min-height:20px;font-weight:500}.typing-dots::after{content:'…';animation:typingDots 1.2s infinite}@keyframes typingDots{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}.drag-overlay{position:fixed;inset:0;background:rgba(94,106,210,0.2);backdrop-filter:blur(2px);border:3px dashed var(--accent);border-radius:16px;margin:12px;z-index:400;display:flex;align-items:center;justify-content:center;font-size:var(--fs-xl);font-weight:700;color:var(--accent-hover);pointer-events:none}.online-indicator{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-xs);color:var(--text-tertiary)}.online-indicator .dot{width:8px;height:8px;border-radius:50%;background:var(--success)}.online-indicator .dot.offline{background:var(--text-quaternary)}.online-light{display:inline-block;width:9px;height:9px;border-radius:50%;background:#27a644;box-shadow:0 0 6px rgba(39,166,68,.8);margin-right:2px;flex-shrink:0}.online-badge{position:absolute;bottom:-2px;left:-2px;width:12px;height:12px;border-radius:50%;background:#27a644;border:2px solid var(--bg);box-shadow:0 0 4px rgba(39,166,68,.7);z-index:2}.chat-item .avatar{position:relative}.mobile-hamburger{display:none;width:36px;height:36px;border-radius:var(--r-md);align-items:center;justify-content:center;font-size:var(--fs-lg);color:var(--text-secondary)}.mobile-hamburger:hover{background:var(--bg-hover)}@media (max-width:1024px){.app-layout{grid-template-columns:280px 1fr}.info-panel{display:flex;position:fixed;right:0;left:auto;top:0;bottom:0;width:320px;max-width:85vw;z-index:90;box-shadow:-8px 0 24px rgba(0,0,0,0.35)}[dir="rtl"] .info-panel{right:auto;left:0;box-shadow:8px 0 24px rgba(0,0,0,0.35)}}@media (max-width:900px){.app-layout{grid-template-columns:240px 1fr}.chat-header-status{display:none}.admin-toolbar{flex-wrap:wrap;gap:8px}.admin-toolbar .btn-primary,.admin-toolbar .btn-secondary{flex:1 1 auto}}@media (max-width:768px){.app-layout{grid-template-columns:1fr}.sidebar{position:fixed;inset:0;z-index:100;width:82%;max-width:320px;transform:translateX(-100%);transition:transform 0.25s ease;border-right:none !important;border-left:none !important}[dir="rtl"] .sidebar{transform:translateX(100%)}.sidebar.sidebar-open{transform:translateX(0);box-shadow:var(--shadow-modal)}.mobile-hamburger{display:inline-flex}.sidebar-tabs{flex-wrap:wrap;row-gap:6px}.sidebar-tabs button{flex:1 1 45%;min-width:0;font-size:12px;padding:8px 6px}.msg-group{max-width:88%}.composer{border-radius:var(--r-lg)}.admin-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.admin-table{min-width:560px}.info-panel{display:flex;position:fixed;right:0;left:0;bottom:0;top:auto;max-height:70vh;width:100%;z-index:90;border-radius:var(--r-xl) var(--r-xl) 0 0;padding-bottom:calc(env(safe-area-inset-bottom,0px) + var(--sp-4))}[dir="rtl"] .info-panel{right:0;left:0}}@media (max-width:480px){.msg-group{max-width:94%}.chat-header{padding:10px var(--sp-3)}.composer-wrap{padding:var(--sp-2) var(--sp-3)}.admin-body{padding:var(--sp-3)}.modal{padding:var(--sp-4)}.login-card{padding:var(--sp-5)}.modal-actions{flex-direction:column}.modal-actions .btn-primary,.modal-actions .btn-secondary{width:100%;min-height:44px}.composer{gap:4px}.composer .btn-icon{min-width:38px;min-height:38px}.sidebar{width:88%;max-width:320px}}@media (max-width:360px){.sidebar-header{padding:var(--sp-2)}.profile-name{font-size:13px}.sidebar-search{padding:var(--sp-2) var(--sp-2)}}@supports (padding:max(0px)){.composer-wrap,.chat-header{padding-left:max(var(--tok-sp-3,16px),env(safe-area-inset-left,0px));padding-right:max(var(--tok-sp-3,16px),env(safe-area-inset-right,0px))}.sidebar{padding-bottom:env(safe-area-inset-bottom,0px)}}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}}
 </style>
 </head>
-<body>
-<div id="demo-banner" style="position:fixed;top:0;left:0;right:0;z-index:99999;background:linear-gradient(90deg,#b3541e,#e8a33d);color:#fff;padding:6px 14px;font-size:13px;text-align:center;direction:rtl;font-family:Tahoma,sans-serif;">
-  🎭 دموی ظاهری v1.0.8 — بدون سرور؛ برای تست کامل، باینری را اجرا کن
-  <button onclick="this.parentElement.remove()" style="margin-inline-start:10px;background:rgba(0,0,0,.25);border:none;color:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;">✕</button>
-</div>
-
+<body><div style="position:fixed;top:0;left:0;right:0;z-index:99999;background:linear-gradient(90deg,#b3541e,#e8a33d);color:#fff;padding:6px 14px;font-size:13px;text-align:center;direction:rtl;font-family:Tahoma,sans-serif;">🎭 دموی v1.0.8 — دایره‌های رنگی زیر لوگو = ۶ تم × ☀️/🌙 روشن-تیره<button onclick="this.parentElement.remove()" style="margin-inline-start:10px;background:rgba(0,0,0,.25);border:none;color:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;">✕</button></div>
   <div id="app" v-cloak>
 
     <!-- ═══════════════ LOGIN SCREEN ═══════════════ -->
@@ -58,6 +57,18 @@ html {
         <div class="lang-switcher">
           <button :class="{ active: uiLang === 'fa' }" @click="setLang('fa')">فارسی</button>
           <button :class="{ active: uiLang === 'en' }" @click="setLang('en')">English</button>
+        </div>
+
+        <!-- Theme picker (v1.0.8): 6 bases × light/dark -->
+        <div class="theme-picker">
+          <button v-for="th in themeList" :key="th.id"
+                  class="theme-dot" :style="{ background: th.swatch }"
+                  :title="t(th.id) || th.label" @click="setThemeBase(th.id)">
+            <span v-if="themeBase === th.id" class="theme-check">✓</span>
+          </button>
+          <button class="theme-mode-btn" @click="toggleThemeMode" :title="themeMode === 'dark' ? 'روشن' : 'تیره'">
+            {{ themeMode === 'dark' ? '☀️' : '🌙' }}
+          </button>
         </div>
 
         <!-- Login form -->
@@ -115,8 +126,8 @@ html {
             </div>
           </div>
           <!-- Theme toggle -->
-          <button class="btn-icon" @click="toggleTheme" :title="theme === 'dark' ? 'حالت روشن' : 'حالت تاریک'">
-            {{ theme === 'dark' ? '☀️' : '🌙' }}
+          <button class="btn-icon" @click="toggleThemeMode" :title="themeMode === 'dark' ? 'حالت روشن' : 'حالت تاریک'">
+            {{ themeMode === 'dark' ? '☀️' : '🌙' }}
           </button>
         </div>
 
@@ -902,7 +913,2131 @@ html {
 `,0),a()),c||i("return "),e.codegenNode?ae(e.codegenNode,n):i("null"),h&&(o(),i("}")),o(),i("}"),{ast:e,code:n.code,preamble:"",map:n.map?n.map.toJSON():void 0}}(o,s)}(e,T({},aB,t,{nodeTransforms:[aK,...az,...t.nodeTransforms||[]],directiveTransforms:T({},aJ,t.directiveTransforms||{}),transformHoist:null}))}(e,i),s=Function(l)();return s._rc=!0,aG[n]=s}return iP(aX),e.BaseTransition=ny,e.BaseTransitionPropsValidators=ng,e.Comment=r9,e.DeprecationTypes=null,e.EffectScope=em,e.ErrorCodes={SETUP_FUNCTION:0,0:"SETUP_FUNCTION",RENDER_FUNCTION:1,1:"RENDER_FUNCTION",NATIVE_EVENT_HANDLER:5,5:"NATIVE_EVENT_HANDLER",COMPONENT_EVENT_HANDLER:6,6:"COMPONENT_EVENT_HANDLER",VNODE_HOOK:7,7:"VNODE_HOOK",DIRECTIVE_HOOK:8,8:"DIRECTIVE_HOOK",TRANSITION_HOOK:9,9:"TRANSITION_HOOK",APP_ERROR_HANDLER:10,10:"APP_ERROR_HANDLER",APP_WARN_HANDLER:11,11:"APP_WARN_HANDLER",FUNCTION_REF:12,12:"FUNCTION_REF",ASYNC_COMPONENT_LOADER:13,13:"ASYNC_COMPONENT_LOADER",SCHEDULER:14,14:"SCHEDULER",COMPONENT_UPDATE:15,15:"COMPONENT_UPDATE",APP_UNMOUNT_CLEANUP:16,16:"APP_UNMOUNT_CLEANUP"},e.ErrorTypeStrings=null,e.Fragment=r8,e.KeepAlive={name:"KeepAlive",__isKeepAlive:!0,props:{include:[String,RegExp,Array],exclude:[String,RegExp,Array],max:[String,Number]},setup(e,{slots:t}){let n=iA(),r=n.ctx,i=new Map,l=new Set,s=null,o=n.suspense,{renderer:{p:a,m:c,um:u,o:{createElement:d}}}=r,h=d("div");function f(e){nG(e),u(e,n,o,!0)}function p(e){i.forEach((t,n)=>{let r=iV(nU(t)?t.type.__asyncResolved||{}:t.type);r&&!e(r)&&g(n)})}function g(e){let t=i.get(e);!t||s&&iu(t,s)?s&&nG(s):f(t),i.delete(e),l.delete(e)}r.activate=(e,t,n,r,i)=>{let l=e.component;c(e,t,n,0,o),a(l.vnode,e,t,n,l,o,r,e.slotScopeIds,i),rW(()=>{l.isDeactivated=!1,l.a&&z(l.a);let t=e.props&&e.props.onVnodeMounted;t&&ik(t,l.parent,e)},o)},r.deactivate=e=>{let t=e.component;rZ(t.m),rZ(t.a),c(e,h,null,1,o),rW(()=>{t.da&&z(t.da);let n=e.props&&e.props.onVnodeUnmounted;n&&ik(n,t.parent,e),t.isDeactivated=!0},o)},t7(()=>[e.include,e.exclude],([e,t])=>{e&&p(t=>nW(e,t)),t&&p(e=>!nW(t,e))},{flush:"post",deep:!0});let m=null,y=()=>{null!=m&&(rY(n.subTree.type)?rW(()=>{i.set(m,nX(n.subTree))},n.subTree.suspense):i.set(m,nX(n.subTree)))};return n0(y),n2(y),n3(()=>{i.forEach(e=>{let{subTree:t,suspense:r}=n,i=nX(t);if(e.type===i.type&&e.key===i.key){nG(i);let e=i.component.da;e&&rW(e,r);return}f(e)})}),()=>{if(m=null,!t.default)return s=null;let n=t.default(),r=n[0];if(n.length>1)return s=null,n;if(!ic(r)||!(4&r.shapeFlag)&&!(128&r.shapeFlag))return s=null,r;let o=nX(r);if(o.type===r9)return s=null,o;let a=o.type,c=iV(nU(o)?o.type.__asyncResolved||{}:a),{include:u,exclude:d,max:h}=e;if(u&&(!c||!nW(u,c))||d&&c&&nW(d,c))return o.shapeFlag&=-257,s=o,r;let f=null==o.key?a:o.key,p=i.get(f);return o.el&&(o=iv(o),128&r.shapeFlag&&(r.ssContent=o)),m=f,p?(o.el=p.el,o.component=p.component,o.transition&&nC(o,o.transition),o.shapeFlag|=512,l.delete(f),l.add(f)):(l.add(f),h&&l.size>parseInt(h,10)&&g(l.values().next().value)),o.shapeFlag|=256,s=o,rY(r.type)?r:o}}},e.ReactiveEffect=ey,e.Static=r7,e.Suspense={name:"Suspense",__isSuspense:!0,process(e,t,n,r,i,l,s,o,a,c){if(null==e)!function(e,t,n,r,i,l,s,o,a){let{p:c,o:{createElement:u}}=a,d=u("div"),h=e.suspense=r2(e,i,r,t,d,n,l,s,o,a);c(null,h.pendingBranch=e.ssContent,d,null,r,h,l,s),h.deps>0?(r1(e,"onPending"),r1(e,"onFallback"),c(null,e.ssFallback,t,n,r,null,l,s),r4(h,e.ssFallback)):h.resolve(!1,!0)}(t,n,r,i,l,s,o,a,c);else{if(l&&l.deps>0&&!e.suspense.isInFallback){t.suspense=e.suspense,t.suspense.vnode=t,t.el=e.el;return}!function(e,t,n,r,i,l,s,o,{p:a,um:c,o:{createElement:u}}){let d=t.suspense=e.suspense;d.vnode=t,t.el=e.el;let h=t.ssContent,f=t.ssFallback,{activeBranch:p,pendingBranch:g,isInFallback:m,isHydrating:y}=d;if(g)d.pendingBranch=h,iu(g,h)?(a(g,h,d.hiddenContainer,null,i,d,l,s,o),d.deps<=0?d.resolve():m&&!y&&(a(p,f,n,r,i,null,l,s,o),r4(d,f))):(d.pendingId=r0++,y?(d.isHydrating=!1,d.activeBranch=g):c(g,i,d),d.deps=0,d.effects.length=0,d.hiddenContainer=u("div"),m?(a(null,h,d.hiddenContainer,null,i,d,l,s,o),d.deps<=0?d.resolve():(a(p,f,n,r,i,null,l,s,o),r4(d,f))):p&&iu(p,h)?(a(p,h,n,r,i,d,l,s,o),d.resolve(!0)):(a(null,h,d.hiddenContainer,null,i,d,l,s,o),d.deps<=0&&d.resolve()));else if(p&&iu(p,h))a(p,h,n,r,i,d,l,s,o),r4(d,h);else if(r1(t,"onPending"),d.pendingBranch=h,512&h.shapeFlag?d.pendingId=h.component.suspenseId:d.pendingId=r0++,a(null,h,d.hiddenContainer,null,i,d,l,s,o),d.deps<=0)d.resolve();else{let{timeout:e,pendingId:t}=d;e>0?setTimeout(()=>{d.pendingId===t&&d.fallback(f)},e):0===e&&d.fallback(f)}}(e,t,n,r,i,s,o,a,c)}},hydrate:function(e,t,n,r,i,l,s,o,a){let c=t.suspense=r2(t,r,n,e.parentNode,document.createElement("div"),null,i,l,s,o,!0),u=a(e,c.pendingBranch=t.ssContent,n,c,l,s);return 0===c.deps&&c.resolve(!1,!0),u},normalize:function(e){let{shapeFlag:t,children:n}=e,r=32&t;e.ssContent=r3(r?n.default:n),e.ssFallback=r?r3(n.fallback):ig(r9)}},e.Teleport={name:"Teleport",__isTeleport:!0,process(e,t,n,r,i,l,s,o,a,c){let{mc:u,pc:d,pbc:h,o:{insert:f,querySelector:p,createText:g,parentNode:m}}=c,y=ni(t.props),{dynamicChildren:b}=t,_=(e,t,n)=>{16&e.shapeFlag&&u(e.children,t,n,i,l,s,o,a)},S=(e=t)=>{let n=ni(e.props),r=e.target=no(e.props,p),l=nu(r,e,g,f);r&&("svg"!==s&&nl(r)?s="svg":"mathml"!==s&&ns(r)&&(s="mathml"),i&&i.isCE&&(i.ce._teleportTargets||(i.ce._teleportTargets=new Set)).add(r),n||(_(e,r,l),nc(e,!1)))},x=e=>{let t=()=>{if(nn.get(e)===t){if(nn.delete(e),ni(e.props)){let t=m(e.el)||n;_(e,t,e.anchor),nc(e,!0)}S(e)}};nn.set(e,t),rW(t,l)};if(null==e){let e,i=t.el=g(""),s=t.anchor=g("");if(f(i,n,r),f(s,n,r),(e=t.props)&&(e.defer||""===e.defer)||l&&l.pendingBranch)return void x(t);y&&(_(t,n,s),nc(t,!0)),S()}else{t.el=e.el;let r=t.anchor=e.anchor,u=nn.get(e);if(u){u.flags|=8,nn.delete(e),x(t);return}t.targetStart=e.targetStart;let f=t.target=e.target,g=t.targetAnchor=e.targetAnchor,m=ni(e.props),_=m?n:f,S=m?r:g;if("svg"===s||nl(f)?s="svg":("mathml"===s||ns(f))&&(s="mathml"),b?(h(e.dynamicChildren,b,_,i,l,s,o),rQ(e,t,!0)):a||d(e,t,_,S,i,l,s,o,!1),y)m?t.props&&e.props&&t.props.to!==e.props.to&&(t.props.to=e.props.to):na(t,n,r,c,1);else if((t.props&&t.props.to)!==(e.props&&e.props.to)){let e=no(t.props,p);e&&(t.target=e,na(t,e,null,c,0))}else m&&na(t,f,g,c,1);nc(t,y)}},remove(e,t,n,{um:r,o:{remove:i}},l){let{shapeFlag:s,children:o,anchor:a,targetStart:c,targetAnchor:u,target:d,props:h}=e,f=ni(h),p=l||!f,g=nn.get(e);if(g&&(g.flags|=8,nn.delete(e)),d&&(i(c),i(u)),l&&i(a),!g&&(f||d)&&16&s)for(let e=0;e<o.length;e++){let i=o[e];r(i,t,n,p,!!i.dynamicChildren)}},move:na,hydrate:function(e,t,n,r,i,l,{o:{nextSibling:s,parentNode:o,querySelector:a,insert:c,createText:u}},d){function h(e,n){let r=n;for(;r;){if(r&&8===r.nodeType){if("teleport start anchor"===r.data)t.targetStart=r;else if("teleport anchor"===r.data){t.targetAnchor=r,e._lpa=t.targetAnchor&&s(t.targetAnchor);break}}r=s(r)}}function f(e,t){t.anchor=d(s(e),t,o(e),n,r,i,l)}let p=t.target=no(t.props,a),g=ni(t.props);if(p){let a=p._lpa||p.firstChild;16&t.shapeFlag&&(g?(f(e,t),h(p,a),t.targetAnchor||nu(p,t,u,c,o(e)===p?e:null)):(t.anchor=s(e),h(p,a),t.targetAnchor||nu(p,t,u,c),d(a&&s(a),t,p,n,r,i,l))),nc(t,g)}else g&&16&t.shapeFlag&&(f(e,t),t.targetStart=e,t.targetAnchor=s(e));return t.anchor&&s(t.anchor)}},e.Text=r5,e.TrackOpTypes={GET:"get",HAS:"has",ITERATE:"iterate"},e.Transition=i0,e.TransitionGroup=lM,e.TriggerOpTypes={SET:"set",ADD:"add",DELETE:"delete",CLEAR:"clear"},e.VueElement=lN,e.assertNumber=function(e,t){},e.callWithAsyncErrorHandling=tD,e.callWithErrorHandling=t$,e.camelize=j,e.capitalize=q,e.cloneVNode=iv,e.compatUtils=null,e.compile=aX,e.computed=iB,e.createApp=l4,e.createBlock=ia,e.createCommentVNode=ib,e.createElementBlock=function(e,t,n,r,i,l){return io(ip(e,t,n,r,i,l,!0))},e.createElementVNode=ip,e.createHydrationRenderer=rK,e.createPropsRestProxy=function(e,t){let n={};for(let r in e)t.includes(r)||Object.defineProperty(n,r,{enumerable:!0,get:()=>e[r]});return n},e.createRenderer=function(e){return rz(e)},e.createSSRApp=l8,e.createSlots=function(e,t){for(let n=0;n<t.length;n++){let r=t[n];if(E(r))for(let t=0;t<r.length;t++)e[r[t].name]=r[t].fn;else r&&(e[r.name]=r.key?(...e)=>{let t=r.fn(...e);return t&&(t.key=r.key),t}:r.fn)}return e},e.createStaticVNode=function(e,t){let n=ig(r7,null,e);return n.staticCount=t,n},e.createTextVNode=iy,e.createVNode=ig,e.customRef=tE,e.defineAsyncComponent=function(e){let t;I(e)&&(e={loader:e});let{loader:n,loadingComponent:r,errorComponent:i,delay:l=200,hydrate:s,timeout:o,suspensible:a=!0,onError:c}=e,u=null,d=0,h=()=>{let e;return u||(e=u=n().catch(e=>{if(e=e instanceof Error?e:Error(String(e)),c)return new Promise((t,n)=>{c(e,()=>t((d++,u=null,h())),()=>n(e),d+1)});throw e}).then(n=>e!==u&&u?u:(n&&(n.__esModule||"Module"===n[Symbol.toStringTag])&&(n=n.default),t=n,n)))};return nT({name:"AsyncComponentWrapper",__asyncLoader:h,__asyncHydrate(e,n,r){let i=e.isConnected,l=!1;(n.bu||(n.bu=[])).push(()=>l=!0);let o=()=>{l||e.parentNode&&(!i||e.isConnected)&&r()},a=s?()=>{let t=s(o,t=>(function(e,t){if(nP(e)&&"["===e.data){let n=1,r=e.nextSibling;for(;r;){if(1===r.nodeType){if(!1===t(r))break}else if(nP(r))if("]"===r.data){if(0==--n)break}else"["===r.data&&n++;r=r.nextSibling}}else t(e)})(e,t));t&&(n.bum||(n.bum=[])).push(t)}:o;t?a():h().then(()=>!n.isUnmounted&&a())},get __asyncResolved(){return t},setup(){let e,n,s=iN;if(nw(s),t)return()=>nH(t,s);let c=e=>{u=null,tV(e,s,13,!i)};if(a&&s.suspense)return h().then(e=>()=>nH(e,s)).catch(e=>(c(e),()=>i?ig(i,{error:e}):null));let d=tS(!1),f=tS(),p=tS(!!l);return n6(()=>{null!=e&&clearTimeout(e),null!=n&&clearTimeout(n)}),l&&(n=setTimeout(()=>{s.isUnmounted||(p.value=!1)},l)),null!=o&&(e=setTimeout(()=>{if(!s.isUnmounted&&!d.value&&!f.value){let e=Error(`Async component timed out after ${o}ms.`);c(e),f.value=e}},o)),h().then(()=>{!s.isUnmounted&&(d.value=!0,s.parent&&nq(s.parent.vnode)&&s.parent.update())}).catch(e=>{if(s.isUnmounted){u=null;return}c(e),f.value=e}),()=>d.value&&t?nH(t,s):f.value&&i?ig(i,{error:f.value}):r&&!p.value?nH(r,s):void 0}})},e.defineComponent=nT,e.defineCustomElement=lT,e.defineEmits=function(){return null},e.defineExpose=function(e){},e.defineModel=function(){},e.defineOptions=function(e){},e.defineProps=function(){return null},e.defineSSRCustomElement=(e,t)=>lT(e,t,l8),e.defineSlots=function(){return null},e.devtools=void 0,e.effect=function(e,t){e.effect instanceof ey&&(e=e.effect.fn);let n=new ey(e);t&&T(n,t);try{n.run()}catch(e){throw n.stop(),e}let r=n.run.bind(n);return r.effect=n,r},e.effectScope=function(e){return new em(e)},e.getCurrentInstance=iA,e.getCurrentScope=function(){return l},e.getCurrentWatcher=function(){return g},e.getTransitionRawChildren=nk,e.guardReactiveProps=im,e.h=ij,e.handleError=tV,e.hasInjectionContext=function(){return!!(iA()||rx)},e.hydrate=(...e)=>{l3().hydrate(...e)},e.hydrateOnIdle=(e=1e4)=>t=>{let n=nB(t,{timeout:e});return()=>nj(n)},e.hydrateOnInteraction=(e=[])=>(t,n)=>{R(e)&&(e=[e]);let r=!1,i=e=>{r||(r=!0,l(),t(),e.target.dispatchEvent(new e.constructor(e.type,e)))},l=()=>{n(t=>{for(let n of e)t.removeEventListener(n,i)})};return n(t=>{for(let n of e)t.addEventListener(n,i,{once:!0})}),l},e.hydrateOnMediaQuery=e=>t=>{if(e){let n=matchMedia(e);if(!n.matches)return n.addEventListener("change",t,{once:!0}),()=>n.removeEventListener("change",t);t()}},e.hydrateOnVisible=e=>(t,n)=>{let r=new IntersectionObserver(e=>{for(let n of e)if(n.isIntersecting){r.disconnect(),t();break}},e);return n(e=>{if(e instanceof Element){if(function(e){let{top:t,left:n,bottom:r,right:i}=e.getBoundingClientRect(),{innerHeight:l,innerWidth:s}=window;return(t>0&&t<l||r>0&&r<l)&&(n>0&&n<s||i>0&&i<s)}(e))return t(),r.disconnect(),!1;r.observe(e)}}),()=>r.disconnect()},e.initCustomFormatter=function(){},e.initDirectivesForSSR=S,e.inject=t8,e.isMemoSame=iU,e.isProxy=tg,e.isReactive=th,e.isReadonly=tf,e.isRef=t_,e.isRuntimeOnly=()=>!d,e.isShallow=tp,e.isVNode=ic,e.markRaw=tv,e.mergeDefaults=function(e,t){let n=rc(e);for(let e in t){if(e.startsWith("__skip"))continue;let r=n[e];r?E(r)||I(r)?r=n[e]={type:r,default:t[e]}:r.default=t[e]:null===r&&(r=n[e]={default:t[e]}),r&&t[`__skip_${e}`]&&(r.skipFactory=!0)}return n},e.mergeModels=function(e,t){return e&&t?E(e)&&E(t)?e.concat(t):T({},rc(e),rc(t)):e||t},e.mergeProps=iC,e.nextTick=tz,e.nodeOps=iJ,e.normalizeClass=ei,e.normalizeProps=function(e){if(!e)return null;let{class:t,style:n}=e;return t&&!R(t)&&(e.class=ei(t)),n&&(e.style=Y(n)),e},e.normalizeStyle=Y,e.onActivated=nK,e.onBeforeMount=nY,e.onBeforeUnmount=n3,e.onBeforeUpdate=n1,e.onDeactivated=nz,e.onErrorCaptured=n9,e.onMounted=n0,e.onRenderTracked=n5,e.onRenderTriggered=n8,e.onScopeDispose=function(e,t=!1){l&&l.cleanups.push(e)},e.onServerPrefetch=n4,e.onUnmounted=n6,e.onUpdated=n2,e.onWatcherCleanup=tF,e.openBlock=ir,e.patchProp=lC,e.popScopeId=function(){t1=null},e.provide=t4,e.proxyRefs=tN,e.pushScopeId=function(e){t1=e},e.queuePostFlushCb=tX,e.reactive=ta,e.readonly=tu,e.ref=tS,e.registerRuntimeCompiler=iP,e.render=l6,e.renderList=function(e,t,n,r){let i,l=n&&n[r],s=E(e);if(s||R(e)){let n=s&&th(e),r=!1,o=!1;n&&(r=!tp(e),o=tf(e),e=eU(e)),i=Array(e.length);for(let n=0,s=e.length;n<s;n++)i[n]=t(r?o?tb(ty(e[n])):ty(e[n]):e[n],n,void 0,l&&l[n])}else if("number"==typeof e){i=Array(e);for(let n=0;n<e;n++)i[n]=t(n+1,n,void 0,l&&l[n])}else if(M(e))if(e[Symbol.iterator])i=Array.from(e,(e,n)=>t(e,n,void 0,l&&l[n]));else{let n=Object.keys(e);i=Array(n.length);for(let r=0,s=n.length;r<s;r++){let s=n[r];i[r]=t(e[s],s,r,l&&l[r])}}else i=[];return n&&(n[r]=i),i},e.renderSlot=function(e,t,n={},r,i,l){let s;if(t0.ce||t0.parent&&nU(t0.parent)&&t0.parent.ce){let e=null!=l&&null==n.key?T({},n,{key:l}):n,i=Object.keys(e).length>0;return"default"!==t&&(e.name=t),ir(),ia(r8,null,[ig("slot",e,r&&r())],i?-2:64)}let o=e[t];o&&o._c&&(o._d=!1);let a=ie.length;ir();try{let i=o&&function e(t){return t.some(t=>!ic(t)||t.type!==r9&&(t.type!==r8||!!e(t.children)))?t:null}(o(n)),a=n.key||l||i&&i.key;s=ia(r8,{key:(a&&!O(a)?a:`_${t}`)+(!i&&r?"_fb":"")},i||(r?r():[]),i&&1===e._?64:-2)}catch(e){for(let e=ie.length;e>a;e--)ii();throw e}finally{o&&o._c&&(o._d=!0)}return!i&&s.scopeId&&(s.slotScopeIds=[s.scopeId+"-s"]),s},e.resolveComponent=function(e,t){return rt(n7,e,!0,t)||e},e.resolveDirective=function(e){return rt("directives",e)},e.resolveDynamicComponent=function(e){return R(e)?rt(n7,e,!1)||e:e||re},e.resolveFilter=null,e.resolveTransitionHooks=n_,e.setBlockTracking=is,e.setDevtoolsHook=S,e.setTransitionHooks=nC,e.shallowReactive=tc,e.shallowReadonly=function(e){return td(e,!0,e8,tr,to)},e.shallowRef=tx,e.ssrContextKey=t5,e.ssrUtils=null,e.stop=function(e){e.effect.stop()},e.toDisplayString=ef,e.toHandlerKey=W,e.toHandlers=function(e,t){let n={};for(let r in e)n[t&&/[A-Z]/.test(r)?`on:${r}`:W(r)]=e[r];return n},e.toRaw=tm,e.toRef=function(e,t,n){if(t_(e))return e;if(I(e))return new tR(e);if(!M(e)||!(arguments.length>1))return tS(e);return new tI(e,t,n)},e.toRefs=function(e){let t=E(e)?Array(e.length):{};for(let n in e)t[n]=new tI(e,n,void 0);return t},e.toValue=function(e){return I(e)?e():tT(e)},e.transformVNodeArgs=function(e){},e.triggerRef=function(e){e.dep&&e.dep.trigger()},e.unref=tT,e.useAttrs=function(){return ra().attrs},e.useCssModule=function(e="$style"){return b},e.useCssVars=function(e){let t=iA();if(!t)return;let n=t.ut=(n=e(t.proxy))=>{Array.from(document.querySelectorAll(`[data-v-owner="${t.uid}"]`)).forEach(e=>lo(e,n))},r=()=>{let r=e(t.proxy);t.ce?lo(t.ce,r):function e(t,n){if(128&t.shapeFlag){let r=t.suspense;t=r.activeBranch,r.pendingBranch&&!r.isHydrating&&r.effects.push(()=>{e(r.activeBranch,n)})}for(;t.component;)t=t.component.subTree;if(1&t.shapeFlag&&t.el)lo(t.el,n);else if(t.type===r8)t.children.forEach(t=>e(t,n));else if(t.type===r7){let{el:e,anchor:r}=t;for(;e&&(lo(e,n),e!==r);)e=e.nextSibling}}(t.subTree,r),n(r)};n1(()=>{tX(r)}),n0(()=>{t7(r,S,{flush:"post"});let e=new MutationObserver(r);e.observe(t.subTree.el.parentNode,{childList:!0}),n6(()=>e.disconnect())})},e.useHost=lA,e.useId=function(){let e=iA();return e?(e.appContext.config.idPrefix||"v")+"-"+e.ids[0]+e.ids[1]++:""},e.useModel=function(e,t,n=b){let r=iA(),i=j(t),l=H(t),s=rC(e,i),o=tE((s,o)=>{let a,c,u=b;return t9(()=>{let t=e[i];K(a,t)&&(a=t,o())}),{get:()=>(s(),n.get?n.get(a):a),set(e){let s=n.set?n.set(e):e;if(!K(s,a)&&!(u!==b&&K(e,u)))return;let d=r.vnode.props,h=!!(d&&(t in d||i in d||l in d)&&(`onUpdate:${t}`in d||`onUpdate:${i}`in d||`onUpdate:${l}`in d));h||(a=e,o()),r.emit(`update:${t}`,s),K(e,u)&&(K(e,s)&&!K(s,c)||h&&u!==b&&!K(s,a))&&o(),u=e,c=s}}});return o[Symbol.iterator]=()=>{let e=0;return{next:()=>e<2?{value:e++?s||b:o,done:!1}:{done:!0}}},o},e.useSSRContext=()=>{},e.useShadowRoot=function(){let e=lA();return e&&e.shadowRoot},e.useSlots=function(){return ra().slots},e.useTemplateRef=function(e){let t=iA(),n=tx(null);return t&&Object.defineProperty(t.refs===b?t.refs={}:t.refs,e,{enumerable:!0,get:()=>n.value,set:e=>n.value=e}),n},e.useTransitionState=nf,e.vModelCheckbox=lq,e.vModelDynamic={created(e,t,n){lQ(e,t,n,null,"created")},mounted(e,t,n){lQ(e,t,n,null,"mounted")},beforeUpdate(e,t,n,r){lQ(e,t,n,r,"beforeUpdate")},updated(e,t,n,r){lQ(e,t,n,r,"updated")}},e.vModelRadio=lK,e.vModelSelect=lz,e.vModelText=lH,e.vShow={name:"show",beforeMount(e,{value:t},{transition:n}){e[lr]="none"===e.style.display?"":e.style.display,n&&t?n.beforeEnter(e):ll(e,t)},mounted(e,{value:t},{transition:n}){n&&t&&n.enter(e)},updated(e,{value:t,oldValue:n},{transition:r}){!t!=!n&&(r?t?(r.beforeEnter(e),ll(e,!0),r.enter(e)):r.leave(e,()=>{ll(e,!1)}):ll(e,t))},beforeUnmount(e,{value:t}){ll(e,t)}},e.version=iH,e.warn=S,e.watch=function(e,t,n){return t7(e,t,n)},e.watchEffect=function(e,t){return t7(e,null,t)},e.watchPostEffect=function(e,t){return t7(e,null,{flush:"post"})},e.watchSyncEffect=t9,e.withAsyncContext=function(e){let t=iA(),n=iO,r=e();iI(),n&&u(!1);let i=()=>{iE(t),n&&u(!0)},l=()=>{iA()!==t&&t.scope.off(),iI(),n&&u(!1)};return P(r)&&(r=r.catch(e=>{throw i(),Promise.resolve().then(()=>Promise.resolve().then(l)),e})),[r,()=>{i(),Promise.resolve().then(l)}]},e.withCtx=t3,e.withDefaults=function(e,t){return null},e.withDirectives=function(e,t){if(null===t0)return e;let n=iD(t0),r=e.dirs||(e.dirs=[]);for(let e=0;e<t.length;e++){let[i,l,s,o=b]=t[e];i&&(I(i)&&(i={mounted:i,updated:i}),i.deep&&tL(l),r.push({dir:i,instance:n,value:l,oldValue:void 0,arg:s,modifiers:o}))}return e},e.withKeys=(e,t)=>{let n=e._withKeys||(e._withKeys={}),r=t.join(".");return n[r]||(n[r]=n=>{if(!("key"in n))return;let r=H(n.key);if(t.some(e=>e===r||l0[e]===r))return e(n)})},e.withMemo=function(e,t,n,r){let i=n[r];if(i&&iU(i,e))return i;let l=t();return l.memo=e.slice(),l.cacheIndex=r,n[r]=l},e.withModifiers=(e,t)=>{if(!e)return e;let n=e._withMods||(e._withMods={}),r=t.join(".");return n[r]||(n[r]=(n,...r)=>{for(let e=0;e<t.length;e++){let r=lY[t[e]];if(r&&r(n,t))return}return e(n,...r)})},e.withScopeId=e=>t3,e}({});
 
 </script>
-  <script>// Service Worker for push notifications
+  <script>
+
+
+/* ═══════════ خان — Khan Chat Frontend (Vue 3) v1.0.3 ═══════════
+   Full-featured: public/private rooms, offline msgs, presence, typing,
+   read receipts, edit/delete, mentions, search, forward/reply/pin,
+   polls, urgent, unread counters, desktop notif, Persian calendar,
+   drag&drop files, avatar upload, stickers, departments, backup, logs
+*/
+const { createApp } = Vue;
+
+// ─── دوزبانه: فارسی / English ───
+const I18N = {
+  fa: {
+    // Login / Setup
+    loginSubtitle: 'چت سازمانی سبک برای شبکه محلی شما',
+    username: 'نام کاربری',
+    usernamePlaceholder: 'نام کاربری خود را وارد کنید',
+    password: 'رمز عبور',
+    passwordPlaceholder: '••••••••',
+    loggingIn: 'در حال ورود...',
+    login: 'ورود',
+    setupAdmin: 'نام کاربری مدیر',
+    setupDisplayName: 'نام نمایشی',
+    setupPassword: 'رمز عبور',
+    setupCreate: '🚀 ساخت مدیر',
+    // Sidebar
+    searchChats: 'جستجوی گفتگوها...',
+    chats: 'گفتگوها',
+    rooms: 'اتاق‌ها',
+    search: 'جستجو',
+    noChats: 'هنوز گفتگویی نیست',
+    noChatsDesc: 'از تب اتاق‌ها یک اتاق بسازید یا به اتاق عمومی بپیوندید',
+    publicRooms: 'اتاق‌های عمومی',
+    privateRooms: 'اتاق‌های خصوصی',
+    clickToJoin: 'برای عضویت کلیک کنید',
+    createRoom: 'ساخت اتاق جدید',
+    newRoom: 'اتاق جدید',
+    createRoomDesc: 'گروه، عمومی، خصوصی یا کانال بسازید',
+    smartSearch: 'جستجوی هوشمند...',
+    searchMessages: 'جستجو در پیام‌ها',
+    adminPanel: 'پنل مدیریت',
+    logout: 'خروج',
+    online: 'آنلاین',
+    noOnline: 'هیچ‌کس آنلاین نیست',
+    allUsers: 'همه کاربران',
+    admin: 'مدیر',
+    offline: 'آفلاین',
+    members: 'عضو',
+    // Chat
+    khanChat: 'خان',
+    urgentMessage: 'پیام فوری در این اتاق وجود دارد',
+    loadOlder: 'پیام‌های قدیمی‌تر',
+    forwarded: 'فوروارد شده',
+    urgent: 'فوری',
+    edited: 'ویرایش شده',
+    votes: 'رای',
+    pollClosed: 'بسته شده',
+    viewProfile: 'مشاهده پروفایل',
+    startChat: 'شروع چت',
+    searchUsers: 'جستجوی کاربران',
+    noUsersFound: 'کاربری یافت نشد',
+    searchResults: 'نتایج جستجو',
+    close: 'بستن',
+    status: 'وضعیت',
+    welcome: 'به خان خوش آمدید',
+    welcomeDesc: 'یک اتاق را از سمت راست انتخاب کنید',
+    noMessages: 'هنوز پیامی نیست',
+    noMessagesDesc: 'اولین پیام را بفرستید!',
+    typing: 'در حال نوشتن',
+    someone: 'یک نفر',
+    replyingTo: 'پاسخ به',
+    emoji: 'ایموجی',
+    stickers: 'استیکر',
+    messagePlaceholder: 'پیام خود را بنویسید...',
+    attach: 'پیوست فایل',
+    dropFile: 'فایل را رها کنید تا ارسال شود',
+    // Room info
+    roomInfo: 'اطلاعات اتاق',
+    removeMember: 'حذف عضو',
+    addMember: 'افزودن عضو',
+    selectUser: 'انتخاب کاربر...',
+    pinnedMessages: 'پیام‌های پین شده',
+    noPinned: 'پیامی پین نشده',
+    // Admin
+    close: 'بستن',
+    users: 'کاربران',
+    license: 'لایسنس',
+    network: 'شبکه',
+    backup: 'پشتیبان‌گیری',
+    logs: 'لاگ‌ها',
+    departments: 'بخش‌ها',
+    userManagement: 'مدیریت کاربران',
+    newUser: 'کاربر جدید',
+    user: 'کاربر',
+    role: 'نقش',
+    status: 'وضعیت',
+    actions: 'عملیات',
+    demote: 'کاهش نقش',
+    promote: 'افزایش نقش',
+    maxUsers: 'حداکثر کاربران',
+    company: 'سازمان',
+    expires: 'انقضا',
+    licenseWarning: 'لایسنس دستکاری شده! محدودیت به ۵ کاربر کاهش یافت.',
+    applyLicense: 'اعمال لایسنس',
+    removeLicense: 'حذف لایسنس',
+    serverAddress: 'آدرس سرور',
+    port: 'پورت',
+    version: 'نسخه',
+    addressType: 'نوع آدرس',
+    address: 'آدرس',
+    ipPlaceholder: 'آدرس IP یا DNS سرور',
+    saveSettings: 'ذخیره تنظیمات',
+    backupNow: 'پشتیبان‌گیری الان',
+    backupFile: 'فایل پشتیبان',
+    noBackups: 'هنوز پشتیبانی ساخته نشده',
+    restore: 'بازیابی',
+    restoreConfirm: 'بازیابی این نسخه پشتیبان؟ همه داده فعلی جایگزین می‌شود.',
+    restored: 'بازیابی انجام شد',
+    exportExcel: 'خروجی اکسل',
+    exportDone: 'خروجی کاربران آماده شد',
+    newDepartment: 'بخش جدید',
+    myProfile: 'پروفایل من',
+    displayName: 'نام نمایشی',
+    avatarUpload: 'آپلود آواتار',
+    save: 'ذخیره',
+    changePassword: 'تغییر رمز عبور',
+    currentPassword: 'رمز فعلی',
+    newPassword: 'رمز جدید',
+    // Poll
+    createPoll: 'نظرسنجی جدید',
+    pollQuestion: 'سوال نظرسنجی',
+    pollOptions: 'گزینه‌ها',
+    option: 'گزینه',
+    addOption: 'افزودن گزینه',
+    create: 'ساخت',
+    cancel: 'انصراف',
+    // Message menu
+    forwardTo: 'فوروارد به...',
+    reply: 'پاسخ',
+    forward: 'فوروارد',
+    pin: 'پین',
+    unpin: 'برداشتن پین',
+    delete: 'حذف',
+    noResults: 'نتیجه‌ای یافت نشد',
+    searchInRoom: 'جستجو در پیام‌ها...',
+    // Rooms
+    roomName: 'نام اتاق',
+    roomType: 'نوع اتاق',
+    groupRoom: 'گروه',
+    publicRoom: 'عمومی',
+    privateRoom: 'خصوصی (دعوتی)',
+    channelRoom: 'کانال',
+    department: 'بخش',
+    none: 'بدون بخش',
+    // Misc
+    online: 'آنلاین',
+    noOnline: 'هیچ‌کس آنلاین نیست',
+    allUsers: 'همه کاربران',
+    admin: 'مدیر',
+    offline: 'آفلاین',
+    lastSeen: 'آخرین بازدید',
+  },
+  en: {
+    loginSubtitle: 'Lightweight team chat for your local network',
+    username: 'Username',
+    usernamePlaceholder: 'Enter your username',
+    password: 'Password',
+    passwordPlaceholder: '••••••••',
+    loggingIn: 'Logging in...',
+    login: 'Login',
+    setupAdmin: 'Admin username',
+    setupDisplayName: 'Display name',
+    setupPassword: 'Password',
+    setupCreate: '🚀 Create Admin',
+    searchChats: 'Search chats...',
+    chats: 'Chats',
+    rooms: 'Rooms',
+    search: 'Search',
+    noChats: 'No chats yet',
+    noChatsDesc: 'Create a room from the Rooms tab or join a public room',
+    publicRooms: 'Public rooms',
+    privateRooms: 'Private rooms',
+    clickToJoin: 'Click to join',
+    createRoom: 'Create new room',
+    newRoom: 'New room',
+    createRoomDesc: 'Create group, public, private or channel',
+    smartSearch: 'Smart search...',
+    searchMessages: 'Search messages',
+    adminPanel: 'Admin Panel',
+    logout: 'Logout',
+    online: 'Online',
+    noOnline: 'No one is online',
+    allUsers: 'All users',
+    admin: 'Admin',
+    offline: 'Offline',
+    members: 'members',
+    khanChat: 'Khan',
+    urgentMessage: 'Urgent message in this room',
+    loadOlder: 'Load older messages',
+    forwarded: 'Forwarded',
+    urgent: 'URGENT',
+    edited: 'edited',
+    votes: 'votes',
+    pollClosed: 'closed',
+    viewProfile: 'View profile',
+    startChat: 'Start chat',
+    searchUsers: 'Search users',
+    noUsersFound: 'No users found',
+    searchResults: 'Search results',
+    close: 'Close',
+    status: 'Status',
+    welcome: 'Welcome to Khan',
+    welcomeDesc: 'Select a room from the left',
+    noMessages: 'No messages yet',
+    noMessagesDesc: 'Send the first message!',
+    typing: 'is typing',
+    someone: 'someone',
+    replyingTo: 'Reply to',
+    emoji: 'Emoji',
+    stickers: 'Stickers',
+    messagePlaceholder: 'Type a message...',
+    attach: 'Attach file',
+    dropFile: 'Drop file to send',
+    roomInfo: 'Room info',
+    removeMember: 'Remove member',
+    addMember: 'Add member',
+    selectUser: 'Select user...',
+    pinnedMessages: 'Pinned messages',
+    noPinned: 'No pinned messages',
+    close: 'Close',
+    users: 'Users',
+    license: 'License',
+    network: 'Network',
+    backup: 'Backup',
+    logs: 'Logs',
+    departments: 'Departments',
+    userManagement: 'User Management',
+    newUser: 'New User',
+    user: 'User',
+    role: 'Role',
+    status: 'Status',
+    actions: 'Actions',
+    demote: 'Demote',
+    promote: 'Promote',
+    maxUsers: 'Max users',
+    company: 'Company',
+    expires: 'Expires',
+    licenseWarning: 'License tampered! Limit reduced to 5 users.',
+    applyLicense: 'Apply License',
+    removeLicense: 'Remove License',
+    serverAddress: 'Server address',
+    port: 'Port',
+    version: 'Version',
+    addressType: 'Address type',
+    address: 'Address',
+    ipPlaceholder: 'Server IP or DNS address',
+    saveSettings: 'Save Settings',
+    backupNow: 'Backup Now',
+    backupFile: 'Backup file',
+    noBackups: 'No backups yet',
+    restore: 'Restore',
+    restoreConfirm: 'Restore this backup? All current data will be replaced.',
+    restored: 'Restore complete',
+    exportExcel: 'Export Excel',
+    exportDone: 'Users exported',
+    newDepartment: 'New Department',
+    myProfile: 'My Profile',
+    displayName: 'Display name',
+    avatarUpload: 'Upload avatar',
+    save: 'Save',
+    changePassword: 'Change Password',
+    currentPassword: 'Current password',
+    newPassword: 'New password',
+    createPoll: 'New Poll',
+    pollQuestion: 'Poll question',
+    pollOptions: 'Options',
+    option: 'Option',
+    addOption: 'Add option',
+    create: 'Create',
+    cancel: 'Cancel',
+    forwardTo: 'Forward to...',
+    reply: 'Reply',
+    forward: 'Forward',
+    pin: 'Pin',
+    unpin: 'Unpin',
+    delete: 'Delete',
+    noResults: 'No results',
+    searchInRoom: 'Search in room...',
+    roomName: 'Room name',
+    roomType: 'Room type',
+    groupRoom: 'Group',
+    publicRoom: 'Public',
+    privateRoom: 'Private (invite)',
+    channelRoom: 'Channel',
+    department: 'Department',
+    none: 'None',
+    lastSeen: 'Last seen',
+  },
+};
+
+const EMOJIS = ['😀','😁','😂','🤣','😊','😍','😘','😎','🤔','🙄','😅','😉','👍','👎','👏','🙏','🔥','❤️','💔','💯','🎉','🎊','😢','😭','🤝','✅','❌','⭐','🚀','💪','🤝','👌','🙌','🤞','✌️','💡','🎯','📌','⚠️','❓','❗'];
+const STICKERS = ['😀','😂','😍','🔥','👍','👏','🎉','😢','🤔','😎','🥳','😴','🤯','😭','🙏','💪','❤️','💯','⭐','🚀','🍕','☕','🌙','☀️'];
+
+const app = createApp({
+  data() {
+    return {
+      // Language & Theme
+      uiLang: localStorage.getItem('khan_lang') || 'fa',
+      uiTheme: localStorage.getItem('khan_theme') || 'khan-dark',
+      themeList: [
+        { id:'khan',     label:'خان',    swatch:'linear-gradient(135deg,#e8a33d,#171410)' },
+        { id:'sapphire', label:'یاقوت',  swatch:'linear-gradient(135deg,#3b82f6,#0f131c)' },
+        { id:'spring',   label:'بهار',   swatch:'linear-gradient(135deg,#10b981,#0e1912)' },
+        { id:'night',    label:'شب',     swatch:'linear-gradient(135deg,#8b5cf6,#151022)' },
+        { id:'sunset',   label:'غروب',   swatch:'linear-gradient(135deg,#f97316,#1a110c)' },
+        { id:'frost',    label:'برف',    swatch:'linear-gradient(135deg,#94a3b8,#10141b)' },
+      ],
+      i18n: I18N,
+      // Server & session
+      serverInfo: null,
+      session: { token: localStorage.getItem('khan_token') || '', user: null },
+      setupMode: false,
+      setupForm: { admin_username: '', admin_password: '', company_name: '' },
+      setupBusy: false,
+      setupError: '',
+      loginForm: { username: '', password: '' },
+      loginBusy: false,
+      loginError: '',
+
+      // Data
+      users: [],
+      rooms: [],
+      messages: {},
+      roomMembers: {},
+      currentRoom: null,
+      currentRoomId: null,
+      hasMore: {},
+      loadingMore: false,
+      departments: [],
+      publicRooms: [],
+      privateRooms: [],
+
+      // UI state
+      chatSearch: '',
+      sidebarTab: 'chats',
+      mobileSidebar: false,
+      showRoomInfo: false,
+      showProfile: false,
+      showUserProfile: false,
+      selectedUser: null,
+      userSearchQuery: '',
+      userSearchResults: [],
+      showChangePwd: false,
+      pwdForm: { current: '', next: '' },
+      showAdminPanel: false,
+      adminTab: 'users',
+      showCreateRoom: false,
+      createRoomForm: { name: '', type: 'group', department: 0 },
+      showCreateUser: false,
+      createUserForm: { username: '', display_name: '', password: '', role: 'user' },
+      showCreateDept: false,
+      createDeptForm: { name: '' },
+      license: { state: 'free', max_users: 20, licensed_to: '', expiry: '', error: '' },
+      networkForm: { address_type: 'ip', ip: '', dns: '', port: 1727 },
+      networkInfo: {},
+      backups: [],
+      serverLogs: '',
+      inviteUserId: null,
+      profileForm: { display_name: '' },
+
+      // Unread
+      readMap: {},
+      unreadMap: {},
+      notifEnabled: false,
+      docTitle: document.title,
+
+      // Composer
+      draft: '',
+      replyTarget: null,
+      showStickers: false,
+      showEmojis: false,
+      editingMsg: null,
+      uploadProgress: null,
+      uploadingFile: false,
+      dragOver: false,
+      mentionPopupVisible: false,
+      mentionCandidates: [],
+      mentionSelected: null,
+      mentionQuery: '',
+
+      // Messages
+      typingUsers: {},
+      typingNames_: {},
+      pinnedMessages: [],
+      currentRoomUrgent: false,
+      searchResults: [],
+      showSearchOverlay: false,
+      searchQuery: '',
+      smartSearchQuery: '',
+      contextMenu: null,
+      forwardTarget: null,
+      showForwardModal: false,
+      showPollModal: false,
+      pollForm: { question: '', options: ['', ''] },
+      toasts: [],
+      toastId: 0,
+      deptCollapsed: {},
+
+      // WS
+      ws: null,
+      wsRetry: 0,
+      reconnectTimer: null,
+      emojis: EMOJIS,
+      stickers: STICKERS,
+    };
+  },
+
+  computed: {
+    filteredChats() {
+      const q = this.chatSearch.toLowerCase();
+      return this.rooms.filter(r => this.chatName(r).toLowerCase().includes(q));
+    },
+
+    totalUnread() {
+      let t = 0;
+      for (const k in this.unreadMap) t += this.unreadMap[k] || 0;
+      return t;
+    },
+
+    currentRoomMembers() {
+      if (!this.currentRoom) return [];
+      return this.roomMembers[this.currentRoom.id] || [];
+    },
+
+    groupedMessages() {
+      const msgs = this.messages[this.currentRoomId] || [];
+      const groups = {};
+      for (const m of msgs) {
+        if (m.deleted_at) continue;
+        const key = this.dayKey(m.created_at);
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(m);
+      }
+      return groups;
+    },
+
+    typingNames() {
+          const names = [];
+          for (const id in this.typingUsers) {
+            if (id == this.session.user.id) continue;
+            const u = this.users.find(x => x.id == id);
+            // Prefer the live WS-sent name, then the user record, then a generic label
+            const stored = (this.typingNames_ || {})[id];
+            names.push(stored || (u && (u.display_name || u.username)) || this.t('someone'));
+          }
+          return names;
+        },
+
+    canManageRoom() {
+      const u = this.session.user;
+      if (!u || !this.currentRoom) return false;
+      if (['adm', 'sadm'].includes(u.role)) return true;
+      if (u.role === 'sup') return this.currentRoom.type !== 'dm';
+      return false;
+    },
+
+    isAdmin() {
+      const r = this.session.user ? this.session.user.role : '';
+      return ['adm', 'sadm'].includes(r);
+    },
+
+    // Alias so the template's `needsSetup` (v-if in login card) tracks setupMode
+    needsSetup() {
+      return this.setupMode;
+    },
+
+    // Users tab: only visible users (backend already excludes the hidden super admin)
+    onlineVisibleUsers() {
+      return (this.users || []).filter(u => u.id !== (this.session.user || {}).id && u.online);
+    },
+
+    visibleUsersSorted() {
+      return (this.users || [])
+        .filter(u => u.id !== (this.session.user || {}).id)
+        .sort((a, b) => (b.online ? 1 : 0) - (a.online ? 1 : 0) || (a.display_name || a.username || '').localeCompare(b.display_name || b.username || ''));
+    },
+
+    licenseIcon() {
+      return { free: '🆓', valid: '✅', tampered: '⚠️' }[this.license.state] || '🎫';
+    },
+
+    licenseTitle() {
+      return { free: this.t('license') + ' — ' + this.t('maxUsers') + ' 20', valid: '✅ ' + this.t('applyLicense'), tampered: '⚠️' }[this.license.state] || '🎫';
+    },
+
+    dmPartnerOnline() {
+      const p = this.dmPartner(this.currentRoom);
+      return p ? this.isUserOnline(p) : false;
+    },
+
+    dmPartnerStatusText() {
+      const p = this.dmPartner(this.currentRoom);
+      if (!p) return '';
+      if (this.isUserOnline(p)) return this.t('online');
+      const ls = p.last_seen;
+      if (ls) return this.t('lastSeen') + ': ' + this.relativeTime(ls);
+      return this.t('offline');
+    },
+
+    roomHasOnline() {
+      return this.currentRoomMembers.some(m => m.id !== this.session.user.id && this.isUserOnline(m));
+    },
+
+    roomOnlineCount() {
+      return this.currentRoomMembers.filter(m => m.id !== this.session.user.id && this.isUserOnline(m)).length;
+    },
+
+    availableMembers() {
+      const existing = this.currentRoomMembers.map(m => m.id);
+      return this.users.filter(u => !existing.includes(u.id) && u.id !== this.session.user.id);
+    },
+
+    canPin() {
+      return this.canManageRoom || (this.contextMenu && this.contextMenu.msg && this.contextMenu.msg.sender_id === this.session.user.id);
+    },
+
+    canUnpin() {
+      return this.canManageRoom || (this.contextMenu && this.contextMenu.msg && this.contextMenu.msg.sender_id === this.session.user.id);
+    },
+  },
+
+  methods: {
+    /* ─────────── i18n ─────────── */
+    t(key) {
+      return (this.i18n[this.uiLang] && this.i18n[this.uiLang][key]) || this.i18n.fa[key] || key;
+    },
+    setLang(lang) {
+      this.uiLang = lang;
+      localStorage.setItem('khan_lang', lang);
+      document.documentElement.lang = lang === 'fa' ? 'fa' : 'en';
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    },
+
+    /* ─────────── Theme (v1.0.8: 6 bases × light/dark) ─────────── */
+    get themeBase() {
+      const t = this.uiTheme || 'dark';
+      return t.replace(/-light$|-dark$/, '');
+    },
+    get themeMode() {
+      const t = this.uiTheme || 'dark';
+      return /-light$/.test(t) ? 'light' : 'dark';
+    },
+    applyTheme() {
+      localStorage.setItem('khan_theme', this.uiTheme);
+      document.documentElement.setAttribute('data-theme', this.uiTheme);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--bg-deep').trim() || '#0f1011';
+    },
+    setThemeBase(base) {
+      this.uiTheme = base + '-' + (this.themeMode === 'light' ? 'light' : 'dark');
+      this.applyTheme();
+    },
+    toggleThemeMode() {
+      this.uiTheme = this.themeBase + '-' + (this.themeMode === 'dark' ? 'light' : 'dark');
+      this.applyTheme();
+    },
+
+    /* ─────────── API ─────────── */
+    async api(path, options = {}) {
+      const headers = { 'Content-Type': 'application/json' };
+      if (this.session.token) headers['Authorization'] = 'Bearer ' + this.session.token;
+      const res = await fetch(path, {
+        ...options,
+        headers: { ...headers, ...(options.headers || {}) },
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'خطای سرور');
+      return data;
+    },
+
+    /* ─────────── Setup / Login ─────────── */
+    async checkSetup() {
+      try {
+        const data = await this.api('/api/setup/needs-setup');
+        this.setupMode = data.needs_setup;
+        if (!this.setupMode && this.session.token) {
+          await this.loadSession();
+        }
+      } catch (e) {
+        this.setupMode = true;
+      }
+    },
+
+    async loadSession() {
+      try {
+        const me = await this.api('/api/auth/me');
+        this.session.user = me;
+        if (me.must_change_pwd) {
+          this.showChangePwd = true;
+        }
+        await this.loadAll();
+        this.connectWS();
+      } catch (e) {
+        localStorage.removeItem('khan_token');
+      localStorage.removeItem('khan_readmap');
+      localStorage.removeItem('khan_lang');
+      // Keep khan_theme (user preference persists across sessions)
+        this.session.token = '';
+        this.session.user = null;
+      }
+    },
+
+    async setup() {
+      this.loginBusy = true;
+      this.loginError = '';
+      try {
+        const data = await this.api('/api/setup', {
+          method: 'POST',
+          body: JSON.stringify({
+            admin_username: this.setupForm.username,
+            admin_password: this.setupForm.password,
+            company_name: this.setupForm.displayName,
+          }),
+        });
+        if (data.ok) {
+          this.loginForm.username = this.setupForm.username;
+          this.loginForm.password = this.setupForm.password;
+          await this.login();
+        }
+      } catch (e) {
+        this.loginError = e.message;
+      } finally {
+        this.loginBusy = false;
+      }
+    },
+
+    async login() {
+      this.loginBusy = true;
+      this.loginError = '';
+      try {
+        const data = await this.api('/api/auth/login', {
+          method: 'POST',
+          body: JSON.stringify(this.loginForm),
+        });
+        this.session.token = data.token;
+        this.session.user = data.user;
+        localStorage.setItem('khan_token', data.token);
+        this.loginForm.password = '';
+        this.setLang(this.uiLang);
+        await this.loadAll();
+        this.connectWS();
+      } catch (e) {
+        this.loginError = e.message;
+      } finally {
+        this.loginBusy = false;
+      }
+    },
+
+    async logout() {
+      try { await this.api('/api/auth/logout', { method: 'POST' }); } catch (e) {}
+      if (this.ws) this.ws.close();
+      localStorage.removeItem('khan_token');
+      this.session = { token: '', user: null };
+      this.rooms = [];
+      this.messages = {};
+      this.unreadMap = {};
+      this.readMap = {};
+      this.currentRoom = null;
+      this.currentRoomId = null;
+      document.title = this.docTitle;
+    },
+
+    /* ─────────── Data loading ─────────── */
+    async loadAll() {
+      try {
+        const [users, rooms] = await Promise.all([
+          this.api('/api/users'),
+          this.api('/api/rooms'),
+        ]);
+        this.users = Array.isArray(users) ? users : [];
+        this.rooms = Array.isArray(rooms) ? rooms : [];
+        try {
+          this.readMap = JSON.parse(localStorage.getItem('khan_readmap') || '{}');
+        } catch (e) { this.readMap = {}; }
+
+        for (const room of this.rooms) {
+          this.loadMembers(room.id).catch(() => {});
+          this.loadMessages(room.id).catch(() => {});
+        }
+        // Load public/private rooms + departments
+        this.loadRoomsDiscovery();
+        this.loadDepartments();
+        this.loadPinned();
+      } catch (e) {
+        console.error('loadAll error:', e);
+      }
+    },
+
+    async loadRoomsDiscovery() {
+      try {
+        const [pub, priv] = await Promise.all([
+          this.api('/api/rooms/public'),
+          this.api('/api/rooms/private'),
+        ]);
+        this.publicRooms = Array.isArray(pub) ? pub : [];
+        this.privateRooms = Array.isArray(priv) ? priv : [];
+      } catch (e) {}
+    },
+
+    async loadDepartments() {
+      try {
+        const depts = await this.api('/api/departments');
+        this.departments = Array.isArray(depts) ? depts : [];
+      } catch (e) {}
+    },
+
+    async loadMembers(roomId) {
+      try {
+        const members = await this.api(`/api/rooms/${roomId}/members`);
+        this.roomMembers[roomId] = Array.isArray(members) ? members : [];
+      } catch (e) {}
+    },
+
+    async loadMessages(roomId) {
+      try {
+        const msgs = await this.api(`/api/messages/${roomId}?limit=50`);
+        this.messages[roomId] = Array.isArray(msgs) ? msgs : [];
+        this.hasMore[roomId] = (msgs && msgs.length) ? msgs.length >= 50 : false;
+        this.computeUnread(roomId);
+      } catch (e) {}
+    },
+
+    async loadPinned() {
+      if (!this.currentRoom) return;
+      try {
+        const pins = await this.api(`/api/messages/${this.currentRoom.id}/pins`);
+        this.pinnedMessages = Array.isArray(pins) ? pins : [];
+      } catch (e) { this.pinnedMessages = []; }
+    },
+
+    computeUnread(roomId) {
+      if (roomId === this.currentRoomId) {
+        this.unreadMap[roomId] = 0;
+        return;
+      }
+      const msgs = this.messages[roomId] || [];
+      const lastRead = this.readMap[roomId] || 0;
+      let count = 0;
+      for (const m of msgs) {
+        if (m.id > lastRead) count++;
+      }
+      this.unreadMap[roomId] = count;
+    },
+
+    async loadOlder() {
+      const roomId = this.currentRoomId;
+      if (!roomId || this.loadingMore || !this.hasMore[roomId]) return;
+      this.loadingMore = true;
+      try {
+        const msgs = this.messages[roomId] || [];
+        const before = msgs.length ? msgs[0].id : 0;
+        const older = await this.api(`/api/messages/${roomId}?limit=50&before=${before}`);
+        if (older.length) {
+          this.messages[roomId] = [...older, ...msgs];
+        }
+        this.hasMore[roomId] = older.length >= 50;
+      } catch (e) {}
+      this.loadingMore = false;
+    },
+
+    /* ─────────── Rooms ─────────── */
+    chatName(room) {
+      if (room.type === 'dm') {
+        const other = this.dmPartner(room);
+        return other ? (other.display_name || other.username) : 'گفتگو';
+      }
+      return room.name || 'گروه';
+    },
+
+    roomTitle(room) {
+      return this.chatName(room);
+    },
+
+    roomName(roomId) {
+      const room = this.rooms.find(r => r.id === roomId);
+      return room ? this.chatName(room) : 'اتاق ' + roomId;
+    },
+
+    roomIcon(room) {
+      if (!room) return '🏠';
+      return { dm: '💬', group: '👥', public: '🌐', private: '🔒', channel: '📢' }[room.type] || '🏠';
+    },
+
+    dmPartner(room) {
+      if (!room || room.type !== 'dm' || !room.id) return null;
+      const members = this.roomMembers[room.id] || [];
+      const me = this.session.user ? this.session.user.id : -1;
+      return members.find(m => m.id !== me) || null;
+    },
+
+    isDM(room) { return room && room.type === 'dm'; },
+    isUserOnline(user) { return !!(user && user.online); },
+
+    filteredRooms() {
+      const q = this.chatSearch.toLowerCase();
+      return this.rooms.filter(r => !q || this.chatName(r).toLowerCase().includes(q));
+    },
+
+    filteredRoomsByDept(deptId) {
+      return this.filteredRooms().filter(r => (r.department_id || 0) === deptId);
+    },
+
+    filteredRoomsNoDept() {
+      return this.filteredRooms().filter(r => !r.department_id);
+    },
+
+    toggleDept(id) {
+      this.deptCollapsed[id] = !this.deptCollapsed[id];
+    },
+
+    deptRoomCount(id) {
+      return this.rooms.filter(r => (r.department_id || 0) === id).length;
+    },
+
+    async openRoom(room) {
+      this.currentRoom = room;
+      this.currentRoomId = room.id;
+      this.mobileSidebar = false;
+      this.showRoomInfo = false;
+      const msgs = this.messages[room.id] || [];
+      const lastId = msgs.length ? msgs[msgs.length - 1].id : 0;
+      this.readMap[room.id] = lastId;
+      this.unreadMap[room.id] = 0;
+      try { localStorage.setItem('khan_readmap', JSON.stringify(this.readMap)); } catch (e) {}
+      this.updateDocTitle();
+      await this.loadMessages(room.id);
+      await this.loadMembers(room.id);
+      await this.loadPinned();
+      this.checkUrgent();
+      this.$nextTick(() => this.scrollToBottom());
+      // mark read via WS
+      if (lastId) this.wsSend({ type: 'mark_read', room_id: room.id, last_id: lastId });
+    },
+
+    async joinRoom(room) {
+      try {
+        await this.api(`/api/rooms/${room.id}/join`, { method: 'POST' });
+        this.toast('✅ ' + this.t('clickToJoin'), 'success');
+        await this.loadAll();
+        const fresh = this.rooms.find(r => r.id === room.id);
+        if (fresh) await this.openRoom(fresh);
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    openUserProfile(u) {
+      this.selectedUser = u;
+      this.showUserProfile = true;
+    },
+
+    async searchUsers() {
+      const q = (this.userSearchQuery || '').trim();
+      if (!q) return;
+      try {
+        const res = await this.api('/api/users/search?q=' + encodeURIComponent(q));
+        this.userSearchResults = Array.isArray(res) ? res : [];
+      } catch (e) {
+        this.userSearchResults = [];
+      }
+    },
+
+    async startDM(u) {
+      if (!u) return;
+      try {
+        const data = await this.api(`/api/rooms/dm/${u.id}`, { method: 'POST' });
+        const fresh = this.rooms ? this.rooms.find(r => r.id === data.room_id) : null;
+        if (fresh) await this.openRoom(fresh);
+        else {
+          // reload rooms so the new DM appears, then open it
+          await this.loadRooms();
+          const again = this.rooms.find(r => r.id === data.room_id);
+          if (again) await this.openRoom(again);
+        }
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async createRoom() {
+      if (!this.createRoomForm.name.trim()) { this.toast(this.t('roomName') + ' لازم است', 'error'); return; }
+      try {
+        const room = await this.api('/api/rooms', {
+          method: 'POST',
+          body: JSON.stringify(this.createRoomForm),
+        });
+        this.rooms.unshift(room);
+        this.showCreateRoom = false;
+        this.createRoomForm = { name: '', type: 'group', department: 0 };
+        this.toast('✅ ' + this.t('createRoom'), 'success');
+        await this.openRoom(room);
+        this.loadRoomsDiscovery();
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async inviteMember() {
+      if (!this.inviteUserId) return;
+      try {
+        await this.api(`/api/rooms/${this.currentRoom.id}/invite`, {
+          method: 'POST',
+          body: JSON.stringify({ user_id: this.inviteUserId }),
+        });
+        this.toast('✅ ' + this.t('addMember'), 'success');
+        this.inviteUserId = null;
+        await this.loadMembers(this.currentRoom.id);
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async removeMember(m) {
+      if (!confirm(this.t('removeMember') + '؟')) return;
+      try {
+        await this.api(`/api/rooms/${this.currentRoom.id}/members/${m.id}`, { method: 'DELETE' });
+        await this.loadMembers(this.currentRoom.id);
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Messages ─────────── */
+    sendMessage() {
+      const text = this.draft.trim();
+      if (!text) return;
+      if (!this.currentRoom) return;
+
+      const mentions = this.extractMentions(text);
+      const payload = {
+        type: 'send_message',
+        room_id: this.currentRoom.id,
+        text,
+        mentions,
+      };
+      if (this.replyTarget) {
+        payload.reply_to = this.replyTarget.id;
+      }
+      this.wsSend(payload);
+      this.draft = '';
+      this.replyTarget = null;
+      this.autoGrow();
+    },
+
+    sendSticker(s) {
+      if (!this.currentRoom) return;
+      this.wsSend({ type: 'send_message', room_id: this.currentRoom.id, text: 'sticker:' + s });
+      this.showStickers = false;
+    },
+
+    extractMentions(text) {
+      const mentions = [];
+      const re = /@([\w\u0600-\u06FF]+)/g;
+      let m;
+      while ((m = re.exec(text))) {
+        const uname = m[1];
+        const u = this.users.find(x => x.username === uname);
+        if (u) mentions.push(u.id);
+      }
+      return mentions;
+    },
+
+    insertEmoji(e) {
+      this.draft += e;
+      this.autoGrow();
+      this.showEmojis = false;
+    },
+
+    onComposerKeydown(e) {
+      // Mention autocomplete navigation
+      if (this.mentionPopupVisible) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const idx = this.mentionCandidates.findIndex(c => c.id === this.mentionSelected);
+          this.mentionSelected = this.mentionCandidates[(idx + 1) % this.mentionCandidates.length].id;
+          return;
+        }
+        if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const idx = this.mentionCandidates.findIndex(c => c.id === this.mentionSelected);
+          this.mentionSelected = this.mentionCandidates[(idx - 1 + this.mentionCandidates.length) % this.mentionCandidates.length].id;
+          return;
+        }
+        if (e.key === 'Enter' || e.key === 'Tab') {
+          e.preventDefault();
+          const sel = this.mentionCandidates.find(c => c.id === this.mentionSelected);
+          if (sel) this.insertMention(sel);
+          return;
+        }
+        if (e.key === 'Escape') {
+          this.mentionPopupVisible = false;
+          return;
+        }
+      }
+      if (e.key === 'Escape') {
+        this.replyTarget = null;
+        this.editingMsg = null;
+        this.showStickers = false;
+        this.showEmojis = false;
+      }
+    },
+
+    onComposerInput() {
+      // Detect @mention typing
+      const text = this.draft;
+      const atIdx = text.lastIndexOf('@');
+      if (atIdx >= 0 && atIdx > text.lastIndexOf(' ')) {
+        const q = text.slice(atIdx + 1).toLowerCase();
+        this.mentionQuery = q;
+        this.mentionCandidates = this.currentRoomMembers.filter(u =>
+          u.id !== this.session.user.id &&
+          (u.username || '').toLowerCase().includes(q) ||
+          (u.display_name || '').toLowerCase().includes(q)
+        ).slice(0, 8);
+        if (this.mentionCandidates.length) {
+          this.mentionPopupVisible = true;
+          this.mentionSelected = this.mentionCandidates[0].id;
+        } else {
+          this.mentionPopupVisible = false;
+        }
+      } else {
+        this.mentionPopupVisible = false;
+      }
+      this.autoGrow();
+      // typing indicator (throttled)
+      if (this.currentRoom && Date.now() - (this._lastTyping || 0) > 3000) {
+        this._lastTyping = Date.now();
+        this.wsSend({ type: 'typing', room_id: this.currentRoom.id });
+      }
+    },
+
+    insertMention(u) {
+      const text = this.draft;
+      const atIdx = text.lastIndexOf('@');
+      if (atIdx >= 0) {
+        this.draft = text.slice(0, atIdx) + '@' + u.username + ' ';
+      }
+      this.mentionPopupVisible = false;
+      this.autoGrow();
+      this.$refs.composer && this.$refs.composer.focus();
+    },
+
+    autoGrow() {
+      this.$nextTick(() => {
+        const ta = this.$refs.composer;
+        if (ta) {
+          ta.style.height = 'auto';
+          ta.style.height = Math.min(ta.scrollHeight, 120) + 'px';
+        }
+      });
+    },
+
+    startEdit(msg) {
+      this.editingMsg = msg;
+      this.draft = msg.text;
+      this.contextMenu = null;
+      this.$nextTick(() => {
+        const ta = this.$refs.composer;
+        if (ta) ta.focus();
+      });
+    },
+
+    cancelEdit() {
+      this.editingMsg = null;
+      this.draft = '';
+    },
+
+    saveEdit() {
+      if (!this.editingMsg) return;
+      this.wsSend({ type: 'edit_message', message_id: this.editingMsg.id, text: this.draft.trim() });
+      this.editingMsg = null;
+      this.draft = '';
+    },
+
+    async deleteMessage() {
+      const msg = this.contextMenu ? this.contextMenu.msg : null;
+      if (!msg || !confirm(this.t('delete') + '؟')) return;
+      this.contextMenu = null;
+      try {
+        await this.api(`/api/messages/${msg.id}`, { method: 'DELETE' });
+        const roomId = this.currentRoomId;
+        this.messages[roomId] = (this.messages[roomId] || []).filter(m => m.id !== msg.id);
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    canDeleteMessage(msg) {
+      if (!msg) return false;
+      if (msg.sender_id === this.session.user.id) return true;
+      return this.canManageRoom;
+    },
+
+    /* Reactions */
+    aggregateReactions(msg) {
+      const agg = {};
+      for (const r of (msg.reactions || [])) {
+        agg[r.emoji] = (agg[r.emoji] || 0) + 1;
+      }
+      return agg;
+    },
+
+    reactedByMe(msg, emoji) {
+      return (msg.reactions || []).some(r => r.emoji === emoji && r.user_id === this.session.user.id);
+    },
+
+    toggleReaction(msg, emoji) {
+      const reacted = this.reactedByMe(msg, emoji);
+      this.wsSend({
+        type: reacted ? 'remove_reaction' : 'add_reaction',
+        message_id: msg.id,
+        emoji,
+      });
+    },
+
+    quickReact(msg, emoji) {
+      this.wsSend({ type: 'add_reaction', message_id: msg.id, emoji });
+      this.contextMenu = null;
+    },
+
+    /* ─────────── Context Menu ─────────── */
+    openContextMenu(event, msg) {
+      this.contextMenu = { msg, x: event.clientX, y: event.clientY };
+      event.preventDefault();
+    },
+
+    replyToMessage() {
+      if (!this.contextMenu) return;
+      this.replyTarget = this.contextMenu.msg;
+      this.contextMenu = null;
+      this.$nextTick(() => {
+        const ta = this.$refs.composer;
+        if (ta) ta.focus();
+      });
+    },
+
+    forwardMessage() {
+      this.forwardTarget = this.contextMenu ? this.contextMenu.msg : null;
+      this.contextMenu = null;
+      this.showForwardModal = true;
+    },
+
+    async forwardMessageTo(chat) {
+      if (!this.forwardTarget) return;
+      try {
+        await this.api(`/api/messages/${this.forwardTarget.id}/forward`, {
+          method: 'POST',
+          body: JSON.stringify({ room_id: chat.id }),
+        });
+        this.toast('✅ ' + this.t('forward'), 'success');
+        this.showForwardModal = false;
+        if (this.currentRoomId !== chat.id) {
+          await this.loadMessages(chat.id);
+        }
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async pinMessage() {
+      const msg = this.contextMenu ? this.contextMenu.msg : null;
+      if (!msg) return;
+      this.contextMenu = null;
+      this.wsSend({ type: 'pin_message', message_id: msg.id });
+      this.toast('📌 ' + this.t('pin'), 'success');
+    },
+
+    async unpinMessage() {
+      const msg = this.contextMenu ? this.contextMenu.msg : null;
+      if (!msg) return;
+      this.contextMenu = null;
+      this.wsSend({ type: 'unpin_message', message_id: msg.id });
+    },
+
+    async toggleUrgent() {
+      const msg = this.contextMenu ? this.contextMenu.msg : null;
+      if (!msg) return;
+      this.contextMenu = null;
+      await this.api(`/api/messages/${msg.id}/urgent`, { method: 'POST' });
+      msg.urgent = !msg.urgent;
+      this.checkUrgent();
+    },
+
+    editMessage() {
+      const msg = this.contextMenu ? this.contextMenu.msg : null;
+      if (!msg) return;
+      this.startEdit(msg);
+    },
+
+    /* ─────────── Search ─────────── */
+    openSearch() {
+      this.showSearchOverlay = true;
+      this.searchQuery = '';
+      this.searchResults = [];
+      this.$nextTick(() => {
+        const inp = this.showSearchOverlay ? document.querySelector('.search-results-header input') : null;
+        if (inp) inp.focus();
+      });
+    },
+
+    async doSearch() {
+      const q = this.searchQuery.trim() || this.smartSearchQuery.trim();
+      if (!q) return;
+      try {
+        const results = await this.api(`/api/messages/search?q=${encodeURIComponent(q)}`);
+        this.searchResults = Array.isArray(results) ? results : [];
+        if (this.sidebarTab === 'search') {
+          this.showSearchOverlay = false;
+        }
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    gotoMessage(r) {
+      const room = this.rooms.find(x => x.id === r.room_id);
+      if (room) {
+        this.showSearchOverlay = false;
+        this.openRoom(room).then(() => {
+          this.gotoMessageId(r.id);
+        });
+      }
+    },
+
+    gotoMessageId(msgId) {
+      const roomId = this.currentRoomId;
+      const msgs = this.messages[roomId] || [];
+      let idx = msgs.findIndex(m => m.id === msgId);
+      if (idx >= 0) {
+        this.$nextTick(() => {
+          const area = this.$refs.messagesArea;
+          if (!area) return;
+          const els = area.querySelectorAll('.msg-group');
+          if (els[idx]) {
+            els[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            els[idx].style.animation = 'flashHighlight 1s';
+            setTimeout(() => { els[idx].style.animation = ''; }, 1000);
+          }
+        });
+      } else {
+        // Need to load older messages around this id
+        this.loadMessages(roomId).then(() => this.gotoMessageId(msgId));
+      }
+    },
+
+    gotoPinned(pin) {
+      this.gotoMessageId(pin.id);
+    },
+
+    replyPreview(m) {
+      if (!m.reply_text) return m.reply_to || '';
+      return m.reply_text.slice(0, 60);
+    },
+
+    /* ─────────── Polls ─────────── */
+    openPollModal() {
+      this.pollForm = { question: '', options: ['', ''] };
+      this.showPollModal = true;
+    },
+
+    addPollOption() {
+      if (this.pollForm.options.length < 10) this.pollForm.options.push('');
+    },
+
+    removePollOption(i) {
+      if (this.pollForm.options.length > 2) this.pollForm.options.splice(i, 1);
+    },
+
+    async createPoll() {
+      if (!this.pollForm.question.trim()) { this.toast('سوال لازم است', 'error'); return; }
+      const options = this.pollForm.options.map(o => o.trim()).filter(Boolean);
+      if (options.length < 2) { this.toast('حداقل ۲ گزینه لازم است', 'error'); return; }
+      this.wsSend({
+        type: 'poll_create',
+        room_id: this.currentRoom.id,
+        poll_question: this.pollForm.question.trim(),
+        poll_options: options,
+      });
+      this.showPollModal = false;
+    },
+
+    async votePoll(poll, optionIdx) {
+      if (poll.closed) return;
+      if (this.userVoted(poll, this.session.user.id) === optionIdx) return;
+      this.wsSend({ type: 'poll_vote', poll_id: poll.id, option: optionIdx });
+    },
+
+    userVoted(poll, uid) {
+      if (!poll.votes) return -1;
+      for (const opt in poll.votes) {
+        if (poll.votes[opt].includes(uid)) return parseInt(opt);
+      }
+      return -1;
+    },
+
+    pollPct(poll, optIdx) {
+      const total = this.pollTotalVotes(poll);
+      if (!total) return 0;
+      const n = (poll.votes && poll.votes[optIdx] ? poll.votes[optIdx].length : 0);
+      return Math.round((n / total) * 100);
+    },
+
+    pollTotalVotes(poll) {
+      let t = 0;
+      if (poll.votes) {
+        for (const k in poll.votes) t += poll.votes[k].length;
+      }
+      return t;
+    },
+
+    /* ─────────── File upload ─────────── */
+    triggerFileUpload() {
+      this.$refs.fileInput && this.$refs.fileInput.click();
+    },
+
+    async onFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      await this.uploadFile(file);
+      e.target.value = '';
+    },
+
+    async onFileDrop(e) {
+      this.dragOver = false;
+      const file = e.dataTransfer.files[0];
+      if (!file) return;
+      await this.uploadFile(file);
+    },
+
+    async uploadFile(file) {
+      if (!this.currentRoom) return;
+      const form = new FormData();
+      form.append('file', file);
+      this.uploadingFile = true;
+      try {
+        const res = await fetch(`/api/rooms/${this.currentRoom.id}/files`, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + this.session.token },
+          body: form,
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'خطا');
+        this.wsSend({
+          type: 'send_message',
+          room_id: this.currentRoom.id,
+          file_id: data.file_id,
+          text: '',
+        });
+        this.toast('📎 ' + file.name, 'success');
+      } catch (err) {
+        this.toast(err.message, 'error');
+      } finally {
+        this.uploadingFile = false;
+      }
+    },
+
+    async uploadAvatar(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const form = new FormData();
+      form.append('avatar', file);
+      try {
+        const res = await fetch('/api/users/avatar', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + this.session.token },
+          body: form,
+        });
+        const data = await res.json();
+        if (res.ok && data.user) {
+          this.session.user = data.user;
+          const u = this.users.find(x => x.id === this.session.user.id);
+          if (u) u.avatar = data.user.avatar;
+          this.toast('✅ ' + this.t('avatarUpload'), 'success');
+        } else {
+          throw new Error(data.error || 'خطا');
+        }
+      } catch (err) {
+        this.toast(err.message, 'error');
+      }
+    },
+
+    /* ─────────── Read receipts ─────────── */
+    readCount(msg) {
+      // Count members who have read this message (approximation: all members who are online)
+      return this.currentRoomMembers.filter(m => m.id !== msg.sender_id).length;
+    },
+
+    readReceiptTitle(msg) {
+      const total = this.currentRoomMembers.length - 1;
+      const read = this.readCount(msg);
+      return read >= total ? this.t('seen') : this.t('delivered');
+    },
+
+    /* ─────────── Urgent ─────────── */
+    checkUrgent() {
+      const msgs = this.messages[this.currentRoomId] || [];
+      this.currentRoomUrgent = msgs.some(m => m.urgent && !m.read_by_me);
+    },
+
+    /* ─────────── Text rendering ─────────── */
+    renderText(text) {
+      if (!text) return '';
+      // Escape HTML
+      let t = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Stickers (sent as sticker:EMOJI)
+      if (t.startsWith('sticker:')) {
+        const emoji = t.replace('sticker:', '').trim();
+        return `<span style="font-size:56px; line-height:1;">${emoji}</span>`;
+      }
+      // Escape quotes to prevent attribute injection (XSS)
+      t = t.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      // Links (exclude quotes from URL chars to prevent XSS)
+      t = t.replace(/(https?:\/\/[^\s<"']+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:var(--accent-hover); text-decoration:underline;">$1</a>');
+      // Mentions
+      t = t.replace(/@([\w\u0600-\u06FF]+)/g, '<span class="msg-mention">@$1</span>');
+      // Code
+      t = t.replace(/`([^`]+)`/g, '<code style="background:var(--bg-elevated); padding:1px 6px; border-radius:4px; font-size:0.9em; direction:ltr; display:inline-block;">$1</code>');
+      // Bold
+      t = t.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+      return t;
+    },
+
+    /* ─────────── Time (Persian) ─────────── */
+    dayKey(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      const now = new Date();
+      const yesterday = new Date(now);
+      yesterday.setDate(now.getDate() - 1);
+      if (d.toDateString() === now.toDateString()) return 'today';
+      if (d.toDateString() === yesterday.toDateString()) return 'yesterday';
+      return this.shamsiKey(d);
+    },
+
+    dayLabel(key) {
+      if (key === 'today') return this.t('today');
+      if (key === 'yesterday') return this.t('yesterday');
+      return key;
+    },
+
+    shamsiKey(d) {
+      try {
+        return new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(d);
+      } catch (e) {
+        return d.toLocaleDateString('fa-IR');
+      }
+    },
+
+    timeShort(dateStr) {
+      if (!dateStr) return '';
+      try {
+        return new Intl.DateTimeFormat('fa-IR', { hour: '2-digit', minute: '2-digit' }).format(new Date(dateStr));
+      } catch (e) {
+        return new Date(dateStr).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+      }
+    },
+
+    fullTime(dateStr) {
+      if (!dateStr) return '';
+      try {
+        return new Intl.DateTimeFormat('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(dateStr));
+      } catch (e) {
+        return dateStr;
+      }
+    },
+
+    relativeTime(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      const now = Date.now();
+      const diff = now - d.getTime();
+      const min = Math.floor(diff / 60000);
+      const hour = Math.floor(diff / 3600000);
+      const day = Math.floor(diff / 86400000);
+      if (min < 1) return this.t('justNow');
+      if (min < 60) return min + ' ' + this.t('minAgo');
+      if (hour < 24) return hour + ' ' + this.t('hourAgo');
+      if (day < 7) return day + ' ' + this.t('dayAgo');
+      return this.fullTime(dateStr).split('،')[0];
+    },
+
+    /* ─────────── Avatar ─────────── */
+    avatarStyle(user) {
+      if (!user) return { background: '#4d9de0' };
+      if (user.avatar) {
+        return { backgroundImage: `url(${user.avatar})`, backgroundSize: 'cover', backgroundPosition: 'center' };
+      }
+      const colors = ['#e17055', '#0984e3', '#00b894', '#6c5ce7', '#fdcb6e', '#e84393', '#00cec9', '#d63031'];
+      const name = (user.display_name || user.username || '?');
+      let hash = 0;
+      for (const ch of name) hash = (hash * 31 + ch.charCodeAt(0)) % 997;
+      return { background: colors[hash % colors.length] };
+    },
+
+    initials(name) {
+      if (!name) return '?';
+      const parts = String(name).trim().split(/\s+/);
+      if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+      return name[0].toUpperCase();
+    },
+
+    safeUser(user) {
+      return user || {};
+    },
+
+    roleLabel(role) {
+      return { user: 'کاربر', sup: 'سوپروایزر', adm: 'ادمین', sadm: 'مدیر اصلی' }[role] || role;
+    },
+
+    memberRoleLabel(userId) {
+      if (!this.currentRoom) return '';
+      const role = (this.currentRoom.member_roles && this.currentRoom.member_roles[userId]) || '';
+      return { owner: '👑 سازنده', admin: '🛡 ادمین', member: '👤' }[role] || '';
+    },
+
+    /* ─────────── Scroll ─────────── */
+    scrollToBottom() {
+      this.$nextTick(() => {
+        const area = this.$refs.messagesArea;
+        if (area) area.scrollTop = area.scrollHeight;
+      });
+    },
+
+    onMessagesScroll() {
+      const area = this.$refs.messagesArea;
+      if (area && area.scrollTop < 60) {
+        this.loadOlder();
+      }
+    },
+
+    /* ─────────── Toasts ─────────── */
+    toast(text, type = 'info') {
+      const id = ++this.toastId;
+      this.toasts.push({ id, text, type });
+      setTimeout(() => this.removeToast(id), 3500);
+    },
+
+    removeToast(id) {
+      this.toasts = this.toasts.filter(t => t.id !== id);
+    },
+
+    /* ─────────── Profile ─────────── */
+    async saveProfile() {
+      try {
+        const me = await this.api('/api/users/me', {
+          method: 'PUT',
+          body: JSON.stringify({ display_name: this.profileForm.display_name }),
+        });
+        this.session.user = me;
+        const u = this.users.find(x => x.id === me.id);
+        if (u) u.display_name = me.display_name;
+        this.showProfile = false;
+        this.toast('✅ ' + this.t('save'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async changePassword() {
+      try {
+        await this.api('/api/auth/change-password', {
+          method: 'POST',
+          body: JSON.stringify({
+            current_password: this.pwdForm.current,
+            new_password: this.pwdForm.next,
+          }),
+        });
+        this.showChangePwd = false;
+        this.pwdForm = { current: '', next: '' };
+        if (this.session.user) this.session.user.must_change_pwd = false;
+        this.toast('✅ ' + this.t('changePassword'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Admin: Users ─────────── */
+    canPromote(u) {
+      if (!u || !this.session.user) return false;
+      return this.isAdmin && u.role !== 'adm' && u.role !== 'sadm' && u.id !== this.session.user.id;
+    },
+
+    async createUser() {
+      try {
+        const u = await this.api('/api/users', {
+          method: 'POST',
+          body: JSON.stringify(this.createUserForm),
+        });
+        this.users.push(u);
+        this.showCreateUser = false;
+        this.createUserForm = { username: '', display_name: '', password: '', role: 'user' };
+        this.toast('✅ ' + this.t('newUser'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async toggleRole(u) {
+      const newRole = u.role === 'sup' ? 'user' : 'sup';
+      try {
+        await this.api(`/api/users/${u.id}/role`, {
+          method: 'POST',
+          body: JSON.stringify({ role: newRole }),
+        });
+        u.role = newRole;
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async resetPassword(u) {
+      const pwd = prompt('رمز جدید برای ' + (u.display_name || u.username) + ':');
+      if (!pwd) return;
+      try {
+        await this.api(`/api/users/${u.id}/reset-password`, {
+          method: 'POST',
+          body: JSON.stringify({ new_password: pwd }),
+        });
+        this.toast('✅ ' + this.t('changePassword'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async toggleActive(u) {
+      try {
+        await this.api(`/api/users/${u.id}/toggle-active`, { method: 'POST' });
+        u.active = !u.active;
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async deleteUser(u) {
+      if (!confirm(this.t('delete') + ' ' + (u.display_name || u.username) + '؟')) return;
+      try {
+        await this.api(`/api/users/${u.id}`, { method: 'DELETE' });
+        this.users = this.users.filter(x => x.id !== u.id);
+        this.toast('🗑 ' + this.t('delete'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Admin: Departments ─────────── */
+    async createDepartment() {
+      if (!this.createDeptForm.name.trim()) return;
+      try {
+        const d = await this.api('/api/departments', {
+          method: 'POST',
+          body: JSON.stringify({ name: this.createDeptForm.name.trim() }),
+        });
+        this.departments.push(d);
+        this.showCreateDept = false;
+        this.createDeptForm = { name: '' };
+        this.toast('✅ ' + this.t('newDepartment'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async deleteDepartment(d) {
+      if (!confirm(this.t('delete') + ' ' + d.name + '؟')) return;
+      try {
+        await this.api(`/api/departments/${d.id}`, { method: 'DELETE' });
+        this.departments = this.departments.filter(x => x.id !== d.id);
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Admin: License ─────────── */
+    async loadLicense() {
+      try {
+        const lic = await this.api('/api/settings/license');
+        this.license = lic;
+      } catch (e) {}
+    },
+
+    async applyLicense(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const form = new FormData();
+      form.append('license', file);
+      try {
+        const res = await fetch('/api/settings/license', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + this.session.token },
+          body: form,
+        });
+        const data = await res.json();
+        this.license = data;
+        if (data.applied) {
+          this.toast('✅ ' + this.t('applyLicense') + ' — ' + this.t('maxUsers') + ': ' + data.max_users, 'success');
+        } else {
+          this.toast('⚠️ ' + (data.error || ''), 'error');
+        }
+      } catch (e) {
+        this.toast('خطا', 'error');
+      }
+    },
+
+    async removeLicense() {
+      if (!confirm(this.t('removeLicense') + '؟')) return;
+      try {
+        await this.api('/api/settings/license', { method: 'DELETE' });
+        this.license = { state: 'free', max_users: 20, licensed_to: '', expiry: '', error: '' };
+        this.toast('✅', 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Admin: Network ─────────── */
+    async loadNetwork() {
+      try {
+        const n = await this.api('/api/settings/network');
+        this.networkForm = { address_type: n.address_type, ip: n.ip, dns: n.dns, port: n.port };
+        this.networkInfo = n;
+      } catch (e) {}
+    },
+
+    async saveNetwork() {
+      try {
+        await this.api('/api/settings/network', {
+          method: 'POST',
+          body: JSON.stringify(this.networkForm),
+        });
+        this.toast('✅ ' + this.t('saveSettings'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    /* ─────────── Admin: Backup & Logs ─────────── */
+    async manualBackup() {
+      try {
+        const data = await this.api('/api/settings/backup', { method: 'POST' });
+        this.toast('✅ ' + (data.file || this.t('backupNow')), 'success');
+        this.loadBackups();
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async loadBackups() {
+      try {
+        const b = await this.api('/api/settings/backups');
+        this.backups = Array.isArray(b) ? b : [];
+      } catch (e) {}
+    },
+
+    async downloadBackup(name) {
+      try {
+        const res = await fetch('/api/settings/backups/' + encodeURIComponent(name) + '/download', {
+          headers: { 'Authorization': 'Bearer ' + this.session.token },
+        });
+        const blob = await res.blob();
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = name;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } catch (e) {}
+    },
+
+    async restoreBackup(name) {
+      if (!confirm(this.t('restoreConfirm'))) return;
+      try {
+        const data = await this.api('/api/settings/restore', {
+          method: 'POST',
+          body: JSON.stringify({ name }),
+        });
+        this.toast('\u2714 ' + (data.restored || this.t('restored')), 'success');
+        this.loadBackups();
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async exportUsers() {
+      try {
+        const res = await fetch('/api/users/export', {
+          headers: { 'Authorization': 'Bearer ' + this.session.token },
+        });
+        const blob = await res.blob();
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'khan-users-export.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        this.toast('\u271c ' + this.t('exportDone'), 'success');
+      } catch (e) {
+        this.toast(e.message, 'error');
+      }
+    },
+
+    async refreshLogs() {
+      try {
+        const logs = await this.api('/api/settings/logs');
+        this.serverLogs = logs.logs || '';
+      } catch (e) {
+        this.serverLogs = '';
+      }
+    },
+
+    /* ─────────── Admin Panel ─────────── */
+    openAdminPanel() {
+      this.showAdminPanel = true;
+      this.adminTab = 'users';
+      this.loadLicense();
+      this.loadNetwork();
+      this.loadBackups();
+      this.refreshLogs();
+      this.loadDepartments();
+    },
+
+    /* ─────────── WebSocket ─────────── */
+    connectWS() {
+      if (!this.session.token) return;
+      if (this.ws) { try { this.ws.close(); } catch (e) {} }
+      const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+      this.ws = new WebSocket(`${proto}://${location.host}/ws?token=${encodeURIComponent(this.session.token)}`);
+
+      this.ws.onopen = () => {
+        this.wsRetry = 0;
+        console.log('✅ Khan WS connected');
+      };
+
+      this.ws.onmessage = (e) => {
+        try {
+          const ev = JSON.parse(e.data);
+          this.handleEvent(ev);
+        } catch (err) {
+          console.error('bad ws message', err);
+        }
+      };
+
+      this.ws.onclose = () => {
+        if (this.session.token) {
+          clearTimeout(this.reconnectTimer);
+          this.reconnectTimer = setTimeout(() => this.connectWS(), Math.min(30000, 1000 * Math.pow(2, this.wsRetry++)));
+        }
+      };
+
+      this.ws.onerror = (e) => { console.error('ws error', e); };
+    },
+
+    wsSend(obj) {
+      if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+        this.ws.send(JSON.stringify(obj));
+      }
+    },
+
+    handleEvent(ev) {
+      switch (ev.type) {
+        case 'message': {
+          const roomId = ev.room_id;
+          if (!this.messages[roomId]) this.messages[roomId] = [];
+          // Avoid duplicate
+          const p = ev.payload;
+          if (!this.messages[roomId].some(m => m.id === p.id)) {
+            this.messages[roomId].push(p);
+          }
+          if (this.currentRoomId === roomId) {
+            this.scrollToBottom();
+            this.readMap[roomId] = p.id;
+            this.unreadMap[roomId] = 0;
+            try { localStorage.setItem('khan_readmap', JSON.stringify(this.readMap)); } catch (e) {}
+            this.checkUrgent();
+          } else {
+            this.unreadMap[roomId] = (this.unreadMap[roomId] || 0) + 1;
+            this.notifyNewMessage(p, roomId);
+          }
+          if (!this.rooms.some(r => r.id === roomId)) {
+            this.loadAll();
+          } else {
+            const room = this.rooms.find(r => r.id === roomId);
+            if (room) {
+              room.lastMessage = p.text || '📎';
+              room.lastMessageAt = p.created_at;
+              this.rooms = this.rooms.filter(r => r.id !== roomId);
+              this.rooms.unshift(room);
+            }
+          }
+          this.updateDocTitle();
+          break;
+        }
+        case 'message_edited': {
+          const roomId = ev.room_id;
+          const msgs = this.messages[roomId] || [];
+          const idx = msgs.findIndex(m => m.id === ev.payload.id);
+          if (idx >= 0) {
+            msgs[idx].text = ev.payload.text;
+            msgs[idx].edited_at = ev.payload.edited_at;
+          }
+          break;
+        }
+        case 'message_deleted': {
+          const roomId = ev.room_id;
+          this.messages[roomId] = (this.messages[roomId] || []).filter(m => m.id !== ev.payload);
+          this.pinnedMessages = this.pinnedMessages.filter(p => p.id !== ev.payload);
+          // a pinned/urgent notification for this message should no longer exist
+          this.closeRoomNotifications(roomId);
+          this.checkUrgent();
+          break;
+        }
+        case 'reaction': {
+          const roomId = ev.room_id;
+          const msgs = this.messages[roomId] || [];
+          const msg = msgs.find(m => m.id === ev.payload.message_id);
+          if (!msg) break;
+          if (!msg.reactions) msg.reactions = [];
+          if (ev.payload.remove) {
+            msg.reactions = msg.reactions.filter(r => !(r.user_id === ev.payload.user_id && r.emoji === ev.payload.emoji));
+          } else {
+            if (!msg.reactions.some(r => r.user_id === ev.payload.user_id && r.emoji === ev.payload.emoji)) {
+              msg.reactions.push({ user_id: ev.payload.user_id, emoji: ev.payload.emoji });
+            }
+          }
+          break;
+        }
+        case 'typing': {
+          const roomId = ev.room_id;
+          if (roomId !== this.currentRoomId) break;
+          const uid = ev.payload.user_id;
+          if (uid === this.session.user.id) break;
+          // keep the sender's name so the indicator can show WHO is typing
+          this.typingUsers[uid] = true;
+          this.typingNames_[uid] = (ev.payload.name || '').trim();
+          clearTimeout(this.typingUsers[uid + '_t']);
+          this.typingUsers[uid + '_t'] = setTimeout(() => {
+            delete this.typingUsers[uid];
+            delete this.typingNames_[uid];
+          }, 2500);
+          break;
+        }
+        case 'presence': {
+          const p = ev.payload;
+          const u = this.users.find(x => x.id === p.user_id);
+          if (u) u.online = p.online;
+          const rm = this.currentRoomMembers.find(x => x.id === p.user_id);
+          if (rm) rm.online = p.online;
+          break;
+        }
+        case 'read_receipt': {
+          // update read status visually (single tick → double tick)
+          const p = ev.payload;
+          const msgs = this.messages[p.room_id] || [];
+          for (const m of msgs) {
+            if (m.id <= p.last_id && m.sender_id === this.session.user.id) {
+              m.read_by = m.read_by || [];
+              if (!m.read_by.includes(p.user_id)) m.read_by.push(p.user_id);
+            }
+          }
+          break;
+        }
+        case 'pin': {
+          const p = ev.payload;
+          this.toast('📌 ' + this.t('pin'), 'info');
+          this.loadPinned();
+          break;
+        }
+        case 'unpin': {
+          const p = ev.payload;
+          this.pinnedMessages = this.pinnedMessages.filter(x => x.id !== p.message_id);
+          break;
+        }
+        case 'poll': {
+          const roomId = ev.room_id;
+          if (!this.messages[roomId]) this.messages[roomId] = [];
+          const p = ev.payload;
+          if (!this.messages[roomId].some(m => m.id === p.id)) {
+            this.messages[roomId].push(p);
+          }
+          break;
+        }
+        case 'poll_update': {
+          const p = ev.payload;
+          for (const roomId in this.messages) {
+            for (const m of this.messages[roomId]) {
+              if (m.poll && m.poll.id === p.poll_id) {
+                if (p.votes) m.poll.votes = p.votes;
+                if (p.closed) m.poll.closed = true;
+              }
+            }
+          }
+          break;
+        }
+        case 'force_logout':
+          this.toast('خروج اجباری', 'error');
+          this.logout();
+          break;
+        case 'error':
+          this.toast(ev.payload.error || 'خطا', 'error');
+          break;
+      }
+    },
+
+    /* ─────────── Notifications & Unread ─────────── */
+    updateDocTitle() {
+      const total = this.totalUnread;
+      document.title = total > 0 ? `(${total}) ${this.docTitle}` : this.docTitle;
+    },
+
+    requestNotifPermission() {
+      if ('Notification' in window && Notification.permission === 'default') {
+        Notification.requestPermission().then(p => {
+          this.notifEnabled = p === 'granted';
+        });
+      } else if ('Notification' in window) {
+        this.notifEnabled = Notification.permission === 'granted';
+      }
+    },
+
+    notifyNewMessage(msg, roomId) {
+      // Browser notification (only when tab hidden or permission granted)
+      if (msg.urgent || ('Notification' in window && Notification.permission === 'granted' && document.hidden)) {
+        try {
+          const room = this.rooms.find(r => r.id === roomId);
+          const title = msg.urgent ? '🚨 ' + this.chatName(room || { type: 'group' }) : this.chatName(room || { type: 'group' });
+          const body = (msg.sender_name ? msg.sender_name + ': ' : '') + (msg.text || '📎 فایل');
+          const n = new Notification(title, { body, icon: '/img/khan-logo.jpg', tag: 'khan-' + roomId, requireInteraction: !!msg.urgent });
+          n.onclick = () => {
+            window.focus();
+            if (room) {
+              const target = this.messages[room.id] || [];
+              // open the room, then jump to the exact message if we have it
+              if (this.currentRoom && this.currentRoom.id === room.id && this.messages[this.currentRoom.id]) {
+                this.scrollToMessage(msg.id);
+              } else {
+                this.openRoom(room).then(() => {
+                  if (this.messages[room.id]) this.scrollToMessage(msg.id);
+                });
+              }
+            }
+            n.close();
+          };
+        } catch (e) {}
+      }
+    },
+
+    // Scroll the messages pane so the given message id is in view (used by notif click)
+    scrollToMessage(id) {
+      this.$nextTick(() => {
+        const el = this.$refs.messagesArea;
+        if (!el) return;
+        const target = el.querySelector(`[data-msg-id="${id}"]`);
+        if (target) target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      });
+    },
+
+    // Close any live desktop notification for a room (used when its message is deleted)
+    closeRoomNotifications(roomId) {
+      if (!('Notification' in window)) return;
+      try {
+        // close all notifications tagged for this room
+        for (const n of Notification.getNotifications ? Notification.getNotifications() : []) {
+          if (n.tag === 'khan-' + roomId) n.close();
+        }
+      } catch (e) {}
+    },
+  },
+
+  async mounted() {
+    document.documentElement.setAttribute('data-theme', this.uiTheme);
+    this.setLang(this.uiLang);
+    this.requestNotifPermission();
+    try {
+      this.serverInfo = await this.api('/api/settings/info');
+    } catch (e) {}
+    await this.checkSetup();
+  },
+
+  watch: {
+    showAdminPanel(v) {
+      if (v) {
+        this.loadLicense();
+        this.loadNetwork();
+      }
+    },
+    showProfile(v) {
+      if (v && this.session.user) {
+        this.profileForm.display_name = this.session.user.display_name || '';
+      }
+    },
+    currentRoomId() {
+      this.pinnedMessages = [];
+    },
+  },
+});
+
+app.mount('#app');
+
+/* ============ KEYBOARD SHORTCUTS ============ */
+document.addEventListener('keydown', (e) => {
+  // Cmd+K / Ctrl+K: focus search
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    const searchInput = document.querySelector('.search-input, #search-input, input[type="search"]');
+    if (searchInput) searchInput.focus();
+  }
+  // Escape: close modals/drawers
+  if (e.key === 'Escape') {
+    const drawer = document.getElementById('member-drawer');
+    if (drawer && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+    // Close any open modal
+    document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
+  }
+});
+
+// Service Worker for push notifications
 if ('serviceWorker' in navigator) {
   /* SW disabled in demo */
 }
