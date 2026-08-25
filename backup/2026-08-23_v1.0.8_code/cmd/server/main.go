@@ -85,6 +85,7 @@ func main() {
 	r.Get("/api/settings/info", app.Settings.Info)
 	r.Get("/api/setup/needs-setup", app.Setup.NeedsSetup)
 	r.Post("/panel/setup", app.Setup.Setup)
+	r.Post("/api/setup", app.Setup.Setup)
 	r.Post("/api/auth/login", app.AuthH.Login)
 
 	// ---- Auth required ----

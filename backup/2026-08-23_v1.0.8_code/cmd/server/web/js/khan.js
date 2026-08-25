@@ -1,21 +1,4 @@
 
-/* ============ 12-THEME PICKER (v1.0.8) ============ */
-const KHAN_THEMES = [
-  { id:'khan',     label:{fa:'خان',en:'Khan'},     swatch:'#e8a33d' },
-  { id:'sapphire', label:{fa:'یاقوت',en:'Sapphire'}, swatch:'#3b82f6' },
-  { id:'spring',   label:{fa:'بهار',en:'Spring'},   swatch:'#10b981' },
-  { id:'night',    label:{fa:'شب',en:'Night'},      swatch:'#8b5cf6' },
-  { id:'sunset',   label:{fa:'غروب',en:'Sunset'},   swatch:'#f97316' },
-  { id:'frost',    label:{fa:'برف',en:'Frost'},     swatch:'#64748b' },
-];
-function khanThemeId() {
-  const saved = localStorage.getItem('khan_theme') || 'khan-dark';
-  return saved;
-}
-function setKhanTheme(base, mode) {
-  localStorage.setItem('khan_theme', base + '-' + mode);
-  document.documentElement.setAttribute('data-theme', base + '-' + mode);
-}
 
 /* ═══════════ خان — Khan Chat Frontend (Vue 3) v1.0.3 ═══════════
    Full-featured: public/private rooms, offline msgs, presence, typing,
@@ -323,7 +306,15 @@ const app = createApp({
     return {
       // Language & Theme
       uiLang: localStorage.getItem('khan_lang') || 'fa',
-      uiTheme: localStorage.getItem('khan_theme') || 'dark',
+      uiTheme: localStorage.getItem('khan_theme') || 'khan-dark',
+      themeList: [
+        { id:'khan',     label:'خان',    swatch:'linear-gradient(135deg,#e8a33d,#171410)' },
+        { id:'sapphire', label:'یاقوت',  swatch:'linear-gradient(135deg,#3b82f6,#0f131c)' },
+        { id:'spring',   label:'بهار',   swatch:'linear-gradient(135deg,#10b981,#0e1912)' },
+        { id:'night',    label:'شب',     swatch:'linear-gradient(135deg,#8b5cf6,#151022)' },
+        { id:'sunset',   label:'غروب',   swatch:'linear-gradient(135deg,#f97316,#1a110c)' },
+        { id:'frost',    label:'برف',    swatch:'linear-gradient(135deg,#94a3b8,#10141b)' },
+      ],
       i18n: I18N,
       // Server & session
       serverInfo: null,
@@ -550,11 +541,28 @@ const app = createApp({
       document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
     },
 
-    /* ─────────── Theme ─────────── */
-    toggleTheme() {
-      this.uiTheme = this.uiTheme === 'dark' ? 'light' : 'dark';
+    /* ─────────── Theme (v1.0.8: 6 bases × light/dark) ─────────── */
+    get themeBase() {
+      const t = this.uiTheme || 'dark';
+      return t.replace(/-light$|-dark$/, '');
+    },
+    get themeMode() {
+      const t = this.uiTheme || 'dark';
+      return /-light$/.test(t) ? 'light' : 'dark';
+    },
+    applyTheme() {
       localStorage.setItem('khan_theme', this.uiTheme);
       document.documentElement.setAttribute('data-theme', this.uiTheme);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--bg-deep').trim() || '#0f1011';
+    },
+    setThemeBase(base) {
+      this.uiTheme = base + '-' + (this.themeMode === 'light' ? 'light' : 'dark');
+      this.applyTheme();
+    },
+    toggleThemeMode() {
+      this.uiTheme = this.themeBase + '-' + (this.themeMode === 'dark' ? 'light' : 'dark');
+      this.applyTheme();
     },
 
     /* ─────────── API ─────────── */
@@ -606,7 +614,7 @@ const app = createApp({
       this.loginBusy = true;
       this.loginError = '';
       try {
-        const data = await this.api('/api/setup', {
+        const data = await this.api('/panel/setup', {
           method: 'POST',
           body: JSON.stringify({
             admin_username: this.setupForm.username,

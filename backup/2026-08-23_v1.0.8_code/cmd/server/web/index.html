@@ -28,6 +28,18 @@
           <button :class="{ active: uiLang === 'en' }" @click="setLang('en')">English</button>
         </div>
 
+        <!-- Theme picker (v1.0.8): 6 bases × light/dark -->
+        <div class="theme-picker">
+          <button v-for="th in themeList" :key="th.id"
+                  class="theme-dot" :style="{ background: th.swatch }"
+                  :title="t(th.id) || th.label" @click="setThemeBase(th.id)">
+            <span v-if="themeBase === th.id" class="theme-check">✓</span>
+          </button>
+          <button class="theme-mode-btn" @click="toggleThemeMode" :title="themeMode === 'dark' ? 'روشن' : 'تیره'">
+            {{ themeMode === 'dark' ? '☀️' : '🌙' }}
+          </button>
+        </div>
+
         <!-- Login form -->
         <form v-if="!needsSetup" @submit.prevent="login">
           <div class="form-group">
@@ -83,8 +95,8 @@
             </div>
           </div>
           <!-- Theme toggle -->
-          <button class="btn-icon" @click="toggleTheme" :title="theme === 'dark' ? 'حالت روشن' : 'حالت تاریک'">
-            {{ theme === 'dark' ? '☀️' : '🌙' }}
+          <button class="btn-icon" @click="toggleThemeMode" :title="themeMode === 'dark' ? 'حالت روشن' : 'حالت تاریک'">
+            {{ themeMode === 'dark' ? '☀️' : '🌙' }}
           </button>
         </div>
 
