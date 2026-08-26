@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="khan-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0e0f12">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/img/khan-logo.jpg">
+  <title>خان — چت سازمانی</title>
+  <link rel="stylesheet" href="/css/khan.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+
+    <!-- ═══════════════ LOGIN SCREEN (design v1.0.8: brand panel + form panel) ═══════════════ -->
+    <div v-if="!session.token" class="login-screen">
+      <div class="login-bg-pattern" aria-hidden="true">
+        <div class="brand-core" style="position:relative;z-index:2;margin:auto;text-align:center;padding:40px;max-width:440px;">
+          <img src="/img/khan-logo.jpg" style="width:108px;height:108px;border-radius:28px;box-shadow:var(--shadow-soft);margin:0 auto 28px;display:block;" alt="">
+          <h1 class="brand-title" style="font-size:30px;font-weight:700;margin-bottom:10px;color:var(--text);">خان</h1>
+          <p style="font-size:16px;color:var(--text-dim);font-weight:500;line-height:1.9;">خانِ شما، جای گپ‌های تیم<br>فضایی امن و ساده برای همکاری روزانه</p>
+        </div>
+      </div>
+      <div class="login-card">
+        <h1 class="login-title">خان</h1>
+        <p class="login-subtitle">{{ t('loginSubtitle') }}</p>
+
+        <div class="lang-switcher">
+          <button :class="{ active: uiLang === 'fa' }" @click="setLang('fa')">فارسی</button>
+          <button :class="{ active: uiLang === 'en' }" @click="setLang('en')">English</button>
+        </div>
+
+        <!-- Theme picker (design): 6 bases × light/dark -->
+        <div class="theme-picker" style="flex-wrap:wrap;">
+          <div class="theme-picker-label">{{ t('pickTheme') || 'رنگ‌بندی خان را انتخاب کنید' }}</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;">
+            <button v-for="th in themeList" :key="th.id" type="button"
+                    class="theme-dot" :class="{ active: themeBase === th.id }"
+                    :style="{ background: th.swatch }"
+                    :title="th.label" @click="setThemeBase(th.id)"></button>
+            <button type="button" class="theme-mode-btn" @click="toggleThemeMode" aria-label="تغییر حالت روشن و تاریک">
+              {{ themeMode === 'dark' ? '☀️' : '🌙' }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Login form -->
+        <form v-if="!needsSetup" @submit.prevent="login">
+          <div class="form-group">
+            <label>{{ t('username') }}</label>
+            <input class="form-input" v-model="loginForm.username" :placeholder="t('usernamePlaceholder')" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label>{{ t('password') }}</label>
+            <input class="form-input" type="password" v-model="loginForm.password" :placeholder="t('passwordPlaceholder')" autocomplete="current-password" required>
+          </div>
+          <button class="btn-primary" type="submit" :disabled="loginLoading">
+            {{ loginLoading ? t('loggingIn') : t('login') }}
+          </button>
+        </form>
+
+        <!-- Setup form (first run) -->
+        <form v-else @submit.prevent="setup">
+          <div class="form-group">
+            <label>{{ t('setupAdmin') }}</label>
+            <input class="form-input" v-model="setupForm.username" :placeholder="t('usernamePlaceholder')" required>
+          </div>
+          <div class="form-group">
+            <label>{{ t('setupDisplayName') }}</label>
+            <input class="form-input" v-model="setupForm.displayName" placeholder="مدیر سیستم" required>
+          </div>
+          <div class="form-group">
+            <label>{{ t('setupPassword') }}</label>
+            <input class="form-input" type="password" v-model="setupForm.password" :placeholder="t('passwordPlaceholder')" required>
+          </div>
+          <button class="btn-primary" type="submit" :disabled="loginLoading">
+            {{ loginLoading ? t('loggingIn') : t('setupCreate') }}
+          </button>
+        </form>
+
+        <div v-if="loginError" class="toast error" style="position: static; margin-top: 16px;">{{ loginError }}</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ MAIN APP ═══════════════ -->
+    <div v-else class="app-layout" :class="{ 'show-chat': mobileChatOpen }">
+
+      <!-- ─── Sidebar ─── -->
+      <aside class="sidebar" :class="{ 'sidebar-open': mobileSidebar }">
+        <div class="sidebar-header">
+          <div class="sidebar-profile" @click="showProfile = true">
+            <div class="avatar" :style="avatarStyle(session.user)">
+              {{ initials((session.user || {}).display_name || (session.user || {}).username) }}
+              <span class="presence-dot"></span>
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">{{ (session.user || {}).display_name || (session.user || {}).username }}</span>
+              <span class="profile-role">{{ roleLabel((session.user || {}).role) }}</span>
+            </div>
+          </div>
+          <!-- Theme toggle -->
+          <button class="btn-icon" @click="toggleThemeMode" :title="themeMode === 'dark' ? 'حالت روشن' : 'حالت تاریک'">
+            {{ themeMode === 'dark' ? '☀️' : '🌙' }}
+          </button>
+        </div>
+
+        <div class="sidebar-search">
+          <div class="search-box">
+            <span>🔍</span>
+            <input v-model="chatSearch" :placeholder="t('searchChats')">
+          </div>
+        </div>
+
+        <div class="sidebar-tabs">
+          <button :class="{ active: sidebarTab === 'chats' }" @click="sidebarTab = 'chats'">💬 {{ t('chats') }}</button>
+          <button :class="{ active: sidebarTab === 'rooms' }" @click="sidebarTab = 'rooms'">🏠 {{ t('rooms') }}</button>
+          <button :class="{ active: sidebarTab === 'search' }" @click="openSearch">🔍 {{ t('search') }}</button>
+          <button :class="{ active: sidebarTab === 'users' }" @click="sidebarTab = 'users'">👥 {{ t('users') }}</button>
+        </div>
+
+        <div class="chat-list" v-if="sidebarTab === 'chats'">
+          <!-- Departments -->
+          <template v-for="dept in departments">
+            <div class="department-header" v-if="filteredRoomsByDept(dept.id).length">
+              <span class="dept-toggle" @click="toggleDept(dept.id)">{{ deptCollapsed[dept.id] ? '▶' : '▼' }}</span>
+              {{ dept.name }}
+            </div>
+            <template v-if="!deptCollapsed[dept.id]">
+              <div v-for="chat in filteredRoomsByDept(dept.id)" :key="'d'+chat.id"
+                   class="chat-item" :class="{ active: currentRoomId === chat.id }"
+                   @click="openRoom(chat)">
+                <div class="avatar small" :style="avatarStyle(chat)">
+                  <span class="room-type-icon">{{ roomIcon(chat) }}</span>
+                </div>
+                <div class="chat-item-info">
+                  <div class="chat-item-top">
+                    <span class="chat-item-name">{{ chat.name || roomTitle(chat) }}</span>
+                    <span class="chat-item-time">{{ relativeTime(chat.lastMessageAt || chat.created_at) }}</span>
+                  </div>
+                  <div class="chat-item-preview">
+                    <span class="chat-item-preview-text">{{ chat.lastMessage || '' }}</span>
+                    <span v-if="(unreadMap[chat.id] || 0) > 0" class="unread-badge">{{ unreadMap[chat.id] }}</span>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </template>
+
+          <!-- Rooms without department -->
+          <div v-for="chat in filteredRoomsNoDept()" :key="'n'+chat.id"
+               class="chat-item" :class="{ active: currentRoomId === chat.id }"
+               @click="openRoom(chat)">
+            <div class="avatar small" :style="avatarStyle(chat)">
+              <span class="room-type-icon">{{ roomIcon(chat) }}</span>
+            </div>
+            <div class="chat-item-info">
+              <div class="chat-item-top">
+                <span class="chat-item-name">{{ chat.name || roomTitle(chat) }}</span>
+                <span class="chat-item-time">{{ relativeTime(chat.lastMessageAt || chat.created_at) }}</span>
+              </div>
+              <div class="chat-item-preview">
+                <span class="chat-item-preview-text">{{ chat.lastMessage || '' }}</span>
+                <span v-if="(unreadMap[chat.id] || 0) > 0" class="unread-badge">{{ unreadMap[chat.id] }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="!filteredRooms().length" class="empty-state" style="padding: 40px 20px;">
+            <div class="empty-icon">💬</div>
+            <div class="empty-title">{{ t('noChats') }}</div>
+            <div class="empty-desc">{{ t('noChatsDesc') }}</div>
+          </div>
+        </div>
+
+        <!-- Rooms tab: public/private room discovery -->
+        <div class="chat-list" v-else-if="sidebarTab === 'rooms'">
+          <div class="department-header">🌐 {{ t('publicRooms') }}</div>
+          <div v-for="room in publicRooms" :key="'p'+room.id" class="chat-item" @click="joinRoom(room)">
+            <div class="avatar small" style="background: #27a644;">🌐</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ room.name }}</span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ t('clickToJoin') }}</span></div>
+            </div>
+          </div>
+
+          <div class="department-header">🔒 {{ t('privateRooms') }}</div>
+          <div v-for="room in privateRooms" :key="'pr'+room.id" class="chat-item" @click="openRoom(room)">
+            <div class="avatar small" style="background: #6c5ce7;">🔒</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ room.name }}</span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ room.description || t('privateRoom') }}</span></div>
+            </div>
+          </div>
+
+          <div class="department-header">➕ {{ t('createRoom') }}</div>
+          <div class="chat-item" @click="showCreateRoom = true">
+            <div class="avatar small" style="background: var(--accent);">➕</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ t('newRoom') }}</span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ t('createRoomDesc') }}</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-list" v-else-if="sidebarTab === 'search'">
+          <div class="search-box" style="margin-bottom: 12px;">
+            <span>🔍</span>
+            <input v-model="smartSearchQuery" :placeholder="t('smartSearch')" @keyup.enter="doSearch">
+          </div>
+          <div v-for="r in searchResults" :key="'s'+r.id" class="chat-item" @click="gotoMessage(r)">
+            <div class="avatar small" :style="avatarStyle({ display_name: r.sender_name })">{{ initials(r.sender_name) }}</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top">
+                <span class="chat-item-name">{{ roomName(r.room_id) }} · {{ r.sender_name }}</span>
+              </div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ r.text }}</span></div>
+            </div>
+          </div>
+          <div v-if="!searchResults.length" class="empty-state" style="padding: 40px 20px;">
+            <div class="empty-icon">🔍</div>
+            <div class="empty-title">{{ t('searchMessages') }}</div>
+          </div>
+        </div>
+
+        <!-- Users tab: every visible member with an online/offline light (hidden super admin excluded) -->
+        <div class="chat-list" v-else-if="sidebarTab === 'users'">
+          <div class="search-box" style="margin-bottom: 12px;">
+            <span>🔍</span>
+            <input v-model="userSearchQuery" :placeholder="t('searchUsers')" @keyup.enter="searchUsers">
+          </div>
+          <div v-if="userSearchQuery.trim() && userSearchResults.length" class="department-header">🔎 {{ t('searchResults') || 'نتایج' }} ({{ userSearchResults.length }})</div>
+          <div v-for="u in userSearchResults" :key="'su'+u.id" class="chat-item" @click="openUserProfile(u)">
+            <div class="avatar small" :style="avatarStyle(u)">{{ initials(u.display_name || u.username) }}</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ u.display_name || u.username }}</span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ u.username }}</span></div>
+            </div>
+          </div>
+          <div v-if="userSearchQuery.trim() && !userSearchResults.length" class="empty-state" style="padding: 20px;">
+            <div class="empty-icon">🔍</div>
+            <div class="empty-title">{{ t('noUsersFound') }}</div>
+          </div>
+          <div class="department-header">🟢 {{ t('online') }} ({{ onlineVisibleUsers.length }})</div>
+          <div v-for="u in onlineVisibleUsers" :key="'ou'+u.id" class="chat-item" @click="startDM(u)">
+            <div class="avatar small" :style="avatarStyle(u)"><span class="online-badge"></span>{{ initials(u.display_name || u.username) }}</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ u.display_name || u.username }}</span><span class="online-light" title="آنلاین"></span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ t('online') }}</span></div>
+            </div>
+          </div>
+          <div v-if="!onlineVisibleUsers.length" class="empty-state" style="padding: 40px 20px;">
+            <div class="empty-icon">🌙</div>
+            <div class="empty-title">{{ t('noOnline') }}</div>
+          </div>
+          <div class="department-header" style="margin-top:8px;">🎛️ {{ t('allUsers') }}</div>
+          <div v-for="u in visibleUsersSorted" :key="'au'+u.id" class="chat-item" @click="startDM(u)">
+            <div class="avatar small" :style="avatarStyle(u)">{{ initials(u.display_name || u.username) }}</div>
+            <div class="chat-item-info">
+              <div class="chat-item-top"><span class="chat-item-name">{{ u.display_name || u.username }}</span><span class="dot" :class="{ offline: !u.online }"></span></div>
+              <div class="chat-item-preview"><span class="chat-item-preview-text">{{ u.online ? t('online') : (u.role === 'adm' ? t('admin') : '') }}</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar footer -->
+        <div class="sidebar-header" style="border-top: 1px solid var(--border-subtle); border-bottom: none;">
+          <button v-if="isAdmin" class="footer-btn admin-btn" style="flex:1; padding:10px; background: var(--accent-soft); color: var(--accent-hover); border-radius: 8px; font-weight:600; font-size:13px;"
+                  @click="openAdminPanel">⚙️ {{ t('adminPanel') }}</button>
+          <button class="btn-icon" @click="logout" :title="t('logout')">🚪</button>
+        </div>
+      </aside>
+
+      <!-- ─── Chat Area ─── -->
+      <main class="chat-area">
+        <div class="chat-header">
+          <button class="mobile-hamburger" @click="mobileSidebar = true; mobileChatOpen = false">☰</button>
+          <button class="btn-icon mobile-back" @click="mobileChatOpen = false" aria-label="بازگشت">→</button>
+          <template v-if="currentRoom">
+            <div class="chat-header-info">
+              <div class="chat-header-name">
+                <span>{{ currentRoom.name || roomTitle(currentRoom) }}</span>
+                <span v-if="isDM(currentRoom)" class="online-indicator">
+                  <span class="dot" :class="{ offline: !dmPartnerOnline }"></span>
+                  {{ dmPartnerOnline ? t('online') : t('offline') }}
+                </span>
+              </div>
+              <div class="chat-header-status">
+                <template v-if="isDM(currentRoom)">{{ dmPartnerStatusText }}</template>
+                <template v-else>{{ currentRoomMembers.length }} {{ t('members') }}</template>
+              </div>
+            </div>
+            <button class="btn-icon" @click="showRoomInfo = !showRoomInfo" :title="t('roomInfo')">ℹ️</button>
+            <button class="btn-icon" @click="openSearch" :title="t('searchInRoom')">🔍</button>
+          </template>
+          <template v-else>
+            <div class="chat-header-info">
+              <div class="chat-header-name">{{ t('khanChat') }}</div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Pinned messages bar -->
+        <div v-if="pinnedMessages.length" class="pinned-bar" @click="gotoPinned(pinnedMessages[0])">
+          📌 <span class="pin-text">{{ pinnedMessages[0].text }}</span>
+        </div>
+
+        <!-- Urgent banner -->
+        <div v-if="currentRoomUrgent" class="urgent-banner">
+          🚨 {{ t('urgentMessage') }}
+        </div>
+
+        <!-- Messages -->
+        <div class="messages-area" ref="messagesArea" @scroll="onMessagesScroll" @dragover.prevent="dragOver = true" @dragleave="dragOver = false" @drop.prevent="onFileDrop">
+          <div v-if="hasMoreMessages" class="day-divider" style="cursor: pointer;" @click="loadOlder">
+            <span>⬆️ {{ t('loadOlder') }}</span>
+          </div>
+
+          <template v-for="(group, day) in groupedMessages" :key="day">
+            <div class="day-divider"><span>{{ dayLabel(day) }}</span></div>
+
+            <div v-for="(m, idx) in group" :key="m.id"
+                 class="msg-group" :class="m.sender_id === session.user.id ? 'own' : 'other'"
+                 :data-msg-id="m.id"
+                 @contextmenu.prevent="openContextMenu($event, m)">
+
+              <!-- Reply quote -->
+              <div v-if="m.reply_to" class="msg-reply-quote" @click="gotoMessageId(m.reply_to)">
+                ↩️ {{ replyPreview(m) }}
+              </div>
+
+              <!-- Forward badge -->
+              <span v-if="m.forwarded_from" class="msg-forward-badge">↪️ {{ t('forwarded') }}</span>
+
+              <!-- Sender name (groups) -->
+              <div v-if="!isDM(currentRoom) && m.sender_id !== session.user.id" class="msg-sender">{{ m.sender_name }}</div>
+
+              <!-- Bubble -->
+              <div class="msg-bubble" :class="{ urgent: m.urgent }">
+                <span v-if="m.urgent" class="msg-urgent-label">🚨 {{ t('urgent') }}</span>
+                <span v-if="m.poll_id" class="poll-card" style="display:block; background:transparent; border:none; padding:0;">
+                  <!-- poll rendering happens via poll data -->
+                </span>
+                <span v-html="renderText(m.text)"></span>
+                <a v-if="m.file_id" class="msg-attachment" :href="'/api/files/' + m.file_id + '/download?token=' + session.token" target="_blank">
+                  📎 {{ m.file_name || ('#' + m.file_id) }}
+                </a>
+                <div v-if="m.poll" class="poll-card">
+                  <div class="poll-question">📊 {{ m.poll.question }}</div>
+                  <div v-for="(opt, oi) in m.poll.options" :key="oi" class="poll-option"
+                       :class="{ voted: userVoted(m.poll, session.user.id) === oi }"
+                       @click="votePoll(m.poll, oi)">
+                    <div class="poll-option-bar" :style="{ width: pollPct(m.poll, oi) + '%' }"></div>
+                    <div class="poll-option-content">
+                      <span>{{ opt }}</span>
+                      <span class="poll-option-pct">{{ pollPct(m.poll, oi) }}%</span>
+                    </div>
+                  </div>
+                  <div style="font-size:11px; color:var(--text-quaternary); margin-top:4px;">
+                    {{ pollTotalVotes(m.poll) }} {{ t('votes') }} · {{ m.poll.closed ? t('pollClosed') : '' }}
+                  </div>
+                </div>
+                <div class="msg-meta">
+                  <span>{{ timeShort(m.created_at) }}</span>
+                  <span v-if="m.edited_at" class="msg-edited">({{ t('edited') }})</span>
+                  <!-- Read receipts: check marks -->
+                  <span v-if="m.sender_id === session.user.id" class="msg-read-tick"
+                        :title="readReceiptTitle(m)">
+                    {{ readCount(m) >= currentRoomMembers.length - 1 ? '✓✓' : '✓' }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Reactions -->
+              <div v-if="m.reactions && m.reactions.length" class="msg-reactions">
+                <button v-for="(rc, ri) in m.reactions" :key="ri"
+                        class="reaction-chip" :class="{ reacted: rc.user_id === session.user.id }"
+                        @click="toggleReaction(m, rc.emoji)">
+                  {{ rc.emoji }} {{ m.reactions.filter(r => r.emoji === rc.emoji).length }}
+                </button>
+              </div>
+            </div>
+          </template>
+
+          <div v-if="!currentRoom" class="empty-state">
+            <div class="empty-icon">🏠</div>
+            <div class="empty-title">{{ t('welcome') }}</div>
+            <div class="empty-desc">{{ t('welcomeDesc') }}</div>
+          </div>
+
+          <div v-if="currentRoom && !Object.keys(groupedMessages).length" class="empty-state">
+            <div class="empty-icon">💬</div>
+            <div class="empty-title">{{ t('noMessages') }}</div>
+            <div class="empty-desc">{{ t('noMessagesDesc') }}</div>
+          </div>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator" v-if="typingNames.length">
+          <span class="typing-dots"></span> {{ typingNames.join('، ') }} {{ t('typing') }}...
+        </div>
+
+        <!-- Composer -->
+        <div class="composer-wrap" v-if="currentRoom">
+          <!-- Reply preview -->
+          <div v-if="replyTarget" class="reply-preview">
+            <span>↩️ {{ t('replyingTo') }} {{ replyTarget.sender_name }}: {{ replyTarget.text.slice(0, 50) }}</span>
+            <span class="reply-close" @click="replyTarget = null">✕</span>
+          </div>
+
+          <!-- Mention autocomplete -->
+          <div v-if="mentionPopupVisible" class="mention-popup">
+            <button v-for="u in mentionCandidates" :key="u.id"
+                    :class="{ selected: mentionSelected === u.id }"
+                    @mousedown.prevent="insertMention(u)">
+              <span class="avatar small" :style="avatarStyle(u)">{{ initials(u.display_name) }}</span>
+              {{ u.display_name }} (@{{ u.username }})
+            </button>
+          </div>
+
+          <!-- Sticker picker -->
+          <div v-if="showStickers" class="sticker-picker">
+            <button v-for="s in stickers" :key="s" @click="sendSticker(s)">{{ s }}</button>
+          </div>
+
+          <!-- Emoji picker -->
+          <div v-if="showEmojis" class="emoji-picker">
+            <button v-for="e in emojis" :key="e" @click="insertEmoji(e)">{{ e }}</button>
+          </div>
+
+          <div class="composer">
+            <button class="btn-icon" @click="showEmojis = !showEmojis" :title="t('emoji')">😊</button>
+            <button class="btn-icon" @click="showStickers = !showStickers" :title="t('stickers')">🎨</button>
+            <button class="btn-icon" @click="openPollModal" :title="t('createPoll')">📊</button>
+            <textarea ref="composer" v-model="draft" :placeholder="t('messagePlaceholder')"
+                      @keydown.enter.exact.prevent="sendMessage"
+                      @keydown="onComposerKeydown"
+                      @input="onComposerInput"
+                      rows="1"></textarea>
+            <button class="btn-icon" @click="triggerFileUpload" :title="t('attach')">📎</button>
+            <input type="file" ref="fileInput" style="display:none" @change="onFileSelect">
+            <button class="send-btn" @click="sendMessage" :disabled="!draft.trim() && !uploadingFile">➤</button>
+          </div>
+        </div>
+
+        <!-- Drag & drop overlay -->
+        <div v-if="dragOver" class="drag-overlay">
+          📎 {{ t('dropFile') }}
+        </div>
+      </main>
+
+      <!-- ─── Right Info Panel ─── -->
+      <aside class="info-panel" v-if="showRoomInfo && currentRoom">
+        <div class="info-panel-header">
+          <h3>{{ currentRoom.name || roomTitle(currentRoom) }}</h3>
+          <div class="online-indicator" style="margin-top:4px;">
+            <span class="dot" :class="{ offline: !roomHasOnline }"></span>
+            {{ roomOnlineCount }} {{ t('online') }}
+          </div>
+        </div>
+
+        <div class="info-panel-section">
+          <h4>{{ t('members') }} ({{ currentRoomMembers.length }})</h4>
+          <div class="member-list">
+            <div v-for="m in currentRoomMembers" :key="m.id" class="member-item" style="cursor:pointer;" @click="openUserProfile(m)">
+              <div class="avatar small" :style="avatarStyle(m)">
+                {{ initials(m.display_name) }}
+                <span class="presence-dot" :class="{ offline: !isUserOnline(m) }"></span>
+              </div>
+              <div class="member-item-info">
+                <div class="member-item-name">{{ m.display_name }}</div>
+                <div class="member-item-role">{{ memberRoleLabel(m.id) }}</div>
+              </div>
+              <div class="member-actions" v-if="canManageRoom">
+                <button class="mini-btn danger" @click="removeMember(m)" :title="t('removeMember')">✕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-panel-section" v-if="canManageRoom && currentRoom.type !== 'dm'">
+          <h4>{{ t('addMember') }}</h4>
+          <div style="display:flex; gap:8px;">
+            <select class="form-input" v-model="inviteUserId" style="flex:1;">
+              <option :value="null" disabled>{{ t('selectUser') }}</option>
+              <option v-for="u in availableMembers" :key="u.id" :value="u.id">{{ u.display_name }}</option>
+            </select>
+            <button class="btn-secondary" @click="inviteMember">➕</button>
+          </div>
+        </div>
+
+        <div class="info-panel-section" v-if="currentRoom.type === 'group' || currentRoom.type === 'channel'">
+          <h4>{{ t('pinnedMessages') }}</h4>
+          <div v-for="pin in pinnedMessages" :key="pin.id" class="member-item" style="cursor:pointer;" @click="gotoMessageId(pin.id)">
+            <span style="font-size:18px;">📌</span>
+            <div class="member-item-info">
+              <div class="member-item-name" style="font-size:12px;">{{ pin.text.slice(0, 40) }}</div>
+            </div>
+          </div>
+          <div v-if="!pinnedMessages.length" style="font-size:12px; color:var(--text-quaternary);">{{ t('noPinned') }}</div>
+        </div>
+      </aside>
+
+      <!-- ─── Admin Panel ─── -->
+      <div v-if="showAdminPanel" class="admin-panel">
+        <div class="admin-header">
+          <h2>⚙️ {{ t('adminPanel') }}</h2>
+          <div style="flex:1;"></div>
+          <button class="btn-secondary" @click="showAdminPanel = false">✕ {{ t('close') }}</button>
+        </div>
+
+        <div class="admin-tabs">
+          <button :class="{ active: adminTab === 'users' }" @click="adminTab = 'users'">👥 {{ t('users') }}</button>
+          <button :class="{ active: adminTab === 'license' }" @click="adminTab = 'license'">🎫 {{ t('license') }}</button>
+          <button :class="{ active: adminTab === 'network' }" @click="adminTab = 'network'">🌐 {{ t('network') }}</button>
+          <button :class="{ active: adminTab === 'backup' }" @click="adminTab = 'backup'">💾 {{ t('backup') }}</button>
+          <button :class="{ active: adminTab === 'logs' }" @click="adminTab = 'logs'">📋 {{ t('logs') }}</button>
+          <button :class="{ active: adminTab === 'departments' }" @click="adminTab = 'departments'">🏢 {{ t('departments') }}</button>
+        </div>
+
+        <div class="admin-body">
+          <!-- Users tab -->
+          <div v-if="adminTab === 'users'">
+            <div class="admin-toolbar">
+              <h3 style="font-size:18px;">{{ t('userManagement') }}</h3>
+              <button class="btn-secondary" style="width:auto;" @click="exportUsers">⬇️ {{ t('exportExcel') }}</button>
+              <button class="btn-primary" style="width:auto;" @click="showCreateUser = true">➕ {{ t('newUser') }}</button>
+            </div>
+            <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>{{ t('user') }}</th>
+                  <th>{{ t('role') }}</th>
+                  <th>{{ t('status') }}</th>
+                  <th>{{ t('actions') }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="u in users" :key="u.id">
+                  <td>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                      <div class="avatar small" :style="avatarStyle(u)">{{ initials(u.display_name) }}</div>
+                      <div>
+                        <div style="font-weight:600;">{{ u.display_name }}</div>
+                        <div style="font-size:11px; color:var(--text-quaternary);">@{{ u.username }}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="role-badge" :class="u.role">{{ roleLabel(u.role) }}</span></td>
+                  <td>
+                    <span class="online-indicator">
+                      <span class="dot" :class="{ offline: !isUserOnline(u) }"></span>
+                      {{ isUserOnline(u) ? t('online') : t('offline') }}
+                    </span>
+                  </td>
+                  <td>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                      <button v-if="canPromote(u)" class="mini-btn" @click="toggleRole(u)">
+                        🔃 {{ u.role === 'sup' ? t('demote') : t('promote') }}
+                      </button>
+                      <button class="mini-btn" @click="resetPassword(u)">🔑</button>
+                      <button class="mini-btn" @click="toggleActive(u)">
+                        {{ u.active ? '⏸' : '▶️' }}
+                      </button>
+                      <button class="mini-btn danger" @click="deleteUser(u)">🗑</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <!-- License tab -->
+          <div v-if="adminTab === 'license'">
+            <div class="license-status-card" :class="license.state">
+              <div class="license-status-icon">{{ licenseIcon }}</div>
+              <div class="license-status-title">{{ licenseTitle }}</div>
+              <div class="license-status-detail">{{ t('maxUsers') }}: <b>{{ license.max_users }}</b></div>
+              <div v-if="license.to" class="license-status-detail">{{ t('company') }}: {{ license.to }}</div>
+              <div v-if="license.expires_at" class="license-status-detail">{{ t('expires') }}: {{ license.expires_at }}</div>
+            </div>
+
+            <div v-if="license.state === 'tampered'" class="license-warning">
+              ⚠️ {{ t('licenseWarning') }}
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <label class="file-upload-btn">
+                🎫 {{ t('applyLicense') }}
+                <input type="file" @change="applyLicense" accept=".key,.lic">
+              </label>
+              <button class="btn-danger" @click="removeLicense">{{ t('removeLicense') }}</button>
+            </div>
+          </div>
+
+          <!-- Network tab -->
+          <div v-if="adminTab === 'network'" class="network-form">
+            <div class="network-info">
+              <div>🏠 {{ t('serverAddress') }}: <b>{{ networkInfo.address }}</b></div>
+              <div>⚙️ {{ t('port') }}: <b>{{ networkInfo.port }}</b></div>
+              <div>📦 {{ t('version') }}: <b>{{ networkInfo.version }}</b></div>
+            </div>
+            <div class="form-group">
+              <label>{{ t('addressType') }}</label>
+              <select class="form-input" v-model="networkForm.address_type">
+                <option value="ip">IP</option>
+                <option value="dns">DNS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>{{ t('address') }}</label>
+              <input class="form-input" v-model="networkForm.ip" :placeholder="t('ipPlaceholder')">
+            </div>
+            <div class="form-group">
+              <label>{{ t('port') }} (1700-1799)</label>
+              <input class="form-input" type="number" v-model.number="networkForm.port" min="1700" max="1799">
+            </div>
+            <button class="btn-primary" style="width:auto;" @click="saveNetwork">💾 {{ t('saveSettings') }}</button>
+          </div>
+
+          <!-- Backup tab -->
+          <div v-if="adminTab === 'backup'">
+            <div class="admin-toolbar">
+              <h3 style="font-size:18px;">{{ t('backup') }}</h3>
+              <button class="btn-primary" style="width:auto;" @click="manualBackup">💾 {{ t('backupNow') }}</button>
+            </div>
+            <table class="admin-table" v-if="backups.length">
+              <thead><tr><th>{{ t('backupFile') }}</th><th>{{ t('actions') }}</th></tr></thead>
+              <tbody>
+                <tr v-for="b in backups" :key="b">
+                  <td style="font-size:12px;">{{ b }}</td>
+                  <td>
+                    <button class="mini-btn" @click="restoreBackup(b)" :title="t('restore')">🔄</button>
+                    <button class="mini-btn" @click="downloadBackup(b)">⬇️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div v-if="!backups.length" class="empty-state" style="padding:30px;">
+              <div class="empty-desc">{{ t('noBackups') }}</div>
+            </div>
+          </div>
+
+          <!-- Logs tab -->
+          <div v-if="adminTab === 'logs'">
+            <div class="admin-toolbar">
+              <h3 style="font-size:18px;">📋 {{ t('logs') }}</h3>
+              <button class="btn-secondary" @click="refreshLogs">🔄</button>
+            </div>
+            <pre style="background: var(--bg-surface); border:1px solid var(--border-standard); border-radius:8px; padding:16px; font-size:12px; direction:ltr; text-align:left; max-height:60vh; overflow:auto; white-space:pre-wrap;">{{ serverLogs }}</pre>
+          </div>
+
+          <!-- Departments tab -->
+          <div v-if="adminTab === 'departments'">
+            <div class="admin-toolbar">
+              <h3 style="font-size:18px;">🏢 {{ t('departments') }}</h3>
+              <button class="btn-primary" style="width:auto;" @click="showCreateDept = true">➕ {{ t('newDepartment') }}</button>
+            </div>
+            <div v-for="d in departments" :key="d.id" class="member-item">
+              <div class="avatar small" style="background: var(--accent);">🏢</div>
+              <div class="member-item-info">
+                <div class="member-item-name">{{ d.name }}</div>
+                <div class="member-item-role">{{ deptRoomCount(d.id) }} {{ t('rooms') }}</div>
+              </div>
+              <button class="mini-btn danger" @click="deleteDepartment(d)">🗑</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Modals ─── -->
+
+      <!-- Create room -->
+      <div v-if="showCreateRoom" class="modal-overlay" @click.self="showCreateRoom = false">
+        <div class="modal">
+          <h3>➕ {{ t('createRoom') }}</h3>
+          <div class="form-group">
+            <label>{{ t('roomName') }}</label>
+            <input class="form-input" v-model="createRoomForm.name" :placeholder="t('roomName')">
+          </div>
+          <div class="form-group">
+            <label>{{ t('roomType') }}</label>
+            <select class="form-input" v-model="createRoomForm.type">
+              <option value="group">{{ t('groupRoom') }}</option>
+              <option value="public">{{ t('publicRoom') }}</option>
+              <option value="private">{{ t('privateRoom') }}</option>
+              <option value="channel">{{ t('channelRoom') }}</option>
+            </select>
+          </div>
+          <div class="form-group" v-if="departments.length">
+            <label>{{ t('department') }}</label>
+            <select class="form-input" v-model="createRoomForm.department">
+              <option :value="0">{{ t('none') }}</option>
+              <option v-for="d in departments" :key="d.id" :value="d.id">{{ d.name }}</option>
+            </select>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="createRoom">✅ {{ t('create') }}</button>
+            <button class="btn-secondary" @click="showCreateRoom = false">{{ t('cancel') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create user -->
+      <div v-if="showCreateUser" class="modal-overlay" @click.self="showCreateUser = false">
+        <div class="modal">
+          <h3>➕ {{ t('newUser') }}</h3>
+          <div class="form-group">
+            <label>{{ t('username') }}</label>
+            <input class="form-input" v-model="createUserForm.username">
+          </div>
+          <div class="form-group">
+            <label>{{ t('displayName') }}</label>
+            <input class="form-input" v-model="createUserForm.display_name">
+          </div>
+          <div class="form-group">
+            <label>{{ t('password') }}</label>
+            <input class="form-input" type="password" v-model="createUserForm.password">
+          </div>
+          <div class="form-group">
+            <label>{{ t('role') }}</label>
+            <select class="form-input" v-model="createUserForm.role">
+              <option value="user">کاربر</option>
+              <option value="sup">سوپروایزر</option>
+              <option value="adm">ادمین</option>
+            </select>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="createUser">✅ {{ t('create') }}</button>
+            <button class="btn-secondary" @click="showCreateUser = false">{{ t('cancel') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create department -->
+      <div v-if="showCreateDept" class="modal-overlay" @click.self="showCreateDept = false">
+        <div class="modal">
+          <h3>🏢 {{ t('newDepartment') }}</h3>
+          <div class="form-group">
+            <label>{{ t('deptName') }}</label>
+            <input class="form-input" v-model="createDeptForm.name">
+          </div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="createDepartment">✅ {{ t('create') }}</button>
+            <button class="btn-secondary" @click="showCreateDept = false">{{ t('cancel') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile -->
+      <div v-if="showProfile" class="modal-overlay" @click.self="showProfile = false">
+        <div class="modal">
+          <h3>👤 {{ t('myProfile') }}</h3>
+          <div style="text-align:center; margin-bottom:16px;">
+            <div class="avatar" style="width:72px; height:72px; font-size:24px; margin:0 auto;" :style="avatarStyle(session.user)">
+              {{ initials((session.user || {}).display_name || (session.user || {}).username) }}
+            </div>
+          </div>
+          <div class="form-group"><label>{{ t('displayName') }}</label><input class="form-input" v-model="profileForm.display_name"></div>
+          <div class="form-group"><label>{{ t('username') }}</label><input class="form-input" :value="(session.user || {}).username" disabled></div>
+          <div class="form-group"><label>{{ t('avatarUpload') }}</label><input class="form-input" type="file" accept="image/*" @change="uploadAvatar"></div>
+          <div class="modal-divider"></div>
+          <button class="btn-secondary full" @click="saveProfile">💾 {{ t('save') }}</button>
+          <button class="btn-secondary full" style="margin-top:8px;" @click="showChangePwd = true">🔑 {{ t('changePassword') }}</button>
+          <button class="btn-danger full" style="margin-top:8px;" @click="logout">{{ t('logout') }}</button>
+        </div>
+      </div>
+
+      <!-- Change password -->
+      <div       <!-- User profile (other users) -->
+      <div v-if="showUserProfile && selectedUser" class="modal-overlay" @click.self="showUserProfile = false">
+        <div class="modal">
+          <h3>👤 {{ selectedUser.display_name || selectedUser.username }}</h3>
+          <div style="text-align:center; margin-bottom:16px;">
+            <div class="avatar" style="width:72px; height:72px; font-size:24px; margin:0 auto;" :style="avatarStyle(selectedUser)">
+              {{ initials(selectedUser.display_name || selectedUser.username) }}
+            </div>
+          </div>
+          <div class="form-group"><label>{{ t('username') }}</label><input class="form-input" :value="selectedUser.username" disabled></div>
+          <div class="form-group"><label>{{ t('role') }}</label><input class="form-input" :value="roleLabel(selectedUser.role)" disabled></div>
+          <div class="form-group"><label>{{ t('status') }}</label><input class="form-input" :value="selectedUser.online ? t('online') : t('offline')" disabled></div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="startDM(selectedUser); showUserProfile = false">💬 {{ t('startChat') }}</button>
+            <button class="btn-secondary" @click="showUserProfile = false">{{ t('close') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="showChangePwd" class="modal-overlay" @click.self="showChangePwd = false">
+        <div class="modal">
+          <h3>🔑 {{ t('changePassword') }}</h3>
+          <div class="form-group"><label>{{ t('currentPassword') }}</label><input class="form-input" type="password" v-model="pwdForm.current"></div>
+          <div class="form-group"><label>{{ t('newPassword') }}</label><input class="form-input" type="password" v-model="pwdForm.next"></div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="changePassword">✅ {{ t('save') }}</button>
+            <button class="btn-secondary" @click="showChangePwd = false">{{ t('cancel') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poll modal -->
+      <div v-if="showPollModal" class="modal-overlay" @click.self="showPollModal = false">
+        <div class="modal">
+          <h3>📊 {{ t('createPoll') }}</h3>
+          <div class="form-group"><label>{{ t('pollQuestion') }}</label><input class="form-input" v-model="pollForm.question"></div>
+          <div class="form-group">
+            <label>{{ t('pollOptions') }}</label>
+            <div v-for="(o, i) in pollForm.options" :key="i" style="display:flex; gap:8px; margin-bottom:8px;">
+              <input class="form-input" v-model="pollForm.options[i]" :placeholder="t('option') + ' ' + (i+1)">
+              <button class="btn-icon" @click="removePollOption(i)">✕</button>
+            </div>
+            <button class="btn-secondary" v-if="pollForm.options.length < 10" @click="addPollOption">➕ {{ t('addOption') }}</button>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-primary" @click="createPoll">✅ {{ t('create') }}</button>
+            <button class="btn-secondary" @click="showPollModal = false">{{ t('cancel') }}</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forward modal -->
+      <div v-if="showForwardModal" class="modal-overlay" @click.self="showForwardModal = false">
+        <div class="modal">
+          <h3>↪️ {{ t('forwardTo') }}</h3>
+          <div class="chat-list" style="max-height: 300px;">
+            <div v-for="chat in filteredRooms()" :key="chat.id" class="chat-item" @click="forwardMessageTo(chat)">
+              <div class="avatar small" :style="avatarStyle(chat)">{{ roomIcon(chat) }}</div>
+              <div class="chat-item-info"><div class="chat-item-name">{{ chat.name || roomTitle(chat) }}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Context menu -->
+      <div v-if="contextMenu" class="msg-context-menu" :style="{ top: contextMenu.y + 'px', left: contextMenu.x + 'px' }">
+        <button @click="replyToMessage">↩️ {{ t('reply') }}</button>
+        <button @click="forwardMessage">↪️ {{ t('forward') }}</button>
+        <button @click="pinMessage" v-if="canPin">📌 {{ t('pin') }}</button>
+        <button @click="unpinMessage" v-if="canUnpin">📌 {{ t('unpin') }}</button>
+        <button @click="toggleUrgent">🚨 {{ t('urgent') }}</button>
+        <button v-if="contextMenu.msg.sender_id === session.user.id" @click="editMessage">✏️ {{ t('edit') }}</button>
+        <button v-if="canDeleteMessage(contextMenu.msg)" class="danger" @click="deleteMessage">🗑 {{ t('delete') }}</button>
+      </div>
+
+      <!-- Search results overlay -->
+      <div v-if="showSearchOverlay" class="search-results">
+        <div class="search-results-header">
+          <button class="btn-icon" @click="showSearchOverlay = false">✕</button>
+          <input v-model="searchQuery" :placeholder="t('searchInRoom')" @keyup.enter="doSearch" autofocus>
+          <button class="btn-primary" style="width:auto;" @click="doSearch">🔍</button>
+        </div>
+        <div class="search-results-list">
+          <div v-for="r in searchResults" :key="r.id" class="search-result-item" @click="gotoMessage(r)">
+            <div class="sr-room">{{ roomName(r.room_id) }} · {{ r.sender_name }}</div>
+            <div class="sr-text">{{ r.text }}</div>
+            <div class="sr-time">{{ fullTime(r.created_at) }}</div>
+          </div>
+          <div v-if="!searchResults.length && searchQuery" class="empty-state" style="padding:40px;">
+            <div class="empty-title">{{ t('noResults') }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast container -->
+      <div class="toast-container">
+        <div v-for="t in toasts" :key="t.id" class="toast" :class="t.type" @click="removeToast(t.id)">
+          {{ t.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/vue.global.prod.js"></script>
+  <script src="/js/khan.js">// Service Worker for push notifications
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
+</script>t>
+</body>
+</html>
