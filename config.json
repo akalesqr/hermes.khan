@@ -1,0 +1,33 @@
+{
+  "server": {
+    "port": 1798,
+    "host": "0.0.0.0",
+    "address_type": "ip",
+    "ip": "192.168.1.100",
+    "dns": "",
+    "db_path": "/tmp/khan-fresh-test/data/khan.db.json",
+    "data_dir": "/tmp/khan-fresh-test/data",
+    "max_upload_mb": 50,
+    "tls_enabled": false
+  },
+  "license": {
+    "license_file": "data/license.key"
+  },
+  "security": {
+    "encryption_key": "5a2dbdfc4ed81dfd8b6c5e049e4d3d9289aca8a3f8e4af1ad3b8ae18c5ac0bf2",
+    "jwt_secret": "",
+    "jwt_expire_days": 7,
+    "max_login_attempts": 5,
+    "lockout_minutes": 5
+  },
+  "backup": {
+    "enabled": true,
+    "interval_hours": 24,
+    "keep_count": 7,
+    "backup_path": "/data/.local/share/khan/backups"
+  },
+  "default_admin": {
+    "username": "",
+    "password": ""
+  }
+}
